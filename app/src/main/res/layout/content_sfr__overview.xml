@@ -40,6 +40,14 @@
                         android:layout_centerHorizontal="true"
                         android:background="#A32369">
 
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:id="@+id/ivov1"
+                            android:src="@drawable/ic_add_circle_outline"
+                            android:layout_marginLeft="20dp"
+                            android:layout_gravity="center_vertical" />
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -48,7 +56,7 @@
                             android:layout_gravity="center_vertical"
                             android:textColor="#a6a6a6"
                             android:textSize="15dp"
-                            android:layout_marginLeft="70dp"/>
+                            android:layout_marginLeft="20dp" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -112,8 +120,7 @@
                 android:id="@+id/LLOV3">
 
 
-
-            <RelativeLayout
+                <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/RL1">
@@ -147,25 +154,25 @@
                     android:id="@+id/LL1.2">
 
                     <TextView
-                        android:layout_width="165dp"
-                        android:layout_height="40dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
                         android:id="@+id/tvov1.1"
                         android:visibility="visible"
                         android:textSize="20sp"
                         android:textColor="#000000"
                         android:layout_marginTop="10dp"
-                        android:gravity="left"
                         android:layout_marginLeft="15dp" />
 
                     <TextView
-                        android:layout_width="165dp"
-                        android:layout_height="40dp"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
                         android:id="@+id/tvov1.2"
                         android:visibility="visible"
                         android:textSize="20sp"
                         android:textColor="#000000"
                         android:layout_marginTop="10dp"
-                        android:layout_marginRight="15dp" />
+                        android:layout_marginRight="15dp"
+                        android:layout_marginLeft="15dp" />
 
                 </LinearLayout>
 
@@ -203,8 +210,8 @@
                     android:id="@+id/LL2.2">
 
                     <TextView
-                        android:layout_width="165dp"
-                        android:layout_height="40dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
                         android:id="@+id/tvov2.1"
                         android:visibility="visible"
                         android:textSize="20sp"
@@ -214,14 +221,15 @@
                         android:gravity="left"/>
 
                     <TextView
-                        android:layout_width="165dp"
-                        android:layout_height="40dp"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
                         android:id="@+id/tvov2.2"
                         android:visibility="visible"
                         android:textSize="20sp"
                         android:textColor="#000000"
                         android:layout_marginTop="10dp"
-                        android:layout_marginRight="15dp" />
+                        android:layout_marginRight="15dp"
+                        android:layout_marginLeft="15dp" />
 
                 </LinearLayout>
 
@@ -259,8 +267,8 @@
                     android:id="@+id/LL3.2">
 
                     <TextView
-                        android:layout_width="165dp"
-                        android:layout_height="40dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
                         android:id="@+id/tvov3.1"
                         android:visibility="visible"
                         android:textSize="20sp"
@@ -270,15 +278,16 @@
                         android:gravity="left"/>
 
                     <TextView
-                        android:layout_width="165dp"
-                        android:layout_height="40dp"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
                         android:id="@+id/tvov3.2"
                         android:visibility="visible"
                         android:textSize="20sp"
                         android:textColor="#000000"
                         android:layout_marginTop="10dp"
                         android:layout_marginRight="15dp"
-                        android:gravity="left"/>
+                        android:gravity="left"
+                        android:layout_marginLeft="15dp" />
 
                 </LinearLayout>
 
@@ -316,8 +325,8 @@
                     android:id="@+id/LL4.2">
 
                     <TextView
-                        android:layout_width="165dp"
-                        android:layout_height="40dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
                         android:id="@+id/tvov4.1"
                         android:visibility="visible"
                         android:textSize="20sp"
@@ -327,15 +336,16 @@
                         android:gravity="left"/>
 
                     <TextView
-                        android:layout_width="165dp"
-                        android:layout_height="40dp"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
                         android:id="@+id/tvov4.2"
                         android:visibility="visible"
                         android:textSize="20sp"
                         android:textColor="#000000"
                         android:layout_marginTop="10dp"
                         android:layout_marginRight="15dp"
-                        android:gravity="left"/>
+                        android:gravity="left"
+                        android:layout_marginLeft="15dp" />
 
                 </LinearLayout>
 
@@ -373,8 +383,8 @@
                     android:id="@+id/LL5.2">
 
                     <TextView
-                        android:layout_width="165dp"
-                        android:layout_height="40dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
                         android:id="@+id/tvov5.1"
                         android:visibility="visible"
                         android:textSize="20sp"
@@ -384,15 +394,16 @@
                         android:gravity="left"/>
 
                     <TextView
-                        android:layout_width="165dp"
-                        android:layout_height="40dp"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
                         android:id="@+id/tvov5.2"
                         android:visibility="visible"
                         android:textSize="20sp"
                         android:textColor="#000000"
                         android:layout_marginTop="10dp"
                         android:layout_marginRight="15dp"
-                        android:gravity="left"/>
+                        android:gravity="left"
+                        android:layout_marginLeft="15dp" />
 
                 </LinearLayout>
 
@@ -430,8 +441,8 @@
                     android:id="@+id/LL6.2">
 
                     <TextView
-                        android:layout_width="165dp"
-                        android:layout_height="40dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
                         android:id="@+id/tvov6.1"
                         android:visibility="visible"
                         android:textSize="20sp"
@@ -441,15 +452,16 @@
                         android:gravity="left"/>
 
                     <TextView
-                        android:layout_width="165dp"
-                        android:layout_height="40dp"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
                         android:id="@+id/tvov6.2"
                         android:visibility="visible"
                         android:textSize="20sp"
                         android:textColor="#000000"
                         android:layout_marginTop="10dp"
                         android:layout_marginRight="15dp"
-                        android:gravity="left"/>
+                        android:gravity="left"
+                        android:layout_marginLeft="15dp" />
 
                 </LinearLayout>
 
@@ -487,8 +499,8 @@
                     android:id="@+id/LL7.2">
 
                     <TextView
-                        android:layout_width="165dp"
-                        android:layout_height="40dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
                         android:id="@+id/tvov7.1"
                         android:visibility="visible"
                         android:textSize="20sp"
@@ -498,15 +510,16 @@
                         android:gravity="left"/>
 
                     <TextView
-                        android:layout_width="165dp"
-                        android:layout_height="40dp"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
                         android:id="@+id/tvov7.2"
                         android:visibility="visible"
                         android:textSize="20sp"
                         android:textColor="#000000"
                         android:layout_marginTop="10dp"
                         android:layout_marginRight="15dp"
-                        android:gravity="left"/>
+                        android:gravity="left"
+                        android:layout_marginLeft="15dp" />
 
                 </LinearLayout>
 
@@ -544,8 +557,8 @@
                     android:id="@+id/LL8.2">
 
                     <TextView
-                        android:layout_width="165dp"
-                        android:layout_height="40dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
                         android:id="@+id/tvov8.1"
                         android:visibility="visible"
                         android:textSize="20sp"
@@ -555,15 +568,16 @@
                         android:gravity="left"/>
 
                     <TextView
-                        android:layout_width="165dp"
-                        android:layout_height="40dp"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
                         android:id="@+id/tvov8.2"
                         android:visibility="visible"
                         android:textSize="20sp"
                         android:textColor="#000000"
                         android:layout_marginTop="10dp"
                         android:layout_marginRight="15dp"
-                        android:gravity="left"/>
+                        android:gravity="left"
+                        android:layout_marginLeft="15dp" />
 
                 </LinearLayout>
 
