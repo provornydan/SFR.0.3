@@ -3,4 +3,6 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_my_sfr">MySFR</string>
     <string name="title_activity_sfr__overview">SFR_Overview</string>
+    <string name="title_activity_maps__sfr">Map</string>
+    <string name="title_activity_test_map">testMap</string>
 </resources>
