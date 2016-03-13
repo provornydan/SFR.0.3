@@ -21,6 +21,10 @@
         <activity
             android:name=".MySFR"
             android:label="@string/title_activity_my_sfr"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".SFR_Overview"
+            android:label="@string/title_activity_sfr__overview"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

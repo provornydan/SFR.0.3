@@ -2,4 +2,5 @@
     <string name="app_name">SFR.0.3</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_my_sfr">MySFR</string>
+    <string name="title_activity_sfr__overview">SFR_Overview</string>
 </resources>

@@ -1,0 +1,566 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="mazebug.danuleoshaleosha.SFR_Overview"
+    android:background="#ffffff"
+    android:weightSum="1">
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/SVOV1">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/LLOV1">
+
+            <HorizontalScrollView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/SVOV2">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/RLOV1">
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="wrap_content"
+                        android:id="@+id/LLOV2"
+                        android:layout_height="50dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:background="#A32369">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="General"
+                            android:id="@+id/tvov1"
+                            android:layout_gravity="center_vertical"
+                            android:textColor="#a6a6a6"
+                            android:textSize="15dp"
+                            android:layout_marginLeft="70dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Option 1"
+                            android:id="@+id/tvov2"
+                            android:layout_gravity="center_vertical"
+                            android:textColor="#a6a6a6"
+                            android:textSize="15dp"
+                            android:layout_marginLeft="20dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Option 2"
+                            android:id="@+id/tvov3"
+                            android:layout_gravity="center_vertical"
+                            android:textColor="#a6a6a6"
+                            android:textSize="15dp"
+                            android:layout_marginLeft="20dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Option 3"
+                            android:id="@+id/tvov4"
+                            android:layout_gravity="center_vertical"
+                            android:textColor="#a6a6a6"
+                            android:textSize="15dp"
+                            android:layout_marginLeft="20dp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Option 4"
+                            android:id="@+id/tvov5"
+                            android:layout_gravity="center_vertical"
+                            android:textColor="#ffffff"
+                            android:textSize="15dp"
+                            android:layout_marginLeft="20dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Option 5"
+                            android:id="@+id/tvov6"
+                            android:layout_gravity="center_vertical"
+                            android:textColor="#ffffff"
+                            android:textSize="15dp"
+                            android:layout_marginLeft="20dp" />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+            </HorizontalScrollView>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/RL1">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/LL1.1">
+
+                    <EditText
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/etov1"
+                        android:visibility="visible"
+                        android:textSize="20sp"
+                        android:textColor="#000000"
+                        android:hint="Site name"
+                        android:textColorHint="#a6a6a6"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:gravity="left" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:id="@+id/LL1.2">
+
+                    <TextView
+                        android:layout_width="165dp"
+                        android:layout_height="40dp"
+                        android:id="@+id/tvov1.1"
+                        android:visibility="visible"
+                        android:textSize="20sp"
+                        android:textColor="#000000"
+                        android:layout_marginTop="10dp"
+                        android:gravity="left"
+                        android:layout_marginLeft="15dp" />
+
+                    <TextView
+                        android:layout_width="165dp"
+                        android:layout_height="40dp"
+                        android:id="@+id/tvov1.2"
+                        android:visibility="visible"
+                        android:textSize="20sp"
+                        android:textColor="#000000"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="15dp" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/RL2">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/LL2.1">
+
+                    <EditText
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/etov2"
+                        android:visibility="visible"
+                        android:textSize="20sp"
+                        android:textColor="#000000"
+                        android:hint="Search area"
+                        android:textColorHint="#a6a6a6"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:gravity="left" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:id="@+id/LL2.2">
+
+                    <TextView
+                        android:layout_width="165dp"
+                        android:layout_height="40dp"
+                        android:id="@+id/tvov2.1"
+                        android:visibility="visible"
+                        android:textSize="20sp"
+                        android:textColor="#000000"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="15dp"
+                        android:gravity="left"/>
+
+                    <TextView
+                        android:layout_width="165dp"
+                        android:layout_height="40dp"
+                        android:id="@+id/tvov2.2"
+                        android:visibility="visible"
+                        android:textSize="20sp"
+                        android:textColor="#000000"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="15dp" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/RL3">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/LL3.1">
+
+                    <EditText
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/etov3"
+                        android:visibility="visible"
+                        android:textSize="20sp"
+                        android:textColorHint="#a6a6a6"
+                        android:textColor="#000000"
+                        android:hint="Owner"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:gravity="left" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:id="@+id/LL3.2">
+
+                    <TextView
+                        android:layout_width="165dp"
+                        android:layout_height="40dp"
+                        android:id="@+id/tvov3.1"
+                        android:visibility="visible"
+                        android:textSize="20sp"
+                        android:textColor="#000000"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="15dp"
+                        android:gravity="left"/>
+
+                    <TextView
+                        android:layout_width="165dp"
+                        android:layout_height="40dp"
+                        android:id="@+id/tvov3.2"
+                        android:visibility="visible"
+                        android:textSize="20sp"
+                        android:textColor="#000000"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="15dp"
+                        android:gravity="left"/>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/RL4">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/LL4.1">
+
+                    <EditText
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/etov4"
+                        android:visibility="visible"
+                        android:textSize="20sp"
+                        android:textColor="#000000"
+                        android:hint="CID"
+                        android:textColorHint="#a6a6a6"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:gravity="left" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:id="@+id/LL4.2">
+
+                    <TextView
+                        android:layout_width="165dp"
+                        android:layout_height="40dp"
+                        android:id="@+id/tvov4.1"
+                        android:visibility="visible"
+                        android:textSize="20sp"
+                        android:textColor="#000000"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="15dp"
+                        android:gravity="left"/>
+
+                    <TextView
+                        android:layout_width="165dp"
+                        android:layout_height="40dp"
+                        android:id="@+id/tvov4.2"
+                        android:visibility="visible"
+                        android:textSize="20sp"
+                        android:textColor="#000000"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="15dp"
+                        android:gravity="left"/>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/RL5">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/LL5.1">
+
+                    <EditText
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/etov5"
+                        android:visibility="visible"
+                        android:textSize="20sp"
+                        android:textColor="#000000"
+                        android:hint="CSR"
+                        android:textColorHint="#a6a6a6"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:gravity="left" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:id="@+id/LL5.2">
+
+                    <TextView
+                        android:layout_width="165dp"
+                        android:layout_height="40dp"
+                        android:id="@+id/tvov5.1"
+                        android:visibility="visible"
+                        android:textSize="20sp"
+                        android:textColor="#000000"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="15dp"
+                        android:gravity="left"/>
+
+                    <TextView
+                        android:layout_width="165dp"
+                        android:layout_height="40dp"
+                        android:id="@+id/tvov5.2"
+                        android:visibility="visible"
+                        android:textSize="20sp"
+                        android:textColor="#000000"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="15dp"
+                        android:gravity="left"/>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/RL6">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/LL6.1">
+
+                    <EditText
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/etov6"
+                        android:visibility="visible"
+                        android:textSize="20sp"
+                        android:textColor="#000000"
+                        android:hint="Site"
+                        android:textColorHint="#a6a6a6"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:gravity="left" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:id="@+id/LL6.2">
+
+                    <TextView
+                        android:layout_width="165dp"
+                        android:layout_height="40dp"
+                        android:id="@+id/tvov6.1"
+                        android:visibility="visible"
+                        android:textSize="20sp"
+                        android:textColor="#000000"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="15dp"
+                        android:gravity="left"/>
+
+                    <TextView
+                        android:layout_width="165dp"
+                        android:layout_height="40dp"
+                        android:id="@+id/tvov6.2"
+                        android:visibility="visible"
+                        android:textSize="20sp"
+                        android:textColor="#000000"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="15dp"
+                        android:gravity="left"/>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/RL7">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/LL7.1">
+
+                    <EditText
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/etov7"
+                        android:visibility="visible"
+                        android:textSize="20sp"
+                        android:textColor="#000000"
+                        android:hint="POV (VF)"
+                        android:textColorHint="#a6a6a6"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:gravity="left" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:id="@+id/LL7.2">
+
+                    <TextView
+                        android:layout_width="165dp"
+                        android:layout_height="40dp"
+                        android:id="@+id/tvov7.1"
+                        android:visibility="visible"
+                        android:textSize="20sp"
+                        android:textColor="#000000"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="15dp"
+                        android:gravity="left"/>
+
+                    <TextView
+                        android:layout_width="165dp"
+                        android:layout_height="40dp"
+                        android:id="@+id/tvov7.2"
+                        android:visibility="visible"
+                        android:textSize="20sp"
+                        android:textColor="#000000"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="15dp"
+                        android:gravity="left"/>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/RL8">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/LL8.1">
+
+                    <EditText
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/etov8"
+                        android:visibility="visible"
+                        android:textSize="20sp"
+                        android:textColor="#000000"
+                        android:hint="POV (O2)"
+                        android:textColorHint="#a6a6a6"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:gravity="left" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:id="@+id/LL8.2">
+
+                    <TextView
+                        android:layout_width="165dp"
+                        android:layout_height="40dp"
+                        android:id="@+id/tvov8.1"
+                        android:visibility="visible"
+                        android:textSize="20sp"
+                        android:textColor="#000000"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="15dp"
+                        android:gravity="left"/>
+
+                    <TextView
+                        android:layout_width="165dp"
+                        android:layout_height="40dp"
+                        android:id="@+id/tvov8.2"
+                        android:visibility="visible"
+                        android:textSize="20sp"
+                        android:textColor="#000000"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="15dp"
+                        android:gravity="left"/>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
