@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="mazebug.danuleoshaleosha.SFR_Overview"
-    android:background="#ffffff"
-    android:weightSum="1">
+    tools:showIn="@layout/activity_sfr__overview"
+    android:background="#ffffff">
 
     <ScrollView
         android:layout_width="wrap_content"
@@ -63,10 +65,10 @@
                             android:layout_height="wrap_content"
                             android:text="Option 2"
                             android:id="@+id/tvov3"
-                            android:layout_gravity="center_vertical"
                             android:textColor="#a6a6a6"
                             android:textSize="15dp"
-                            android:layout_marginLeft="20dp" />
+                            android:layout_marginLeft="20dp"
+                            android:layout_gravity="center_vertical" />
 
                         <TextView
                             android:layout_width="wrap_content"
