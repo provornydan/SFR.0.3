@@ -32,7 +32,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/SVOV2"
-                    android:paddingLeft="60dp">
+                    android:paddingLeft="40dp">
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
@@ -117,7 +117,6 @@
                     android:layout_height="40dp"
                     android:id="@+id/ivov1"
                     android:src="@drawable/ic_add_circle_outline"
-                    android:layout_marginLeft="10dp"
                     android:layout_gravity="center_vertical"
                     android:layout_marginTop="5dp" />
 
