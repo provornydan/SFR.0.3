@@ -23,6 +23,11 @@
             android:id="@+id/LLO1"
             android:weightSum="1">
 
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/RLO1">
+
             <HorizontalScrollView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -31,7 +36,7 @@
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/RLO1">
+                    android:id="@+id/RLO2">
 
                     <LinearLayout
                         android:orientation="horizontal"
@@ -103,47 +108,41 @@
 
                     </LinearLayout>
 
-                    <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:id="@+id/ivo3"
-                        android:src="@drawable/ic_add_circle_outline"
-                        android:layout_marginLeft="5dp"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginTop="5dp" />
-
                 </RelativeLayout>
 
             </HorizontalScrollView>
 
-            <LinearLayout
-                android:orientation="vertical"
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/ivo3"
+                    android:src="@drawable/ic_add_circle_outline"
+                    android:layout_marginLeft="5dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="5dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/RLO3">
+
+            <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="350dp"
-                android:id="@+id/LLO3">
+                android:id="@+id/ivo1"
+                android:layout_marginBottom="25dp" />
 
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/RLO3">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="300dp"
-                    android:id="@+id/ivo1" />
-
-                <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:id="@+id/ivo4"
-                    android:layout_alignParentTop="true"
+                <android.support.design.widget.FloatingActionButton
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentEnd="false"
+                    android:layout_alignParentBottom="true"
                     android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="250dp" />
-
-                </RelativeLayout>
-
-            </LinearLayout>
+                    android:layout_marginRight="15dp"
+                    android:src="@drawable/ic_camera_alt"></android.support.design.widget.FloatingActionButton>
+            </RelativeLayout>
 
             <EditText
                 android:layout_width="match_parent"
