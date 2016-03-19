@@ -21,7 +21,13 @@
             android:layout_height="fill_parent"
             android:id="@+id/LLOV1">
 
-            <HorizontalScrollView
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/RLOV1">
+
+
+                <HorizontalScrollView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/SVOV2">
@@ -29,7 +35,7 @@
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/RLOV1">
+                    android:id="@+id/RLOV2">
 
                     <LinearLayout
                         android:orientation="horizontal"
@@ -46,7 +52,7 @@
                             android:text="General"
                             android:id="@+id/tvov1"
                             android:layout_gravity="center_vertical"
-                            android:textColor="#a6a6a6"
+                            android:textColor="#999999"
                             android:textSize="15dp"
                             android:layout_marginLeft="65dp"/>
 
@@ -56,7 +62,7 @@
                             android:text="Option 1"
                             android:id="@+id/tvov2"
                             android:layout_gravity="center_vertical"
-                            android:textColor="#a6a6a6"
+                            android:textColor="#999999"
                             android:textSize="15dp"
                             android:layout_marginLeft="20dp" />
 
@@ -65,7 +71,7 @@
                             android:layout_height="wrap_content"
                             android:text="Option 2"
                             android:id="@+id/tvov3"
-                            android:textColor="#a6a6a6"
+                            android:textColor="#999999"
                             android:textSize="15dp"
                             android:layout_marginLeft="20dp"
                             android:layout_gravity="center_vertical" />
@@ -76,7 +82,7 @@
                             android:text="Option 3"
                             android:id="@+id/tvov4"
                             android:layout_gravity="center_vertical"
-                            android:textColor="#a6a6a6"
+                            android:textColor="#999999"
                             android:textSize="15dp"
                             android:layout_marginLeft="20dp" />
                         <TextView
@@ -85,7 +91,7 @@
                             android:text="Option 4"
                             android:id="@+id/tvov5"
                             android:layout_gravity="center_vertical"
-                            android:textColor="#a6a6a6"
+                            android:textColor="#999999"
                             android:textSize="15dp"
                             android:layout_marginLeft="20dp" />
 
@@ -95,24 +101,26 @@
                             android:text="Option 5"
                             android:id="@+id/tvov6"
                             android:layout_gravity="center_vertical"
-                            android:textColor="#a6a6a6"
+                            android:textColor="#999999"
                             android:textSize="15dp"
                             android:layout_marginLeft="20dp" />
 
                     </LinearLayout>
 
-                    <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:id="@+id/ivov1"
-                        android:src="@drawable/ic_add_circle_outline"
-                        android:layout_marginLeft="5dp"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginTop="5dp" />
-
                 </RelativeLayout>
 
             </HorizontalScrollView>
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/ivov1"
+                    android:src="@drawable/ic_add_circle_outline"
+                    android:layout_marginLeft="5dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="5dp" />
+
+            </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="wrap_content"
