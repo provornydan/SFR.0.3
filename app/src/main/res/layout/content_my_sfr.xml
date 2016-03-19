@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="mazebug.app2.MainActivity"
-    android:clickable="true"
-    android:onClick="showNavButt"
-    android:visibility="visible"
-    android:longClickable="true">
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="mazebug.sfr03.MainActivity"
+    tools:showIn="@layout/activity_main">
 
     <ScrollView
         android:layout_width="fill_parent"

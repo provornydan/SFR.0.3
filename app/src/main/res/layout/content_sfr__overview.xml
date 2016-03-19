@@ -34,19 +34,11 @@
                     <LinearLayout
                         android:orientation="horizontal"
                         android:layout_width="wrap_content"
-                        android:layout_height="50dp"
                         android:id="@+id/LLOV2"
+                        android:layout_height="50dp"
                         android:layout_alignParentTop="true"
                         android:layout_centerHorizontal="true"
                         android:background="#A32369">
-
-                        <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:id="@+id/ivov1"
-                            android:src="@drawable/ic_add_circle_outline"
-                            android:layout_marginLeft="20dp"
-                            android:layout_gravity="center_vertical" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -56,7 +48,7 @@
                             android:layout_gravity="center_vertical"
                             android:textColor="#a6a6a6"
                             android:textSize="15dp"
-                            android:layout_marginLeft="20dp" />
+                            android:layout_marginLeft="70dp"/>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -113,14 +105,7 @@
 
             </HorizontalScrollView>
 
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:id="@+id/LLOV3">
-
-
-                <RelativeLayout
+            <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/RL1">
@@ -129,13 +114,13 @@
                     android:orientation="vertical"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                    android:id="@+id/LL1.1">
+                    android:id="@+id/LL1.1"
+                    android:visibility="visible">
 
                     <EditText
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
                         android:id="@+id/etov1"
-                        android:visibility="visible"
                         android:textSize="20sp"
                         android:textColor="#000000"
                         android:hint="Site name"
@@ -151,28 +136,34 @@
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:id="@+id/LL1.2">
+                    android:id="@+id/LL1.2"
+                    android:visibility="invisible">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="fill_parent"
+                        android:layout_width="120dp"
+                        android:layout_height="40dp"
                         android:id="@+id/tvov1.1"
                         android:visibility="visible"
                         android:textSize="20sp"
                         android:textColor="#000000"
                         android:layout_marginTop="10dp"
-                        android:layout_marginLeft="15dp" />
+                        android:gravity="left|center"
+                        android:layout_marginLeft="15dp"
+                        android:text="Site name:" />
 
                     <TextView
                         android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
+                        android:layout_height="40dp"
                         android:id="@+id/tvov1.2"
                         android:visibility="visible"
                         android:textSize="20sp"
                         android:textColor="#000000"
                         android:layout_marginTop="10dp"
-                        android:layout_marginRight="15dp"
-                        android:layout_marginLeft="15dp" />
+                        android:gravity="left|center"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginLeft="15dp"
+                        android:fontFamily="sans-serif-thin"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
@@ -186,7 +177,8 @@
                 <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                    android:id="@+id/LL2.1">
+                    android:id="@+id/LL2.1"
+                    android:visibility="visible">
 
                     <EditText
                         android:layout_width="fill_parent"
@@ -207,28 +199,32 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:id="@+id/LL2.2">
+                    android:id="@+id/LL2.2"
+                    android:visibility="invisible">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="fill_parent"
+                        android:layout_width="120dp"
+                        android:layout_height="40dp"
                         android:id="@+id/tvov2.1"
                         android:visibility="visible"
                         android:textSize="20sp"
                         android:textColor="#000000"
                         android:layout_marginTop="10dp"
                         android:layout_marginLeft="15dp"
-                        android:gravity="left"/>
+                        android:gravity="left|center"
+                        android:text="Search area:" />
 
                     <TextView
                         android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
+                        android:layout_height="40dp"
                         android:id="@+id/tvov2.2"
                         android:visibility="visible"
                         android:textSize="20sp"
                         android:textColor="#000000"
                         android:layout_marginTop="10dp"
-                        android:layout_marginRight="15dp"
+                        android:layout_marginRight="5dp"
+                        android:fontFamily="sans-serif-thin"
+                        android:gravity="left|center"
                         android:layout_marginLeft="15dp" />
 
                 </LinearLayout>
@@ -243,7 +239,8 @@
                 <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                    android:id="@+id/LL3.1">
+                    android:id="@+id/LL3.1"
+                    android:visibility="visible">
 
                     <EditText
                         android:layout_width="fill_parent"
@@ -264,29 +261,32 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:id="@+id/LL3.2">
+                    android:id="@+id/LL3.2"
+                    android:visibility="invisible">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="fill_parent"
+                        android:layout_width="120dp"
+                        android:layout_height="40dp"
                         android:id="@+id/tvov3.1"
                         android:visibility="visible"
                         android:textSize="20sp"
                         android:textColor="#000000"
                         android:layout_marginTop="10dp"
                         android:layout_marginLeft="15dp"
-                        android:gravity="left"/>
+                        android:gravity="left|center"
+                        android:text="Owner:" />
 
                     <TextView
                         android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
+                        android:layout_height="40dp"
                         android:id="@+id/tvov3.2"
                         android:visibility="visible"
                         android:textSize="20sp"
                         android:textColor="#000000"
                         android:layout_marginTop="10dp"
-                        android:layout_marginRight="15dp"
-                        android:gravity="left"
+                        android:layout_marginRight="5dp"
+                        android:gravity="left|center"
+                        android:fontFamily="sans-serif-thin"
                         android:layout_marginLeft="15dp" />
 
                 </LinearLayout>
@@ -301,7 +301,8 @@
                 <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                    android:id="@+id/LL4.1">
+                    android:id="@+id/LL4.1"
+                    android:visibility="visible">
 
                     <EditText
                         android:layout_width="fill_parent"
@@ -322,29 +323,32 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:id="@+id/LL4.2">
+                    android:id="@+id/LL4.2"
+                    android:visibility="invisible">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="fill_parent"
+                        android:layout_width="120dp"
+                        android:layout_height="40dp"
                         android:id="@+id/tvov4.1"
                         android:visibility="visible"
                         android:textSize="20sp"
                         android:textColor="#000000"
                         android:layout_marginTop="10dp"
                         android:layout_marginLeft="15dp"
-                        android:gravity="left"/>
+                        android:gravity="left|center"
+                        android:text="CID:" />
 
                     <TextView
                         android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
+                        android:layout_height="40dp"
                         android:id="@+id/tvov4.2"
                         android:visibility="visible"
                         android:textSize="20sp"
                         android:textColor="#000000"
                         android:layout_marginTop="10dp"
-                        android:layout_marginRight="15dp"
-                        android:gravity="left"
+                        android:layout_marginRight="5dp"
+                        android:gravity="left|center"
+                        android:fontFamily="sans-serif-thin"
                         android:layout_marginLeft="15dp" />
 
                 </LinearLayout>
@@ -359,7 +363,8 @@
                 <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                    android:id="@+id/LL5.1">
+                    android:id="@+id/LL5.1"
+                    android:visibility="visible">
 
                     <EditText
                         android:layout_width="fill_parent"
@@ -380,29 +385,32 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:id="@+id/LL5.2">
+                    android:id="@+id/LL5.2"
+                    android:visibility="invisible">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="fill_parent"
+                        android:layout_width="120dp"
+                        android:layout_height="40dp"
                         android:id="@+id/tvov5.1"
                         android:visibility="visible"
                         android:textSize="20sp"
                         android:textColor="#000000"
                         android:layout_marginTop="10dp"
                         android:layout_marginLeft="15dp"
-                        android:gravity="left"/>
+                        android:gravity="left|center"
+                        android:text="CSR:" />
 
                     <TextView
                         android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
+                        android:layout_height="40dp"
                         android:id="@+id/tvov5.2"
                         android:visibility="visible"
                         android:textSize="20sp"
                         android:textColor="#000000"
                         android:layout_marginTop="10dp"
-                        android:layout_marginRight="15dp"
-                        android:gravity="left"
+                        android:layout_marginRight="5dp"
+                        android:gravity="left|center"
+                        android:fontFamily="sans-serif-thin"
                         android:layout_marginLeft="15dp" />
 
                 </LinearLayout>
@@ -417,7 +425,8 @@
                 <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                    android:id="@+id/LL6.1">
+                    android:id="@+id/LL6.1"
+                    android:visibility="visible">
 
                     <EditText
                         android:layout_width="fill_parent"
@@ -438,29 +447,32 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:id="@+id/LL6.2">
+                    android:id="@+id/LL6.2"
+                    android:visibility="invisible">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="fill_parent"
+                        android:layout_width="120dp"
+                        android:layout_height="40dp"
                         android:id="@+id/tvov6.1"
                         android:visibility="visible"
                         android:textSize="20sp"
                         android:textColor="#000000"
                         android:layout_marginTop="10dp"
                         android:layout_marginLeft="15dp"
-                        android:gravity="left"/>
+                        android:gravity="left|center"
+                        android:text="Site:" />
 
                     <TextView
                         android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
+                        android:layout_height="40dp"
                         android:id="@+id/tvov6.2"
                         android:visibility="visible"
                         android:textSize="20sp"
                         android:textColor="#000000"
                         android:layout_marginTop="10dp"
-                        android:layout_marginRight="15dp"
-                        android:gravity="left"
+                        android:layout_marginRight="5dp"
+                        android:gravity="left|center"
+                        android:fontFamily="sans-serif-thin"
                         android:layout_marginLeft="15dp" />
 
                 </LinearLayout>
@@ -475,7 +487,8 @@
                 <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                    android:id="@+id/LL7.1">
+                    android:id="@+id/LL7.1"
+                    android:visibility="visible">
 
                     <EditText
                         android:layout_width="fill_parent"
@@ -496,29 +509,32 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:id="@+id/LL7.2">
+                    android:id="@+id/LL7.2"
+                    android:visibility="invisible">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="fill_parent"
+                        android:layout_width="120dp"
+                        android:layout_height="40dp"
                         android:id="@+id/tvov7.1"
                         android:visibility="visible"
                         android:textSize="20sp"
                         android:textColor="#000000"
                         android:layout_marginTop="10dp"
                         android:layout_marginLeft="15dp"
-                        android:gravity="left"/>
+                        android:gravity="left|center"
+                        android:text="POW (VF):" />
 
                     <TextView
                         android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
+                        android:layout_height="40dp"
                         android:id="@+id/tvov7.2"
                         android:visibility="visible"
                         android:textSize="20sp"
                         android:textColor="#000000"
                         android:layout_marginTop="10dp"
-                        android:layout_marginRight="15dp"
-                        android:gravity="left"
+                        android:layout_marginRight="5dp"
+                        android:gravity="left|center"
+                        android:fontFamily="sans-serif-thin"
                         android:layout_marginLeft="15dp" />
 
                 </LinearLayout>
@@ -533,7 +549,8 @@
                 <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                    android:id="@+id/LL8.1">
+                    android:id="@+id/LL8.1"
+                    android:visibility="visible">
 
                     <EditText
                         android:layout_width="fill_parent"
@@ -554,36 +571,37 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:id="@+id/LL8.2">
+                    android:id="@+id/LL8.2"
+                    android:visibility="invisible">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="fill_parent"
+                        android:layout_width="120dp"
+                        android:layout_height="40dp"
                         android:id="@+id/tvov8.1"
                         android:visibility="visible"
                         android:textSize="20sp"
                         android:textColor="#000000"
                         android:layout_marginTop="10dp"
                         android:layout_marginLeft="15dp"
-                        android:gravity="left"/>
+                        android:gravity="left|center"
+                        android:text="POW (O2):" />
 
                     <TextView
                         android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
+                        android:layout_height="40dp"
                         android:id="@+id/tvov8.2"
                         android:visibility="visible"
                         android:textSize="20sp"
                         android:textColor="#000000"
                         android:layout_marginTop="10dp"
-                        android:layout_marginRight="15dp"
-                        android:gravity="left"
+                        android:layout_marginRight="5dp"
+                        android:gravity="left|center"
+                        android:fontFamily="sans-serif-thin"
                         android:layout_marginLeft="15dp" />
 
                 </LinearLayout>
 
             </RelativeLayout>
-
-            </LinearLayout>
 
         </LinearLayout>
 

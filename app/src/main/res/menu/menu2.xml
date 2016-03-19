@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="mazebug.sfr03.MainActivity">
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/mysettings"
         android:orderInCategory="100"
         android:title="@string/action_settings"
         app:showAsAction="ifRoom"
@@ -19,16 +19,16 @@
                 app:showAsAction="always" />
         </menu>
 
-        </item>
+    </item>
     <item
-        android:id="@+id/search"
+        android:id="@+id/oursearch"
         android:title="Send"
         app:showAsAction="ifRoom"
-        android:icon="@drawable/ic_search"
+        android:icon="@drawable/ic_done"
         />
 
     <item
-        android:id="@+id/cancel"
+        android:id="@+id/thecancel"
         android:title="Send"
         app:showAsAction="ifRoom"
         android:icon="@drawable/ic_clear"

@@ -10,14 +10,43 @@
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:theme="@style/AppTheme.AppBarOverlay"
+
+        >
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            >
+
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="My SFRs"
+                android:textSize="25sp"
+                android:textColor="#404040"
+                android:fontFamily="sans-serif-thin"
+                />
+
+            <EditText
+                android:id="@+id/searchBar"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:shadowColor="#000000"
+                android:visibility="gone"
+                android:textColor="#000000"
+                android:fontFamily="sans-serif-thin"
+                android:maxLength="25"
+                android:textStyle="bold"
+                android:hint="Search"
+                android:textColorHint="#000000"
+                />
+            </android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout>
 
@@ -29,6 +58,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        android:src="@android:drawable/ic_dialog_email" />
+        android:src="@drawable/ic_add" />
 
 </android.support.design.widget.CoordinatorLayout>
