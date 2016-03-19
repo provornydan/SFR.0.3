@@ -40,6 +40,14 @@
                         android:layout_centerHorizontal="true"
                         android:background="#A32369">
 
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:id="@+id/ivov1"
+                            android:src="@drawable/ic_add_circle_outline"
+                            android:layout_marginLeft="20dp"
+                            android:layout_gravity="center_vertical" />
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -48,7 +56,7 @@
                             android:layout_gravity="center_vertical"
                             android:textColor="#a6a6a6"
                             android:textSize="15dp"
-                            android:layout_marginLeft="70dp"/>
+                            android:layout_marginLeft="20dp"/>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -85,7 +93,7 @@
                             android:text="Option 4"
                             android:id="@+id/tvov5"
                             android:layout_gravity="center_vertical"
-                            android:textColor="#ffffff"
+                            android:textColor="#a6a6a6"
                             android:textSize="15dp"
                             android:layout_marginLeft="20dp" />
 
@@ -95,7 +103,7 @@
                             android:text="Option 5"
                             android:id="@+id/tvov6"
                             android:layout_gravity="center_vertical"
-                            android:textColor="#ffffff"
+                            android:textColor="#a6a6a6"
                             android:textSize="15dp"
                             android:layout_marginLeft="20dp" />
 

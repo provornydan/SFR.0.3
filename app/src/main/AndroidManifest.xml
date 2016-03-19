@@ -49,10 +49,13 @@
             android:name=".testMap"
             android:label="@string/title_activity_test_map"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity
             android:name=".forgot_password"
             android:label="@string/title_activity_forgot_password"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Option"
+            android:label="@string/title_activity_option"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

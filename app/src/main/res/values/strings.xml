@@ -6,4 +6,5 @@
     <string name="title_activity_maps__sfr">Map</string>
     <string name="title_activity_test_map">testMap</string>
     <string name="title_activity_forgot_password">forgot_password</string>
+    <string name="title_activity_option">Option</string>
 </resources>
