@@ -170,7 +170,7 @@
                     android:layout_width="35dp"
                     android:layout_height="35dp"
                     android:id="@+id/ivo2"
-                    android:src="@drawable/ic_room"
+                    android:src="@drawable/ic_room_grey"
                     android:layout_marginLeft="20dp"
                     android:layout_gravity="center_vertical" />
 
