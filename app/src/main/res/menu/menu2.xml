@@ -22,16 +22,16 @@
     </item>
     <item
         android:id="@+id/oursearch"
-        android:title="Send"
+        android:title="Done"
         app:showAsAction="ifRoom"
         android:icon="@drawable/ic_done"
         />
 
     <item
-        android:id="@+id/thecancel"
-        android:title="Send"
+        android:id="@+id/eidtPencil"
+        android:title="Edit"
         app:showAsAction="ifRoom"
-        android:icon="@drawable/ic_clear"
+        android:icon="@drawable/ic_create"
         android:visible="false"
         />
 </menu>

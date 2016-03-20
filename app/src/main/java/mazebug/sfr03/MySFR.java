@@ -54,7 +54,7 @@ public class MySFR extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-              startActivity(new Intent(MySFR.this, SFR_Overview.class));
+              startActivity(new Intent(MySFR.this, Option.class));
             }
         });
 
