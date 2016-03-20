@@ -56,6 +56,10 @@
         <activity
             android:name=".Option"
             android:label="@string/title_activity_option"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Choice_new"
+            android:label="@string/title_activity_choice_new"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
