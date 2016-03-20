@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="mazebug.danuleoshaleosha.Option"
+    tools:context="mazebug.sfr03.Option"
     tools:showIn="@layout/activity_option"
     android:background="#ffffff">
 
@@ -54,7 +54,7 @@
                             android:id="@+id/tvo1"
                             android:layout_gravity="center_vertical"
                             android:textColor="#999999"
-                            android:textSize="15dp"
+                            android:textSize="15sp"
                             android:layout_marginLeft="65dp"/>
 
                         <TextView
@@ -64,7 +64,7 @@
                             android:id="@+id/tvo2"
                             android:layout_gravity="center_vertical"
                             android:textColor="#999999"
-                            android:textSize="15dp"
+                            android:textSize="15sp"
                             android:layout_marginLeft="20dp" />
 
                         <TextView
@@ -127,7 +127,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/RLO3"
-                android:visibility="visible">
+                android:visibility="gone">
 
             <ImageView
                 android:layout_width="match_parent"
@@ -157,14 +157,14 @@
                 android:layout_marginRight="20dp"
                 android:textColorHint="#a6a6a6"
                 android:textColor="#000000"
-                android:visibility="visible" />
+                android:visibility="gone" />
 
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:id="@+id/LLO4"
-                android:visibility="visible">
+                android:visibility="gone">
 
                 <ImageView
                     android:layout_width="35dp"
@@ -404,7 +404,7 @@
                         android:orientation="horizontal"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
-                        android:id="@+id/LL4.2"
+                        android:id="@+id/LLO4.2"
                         android:visibility="visible">
 
                         <TextView
@@ -468,7 +468,7 @@
                         android:orientation="horizontal"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
-                        android:id="@+id/LL3.2"
+                        android:id="@+id/LLO3.2"
                         android:visibility="visible">
 
                         <TextView
@@ -497,7 +497,6 @@
                             android:fontFamily="sans-serif-thin" />
 
                     </LinearLayout>
-
 
                 </RelativeLayout>
 

@@ -8,4 +8,6 @@
     <string name="title_activity_forgot_password">forgot_password</string>
     <string name="title_activity_option">Option</string>
     <string name="title_activity_choice_new">Choice_new</string>
+    <string name="title_activity_option_details">Option_details</string>
+    <string name="title_activity_option_details_cn">Option_detailsCN</string>
 </resources>

@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="mazebug.sfr03.Option_detailsCN"
+    tools:showIn="@layout/activity_option_details_cn"
+    android:background="#ffffff">
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/SVODCN1">
+
+<LinearLayout
+android:orientation="vertical"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:id="@+id/LLODCN8">
+
+
+
+
+
+
+
+
+
+
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/RLOD1.1">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/LLOD1.1"
+        android:visibility="invisible">
+
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/etodcn1.1"
+            android:textSize="20sp"
+            android:textColor="#000000"
+            android:hint="Town"
+            android:textColorHint="#a6a6a6"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:gravity="left"
+            android:visibility="visible" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/LLOD1.2"
+        android:visibility="visible">
+
+        <TextView
+            android:layout_width="130dp"
+            android:layout_height="40dp"
+            android:id="@+id/tvodcn1.1"
+            android:visibility="invisible"
+            android:textSize="20sp"
+            android:textColor="#999999"
+            android:layout_marginTop="10dp"
+            android:gravity="left|center"
+            android:layout_marginLeft="15dp"
+            android:text="Town:" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:id="@+id/tvodcn1.2"
+            android:visibility="invisible"
+            android:textSize="20sp"
+            android:textColor="#000000"
+            android:layout_marginTop="10dp"
+            android:gravity="left|center"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="15dp"
+            android:fontFamily="sans-serif-thin" />
+
+    </LinearLayout>
+
+</RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/RLOD2.1">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/LLOD2.1"
+        android:visibility="invisible">
+
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/etodcn2.1"
+            android:textSize="20sp"
+            android:textColor="#000000"
+            android:hint="County"
+            android:textColorHint="#a6a6a6"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:gravity="left"
+            android:visibility="visible" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/LLOD2.2"
+        android:visibility="visible">
+
+        <TextView
+            android:layout_width="130dp"
+            android:layout_height="40dp"
+            android:id="@+id/tvodcn2.1"
+            android:visibility="invisible"
+            android:textSize="20sp"
+            android:textColor="#999999"
+            android:layout_marginTop="10dp"
+            android:gravity="left|center"
+            android:layout_marginLeft="15dp"
+            android:text="County:" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:id="@+id/tvodcn2.2"
+            android:visibility="invisible"
+            android:textSize="20sp"
+            android:textColor="#000000"
+            android:layout_marginTop="10dp"
+            android:gravity="left|center"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="15dp"
+            android:fontFamily="sans-serif-thin" />
+
+    </LinearLayout>
+
+</RelativeLayout>
+
+
+    <RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/RLOD4.1">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/LLOD4.1"
+        android:visibility="invisible">
+
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/etodcn4.1"
+            android:textSize="20sp"
+            android:textColor="#000000"
+            android:hint="Antena height"
+            android:textColorHint="#a6a6a6"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:gravity="left"
+            android:visibility="visible" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/LLOD4.2"
+        android:visibility="visible">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:id="@+id/tvodcn4.1"
+            android:visibility="invisible"
+            android:textSize="20sp"
+            android:textColor="#999999"
+            android:layout_marginTop="10dp"
+            android:gravity="left|center"
+            android:layout_marginLeft="15dp"
+            android:text="Antena height:" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:id="@+id/tvodcn4.2"
+            android:visibility="invisible"
+            android:textSize="20sp"
+            android:textColor="#000000"
+            android:layout_marginTop="10dp"
+            android:gravity="left|center"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="15dp"
+            android:fontFamily="sans-serif-thin" />
+
+    </LinearLayout>
+
+</RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/RLOD3.1">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/LLOD3.1"
+            android:visibility="invisible">
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/etodcn3.1"
+                android:textSize="20sp"
+                android:textColor="#000000"
+                android:hint="Postcode"
+                android:textColorHint="#a6a6a6"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:gravity="left"
+                android:visibility="visible" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:id="@+id/LLOD3.2"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="130dp"
+                android:layout_height="40dp"
+                android:id="@+id/tvodcn3.1"
+                android:visibility="invisible"
+                android:textSize="20sp"
+                android:textColor="#999999"
+                android:layout_marginTop="10dp"
+                android:gravity="left|center"
+                android:layout_marginLeft="15dp"
+                android:text="Postcode:" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:id="@+id/tvodcn3.2"
+                android:visibility="invisible"
+                android:textSize="20sp"
+                android:textColor="#000000"
+                android:layout_marginTop="10dp"
+                android:gravity="left|center"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="15dp"
+                android:fontFamily="sans-serif-thin" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+</LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
+
+
