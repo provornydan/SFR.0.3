@@ -126,7 +126,8 @@
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/RLO3">
+                android:id="@+id/RLO3"
+                android:visibility="gone">
 
             <ImageView
                 android:layout_width="match_parent"
@@ -234,9 +235,7 @@
                     android:layout_height="30dp"
                     android:id="@+id/ivo4"
                     android:src="@drawable/ic_details"
-                    android:layout_gravity="center_vertical|right"
-                    android:rotationX="90"
-                    />
+                    android:layout_gravity="center_vertical|right" />
 
             </LinearLayout>
 
