@@ -1,5 +1,6 @@
 package mazebug.sfr03;
 
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -7,6 +8,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,11 +20,11 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class SFR_Overview extends AppCompatActivity {
-    DatabaseHelper data;
+    DatabaseHelper data;  Menu menu;
     EditText e1,e2,e3,e4,e5,e6,e7,e8;
     ArrayList<String> arr;
     String title;
-    String id;
+    String idName;
     TextView TitleSite;
 
     LinearLayout editLayout1, editLayout2, editLayout3, editLayout4, editLayout5, editLayout6, editLayout7, editLayout8;
@@ -33,9 +35,11 @@ public class SFR_Overview extends AppCompatActivity {
     TextView text1, text2, text3, text4, text5, text6, text7, text8; TextView[] texts;
 
     Cursor rs;
+    Boolean create;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         data = new DatabaseHelper(this);
+        create = true;
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sfr__overview);
@@ -47,8 +51,8 @@ public class SFR_Overview extends AppCompatActivity {
 
         Intent extras = getIntent();
         Bundle extrasBundle = extras.getExtras();
-        if(extrasBundle!=null) title= extrasBundle.getString("Get Site");
-        if(extrasBundle.getString("The id")!=null) id=extrasBundle.getString("The id");
+        if(extrasBundle!=null){ title= extrasBundle.getString("Get Site");
+        if(extrasBundle.getString("The id")!=null) idName=extrasBundle.getString("The id");}
 
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         TitleSite.setText(title);
@@ -75,8 +79,19 @@ public class SFR_Overview extends AppCompatActivity {
         e7=(EditText)findViewById(R.id.etov7);
         e8=(EditText)findViewById(R.id.etov8);
 
-        if(id!=null){
-            rs=data.getIdData(id);
+        if(idName!=null){
+            changeEditToText(edits, texts, textLayouts, editLayouts);
+            rs=data.getIdData(idName);
+
+            if(rs.getCount()>0){
+                rs.moveToNext();}
+
+            for(int i=0; i<edits.length; i++){
+                edits[i].setText(rs.getString(i+1));
+                texts[i].setText(rs.getString(i+1));
+            }
+
+            create = false;
 
 
         }
@@ -88,6 +103,9 @@ public class SFR_Overview extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu2, menu);
+        this.menu=menu;
+        if(idName!=null) {menu.getItem(0).setVisible(false);
+            menu.getItem(1).setVisible(true);}
         return true;
     }
 
@@ -104,7 +122,7 @@ public class SFR_Overview extends AppCompatActivity {
         }
 
         if (id == R.id.oursearch) {
-            arr=new ArrayList<>();
+            arr = new ArrayList<>();
             arr.add(e1.getText().toString());
             arr.add(e2.getText().toString());
             arr.add(e3.getText().toString());
@@ -114,20 +132,41 @@ public class SFR_Overview extends AppCompatActivity {
             arr.add(e7.getText().toString());
             arr.add(e8.getText().toString());
 
+            if(create){
             boolean a = data.insertData(arr);
-            if(a) Toast.makeText(SFR_Overview.this, "Site added Successfully", Toast.LENGTH_LONG).show();
+            if (a)
+                Toast.makeText(SFR_Overview.this, "Site added Successfully", Toast.LENGTH_LONG).show();
             else Toast.makeText(SFR_Overview.this, "Failed", Toast.LENGTH_LONG).show();
+                create = false;
+            }
+            else{
+                boolean a = data.updateDatabase(idName, returnText(edit1), returnText(edit2), returnText(edit3), returnText(edit4), returnText(edit5), returnText(edit6), returnText(edit7), returnText(edit8));
+                if (a)
+                    Toast.makeText(SFR_Overview.this, "Site updated Successfully", Toast.LENGTH_LONG).show();
+                else Toast.makeText(SFR_Overview.this, "Failed", Toast.LENGTH_LONG).show();}
+
 
             changeEditToText(edits, texts, textLayouts, editLayouts);
             editLayout1.setVisibility(View.INVISIBLE);
             textLayout1.setVisibility(View.VISIBLE);
             text1.setText(edit1.getText());
 
-            //startActivity(new Intent(SFR_Overview.this, MySFR.class));
+            {
+                menu.getItem(0).setVisible(false);
+                menu.getItem(1).setVisible(true);
+                //startActivity(new Intent(SFR_Overview.this, MySFR.class));
+            }
+            TitleSite.setText(text1.getText().toString());
         }
 
-        return super.onOptionsItemSelected(item);
-    }
+            if (id == R.id.eidtPencil) {
+                changeTextToEdit(texts, edits, editLayouts, textLayouts);
+                menu.getItem(1).setVisible(false);
+                menu.getItem(0).setVisible(true);
+            }
+
+            return super.onOptionsItemSelected(item);
+        }
 
     public void changeEditToText(EditText[] edit, TextView[] text, LinearLayout[] textLayouts, LinearLayout[] editLayouts){
         for(int i=0; i<textLayouts.length; i++){
@@ -192,6 +231,15 @@ public class SFR_Overview extends AppCompatActivity {
         texts = new TextView[] {text1, text2, text3, text4, text5, text6, text7, text8};
 
     }
+    public String returnText (EditText edit) {
+        String a = edit.getText().toString();
+        return a;
+    }
 
-
+    public void addOption(View view) {
+        LayoutInflater inflater = (LayoutInflater)this.getSystemService (Context.LAYOUT_INFLATER_SERVICE);
+        LinearLayout ll =(LinearLayout)findViewById(R.id.LLOV1);
+        View view1 = inflater.inflate(R.layout.content_option, null,false);
+        ll.addView(view1);
+    }
 }

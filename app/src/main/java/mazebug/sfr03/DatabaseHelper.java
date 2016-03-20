@@ -14,7 +14,7 @@ import java.util.Date;
  * Created by Provorny on 2/13/2016.
  */
 public class DatabaseHelper extends SQLiteOpenHelper {
-    public static final String DATABASE_NAME="sfrTable.db";
+    public static final String DATABASE_NAME="SFR03.db";
     public static final String TABLE_NAME="mysfrs";
     public static final String COL_1 ="ID";
     //public static final String COL_2="Latitude";
@@ -38,21 +38,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COL_20="Acquisition_Surveyor"; */
     public static final String COL_10="addedDate";
 
+    public static final String OPTION_NAME = "Options";
+
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        //SQLiteDatabase database = this.getWritableDatabase();
+//        SQLiteDatabase database = this.getWritableDatabase();
         //db.execSQL("create table if not exists " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, Latitude varchar(255) DEFAULT NULL, Longitude varchar(255) DEFAULT NULL, Site_name varchar(255), Supplier varchar(255), Owners varchar(255), CID varchar(255) DEFAULT NULL, CSR varchar(255) DEFAULT NULL, Site varchar(255) DEFAULT NULL, POW_VF varchar(255) DEFAULT NULL, POW_O2 varchar(255) DEFAULT NULL, Searc_Area_Description text, Development_Plan_Details text, Policies_Landuse_Conservation_Designations text,Notes text,  MS6_Forecast_Date date DEFAULT NULL,  Forecast_Rent float DEFAULT NULL,  Final_Assessment_Rank_Proceed_Option int(11) DEFAULT NULL, Date date DEFAULT NULL, Acquisition_Surveyor varchar(255) DEFAULT NULL)");
         db.execSQL("create table if not exists " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, site_name varchar(255), search_area varchar(255), Owners varchar(255), CID varchar(255), CSR varchar(255), Site varchar(255), pow_vf varchar(255), pow_02 varchar(255), addedDate varchar(255) NULL)");
+        db.execSQL("create table if not exists " + OPTION_NAME + " (OPTION_ID INTEGER PRIMARY KEY AUTOINCREMENT, SITE_ID INTEGER, option_name varchar(255), Town varchar(255), County varchar(255), Postcode varchar(255), Antenna_height varchar(255))");
     }
 
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS "+TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS" + OPTION_NAME);
         onCreate(db);
     }
     public boolean insertData(ArrayList<String> arr){
@@ -84,9 +88,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         contentValues.put(COL_10, strDate);
 
+        ContentValues content2 = new ContentValues();
+        content2.put("SITE_ID", "Hello");
+        content2.put("option_name", "Good bye");
+
 
         long result = db.insert(TABLE_NAME, null ,contentValues);
-        if(result == -1){
+        long result2 = db.insert(OPTION_NAME, null, content2);
+        if((result==-1)||(result2==-1)){
             return false;}
         else
             return true;
@@ -100,7 +109,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public Cursor getIdData(String id) {
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res=db.rawQuery("Select ID, Site_name, Supplier, Owners, CID, CSR, Site, pow_vf, pow_02 from "+TABLE_NAME+" where ID='"+id+"'", null);
+        Cursor res=db.rawQuery("Select ID, Site_name, search_area, Owners, CID, CSR, Site, pow_vf, pow_02 from "+TABLE_NAME+" where ID='"+id+"'", null);
         return res;
     }
 
@@ -111,17 +120,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return res;
     }
 
-    public boolean updateDatabase(String id, String site_name, String supplier, String owners, String cid, String csr, String site, String pow_vf, String pow_o2){
+    public boolean updateDatabase(String id, String site_name, String search_area, String Owners, String cid, String csr, String site, String pow_vf, String pow_o2){
         SQLiteDatabase db=this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(COL_4, site_name);
-        contentValues.put(COL_5, supplier);
-        contentValues.put(COL_6, owners);
-        contentValues.put(COL_7, cid);
-        contentValues.put(COL_8, csr);
-        contentValues.put(COL_9, site);
-        //contentValues.put(COL_10, pow_vf);
-        //contentValues.put(COL_11, pow_o2);
+        contentValues.put(COL_2, site_name);
+        contentValues.put(COL_3, search_area);
+        contentValues.put(COL_4, Owners);
+        contentValues.put(COL_5, cid);
+        contentValues.put(COL_6, csr);
+        contentValues.put(COL_7, site);
+        contentValues.put(COL_8, pow_vf);
+        contentValues.put(COL_9, pow_o2);
 
         db.update(TABLE_NAME, contentValues, "ID = ?", new String[] {id});
 

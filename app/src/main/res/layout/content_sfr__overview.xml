@@ -57,55 +57,6 @@
                             android:textColor="#999999"
                             android:textSize="15dp" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Option 1"
-                            android:id="@+id/tvov2"
-                            android:layout_gravity="center_vertical"
-                            android:textColor="#999999"
-                            android:textSize="15dp"
-                            android:layout_marginLeft="20dp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Option 2"
-                            android:id="@+id/tvov3"
-                            android:textColor="#999999"
-                            android:textSize="15dp"
-                            android:layout_marginLeft="20dp"
-                            android:layout_gravity="center_vertical" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Option 3"
-                            android:id="@+id/tvov4"
-                            android:layout_gravity="center_vertical"
-                            android:textColor="#999999"
-                            android:textSize="15dp"
-                            android:layout_marginLeft="20dp" />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Option 4"
-                            android:id="@+id/tvov5"
-                            android:layout_gravity="center_vertical"
-                            android:textColor="#999999"
-                            android:textSize="15dp"
-                            android:layout_marginLeft="20dp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Option 5"
-                            android:id="@+id/tvov6"
-                            android:layout_gravity="center_vertical"
-                            android:textColor="#999999"
-                            android:textSize="15dp"
-                            android:layout_marginLeft="20dp" />
-
                     </LinearLayout>
 
                 </RelativeLayout>
@@ -118,7 +69,9 @@
                     android:id="@+id/ivov1"
                     android:src="@drawable/ic_add_circle_outline"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginTop="5dp" />
+                    android:layout_marginTop="5dp"
+                    android:clickable="true"
+                    android:onClick="addOption" />
 
             </RelativeLayout>
 
