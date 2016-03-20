@@ -10,85 +10,104 @@
     tools:showIn="@layout/activity_choice_new"
     android:background="#ffffff">
 
-    <TextView
+    <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/SVCN1">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/RLCN1">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:text="New Option Mode"
-        android:id="@+id/textView"
+        android:id="@+id/tvcn1"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:textSize="30sp"
         android:elegantTextHeight="false"
         android:fontFamily="sans-serif-thin"
         android:textColor="#332c2c"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="10dp"
+        android:visibility="visible"
+        android:gravity="center" />
 
-    <Button
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Location"
+            android:id="@+id/bcn1"
+            android:layout_marginTop="50dp"
+            android:drawableLeft="@drawable/ic_room_black"
+            android:paddingRight="40dp"
+            android:background="#f5f3f3"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:onClick="selectLocation"
+            android:visibility="visible"
+            android:layout_below="@+id/tvcn1"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Option Information"
+            android:id="@+id/bcn2"
+            android:layout_below="@+id/bcn1"
+            android:layout_alignLeft="@+id/bcn1"
+            android:layout_alignStart="@+id/bcn1"
+            android:drawableLeft="@drawable/ic_edit"
+            android:paddingRight="40dp"
+            android:background="#f5f3f3"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_alignRight="@+id/bcn1"
+            android:layout_alignEnd="@+id/bcn1"
+            android:layout_marginTop="30dp"
+            android:onClick="siteInformation"
+            android:textColor="#2e2e2e"
+            android:visibility="visible" />
+
+        <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Add Pictures"
-        android:id="@+id/button8"
+        android:id="@+id/bcn3"
         android:drawableLeft="@drawable/ic_camera_black"
-        android:textAlignment="textStart"
         android:drawablePadding="20dp"
         android:paddingRight="40dp"
         android:background="#f5f3f3"
-        android:paddingLeft="10dp"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:layout_below="@+id/button9"
-        android:layout_alignLeft="@+id/button9"
-        android:layout_alignStart="@+id/button9"
-        android:layout_alignRight="@+id/button9"
-        android:layout_alignEnd="@+id/button9"
+            android:paddingBottom="10dp"
+        android:layout_below="@+id/bcn2"
+        android:layout_alignLeft="@+id/bcn2"
+        android:layout_alignStart="@+id/bcn2"
+        android:layout_alignRight="@+id/bcn2"
+        android:layout_alignEnd="@+id/bcn2"
         android:layout_marginTop="30dp"
-        android:onClick="addPictures" />
+        android:onClick="addPictures"
+        android:visibility="visible"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Option Information"
-        android:id="@+id/button9"
-        android:layout_below="@+id/button10"
-        android:layout_alignLeft="@+id/button10"
-        android:layout_alignStart="@+id/button10"
-        android:drawableLeft="@drawable/ic_edit"
-        android:paddingRight="40dp"
-        android:background="#f5f3f3"
-        android:paddingLeft="10dp"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:layout_alignRight="@+id/button10"
-        android:layout_alignEnd="@+id/button10"
-        android:layout_marginTop="30dp"
-        android:onClick="siteInformation"
-        android:textColor="#2e2e2e" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Select Location"
-        android:id="@+id/button10"
-        android:layout_below="@+id/textView"
-        android:layout_alignLeft="@+id/textView"
-        android:layout_alignStart="@+id/textView"
-        android:layout_marginTop="55dp"
-        android:drawableLeft="@drawable/ic_room_black"
-        android:paddingRight="40dp"
-        android:background="#f5f3f3"
-        android:paddingLeft="10dp"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:layout_marginLeft="20dp"
-        android:onClick="selectLocation" />
-
-    <ImageView
+        <ImageView
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:id="@+id/imageView2"
-        android:layout_alignParentBottom="true"
+        android:id="@+id/ivcn1"
+        android:src="@drawable/ic_save_black"
+        android:onClick="saveAll"
+        android:layout_below="@+id/bcn3"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:src="@drawable/ic_save"
-        android:onClick="saveAll" />
+        android:layout_marginTop="50dp"
+        android:layout_gravity="left" />
+
+
+    </RelativeLayout>
+
+    </ScrollView>
+
 </RelativeLayout>
