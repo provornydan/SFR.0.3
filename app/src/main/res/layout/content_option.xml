@@ -130,13 +130,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/RLO3"
-                android:visibility="gone">
+                android:visibility="visible">
 
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="350dp"
+                    android:layout_height="300dp"
                     android:id="@+id/ivo1"
-                    android:layout_marginBottom="23.5dp" />
+                    android:layout_marginBottom="25dp" />
 
                 <android.support.design.widget.FloatingActionButton
                     android:layout_width="wrap_content"
