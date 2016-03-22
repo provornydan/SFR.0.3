@@ -26,17 +26,20 @@
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/RLO1">
+                android:id="@+id/RLO1"
+                android:visibility="gone">
 
             <HorizontalScrollView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/SVO2">
+                android:id="@+id/SVO2"
+                android:background="#A32369">
 
                 <RelativeLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/RLO2">
+                    android:id="@+id/RLO2"
+                    android:background="#A32369">
 
                     <LinearLayout
                         android:orientation="horizontal"
@@ -147,17 +150,35 @@
 
             </RelativeLayout>
 
-            <EditText
-                android:layout_width="match_parent"
+            <RelativeLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="Site name"
-                android:id="@+id/eto1"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:textColorHint="#a6a6a6"
-                android:textColor="#000000"
-                android:visibility="visible" />
+                android:id="@+id/RLO4">
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dp"
+                    android:id="@+id/tvo8"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:textColor="#000000"
+                    android:textColorHint="#999999"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:hint="Site name"
+                    android:id="@+id/eto1"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:textColorHint="#999999"
+                    android:textColor="#000000"
+                    android:visibility="visible"
+                    android:textSize="20sp" />
+
+            </RelativeLayout>
 
             <LinearLayout
                 android:orientation="horizontal"
