@@ -63,6 +63,8 @@ public class SFR_Overview extends AppCompatActivity {
     Cursor rs;
     Cursor optionCursor;
     Boolean create;
+
+    final int alg = -1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         data = new DatabaseHelper(this);
@@ -168,10 +170,14 @@ public class SFR_Overview extends AppCompatActivity {
                         scrollmain.pageScroll(View.FOCUS_UP);
                         hideGeneral();
                         EditText optionsname = (EditText)view1.findViewById(R.id.eto1);
-                    optionsname.setText(OptionNames.get(ord));
-                    tvo.setText(OptionNames.get(ord));
-                    resetColors();
-                    options.get(ord).setTextColor(Color.WHITE);
+                        if(n!=-1){
+                            OptionNames.set(n, optionsname.getText().toString() );
+                            n=ord;
+                        }
+                        optionsname.setText(OptionNames.get(ord));
+                        tvo.setText(OptionNames.get(ord));
+                        resetColors();
+                        options.get(ord).setTextColor(Color.WHITE);
                     }
                 });
             }
@@ -219,18 +225,22 @@ public class SFR_Overview extends AppCompatActivity {
         tvov.setTextColor(Color.WHITE);
        if(extrasBundle!=null)   if(extrasBundle.getBoolean("From Option")==true){
             resetColors();
-            options.get((options.size()-1)).setTextColor(Color.WHITE);
-            hideGeneral();
-            EditText optionsname = (EditText)view1.findViewById(R.id.eto1);
-            optionCursor.moveToLast();
-            optionsname.setText(optionCursor.getString(1));
-            tvo.setText(optionCursor.getString(1));
-            options.get((options.size()-1)).requestFocus();
-            hscroll.postDelayed(new Runnable() {
-                public void run() {
-                    hscroll.fullScroll(HorizontalScrollView.FOCUS_RIGHT);
-                }
-            }, 100L);
+           if(!options.isEmpty()) {
+               options.get((options.size() - 1)).setTextColor(Color.WHITE);
+               hideGeneral();
+               EditText optionsname = (EditText) view1.findViewById(R.id.eto1);
+               optionCursor.moveToLast();
+               optionsname.setText(optionCursor.getString(1));
+               tvo.setText(optionCursor.getString(1));
+               options.get((options.size() - 1)).requestFocus();
+               hscroll.postDelayed(new Runnable() {
+                   public void run() {
+                       hscroll.fullScroll(HorizontalScrollView.FOCUS_RIGHT);
+                   }
+               }, 80L);
+           }
+           //menu.getItem(1).setVisible(false);
+           //menu.getItem(0).setVisible(true);
 
         }
 
@@ -406,15 +416,23 @@ public class SFR_Overview extends AppCompatActivity {
         else{intent.putExtra("The id", idName);}
         startActivity(intent); */
 
-        data.insertAnOption(idName, null);
         Intent intent = getIntent();
         overridePendingTransition(0, 0);
         intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         finish();
         overridePendingTransition(0, 0);
+        if(idName==null){
+            Cursor cursor = data.getThisID();
+            if(cursor.getCount()>0){
+                cursor.moveToNext();}
+            idName=cursor.getString(0);
+        }
+        data.insertAnOption(idName, null);
         intent.putExtra("The id", idName);
         intent.putExtra("From Option", true);
+
         startActivity(intent);
+
 
     }
 
