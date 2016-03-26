@@ -230,7 +230,7 @@ public class SFR_Overview extends AppCompatActivity {
                 n++;
                 if((n%2)==1){
                     optionLayout.setVisibility(View.VISIBLE);
-                    lastChance.requestFocus();
+                    edit12.requestFocus();
                     //InputMethodManager imm = (InputMethodManager)getSystemService(getBaseContext().INPUT_METHOD_SERVICE);
                     //imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
 
