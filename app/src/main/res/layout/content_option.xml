@@ -141,20 +141,16 @@
                 <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="false"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentBottom="true"
+                    android:id="@+id/LLO9"
                     android:gravity="right"
-                    android:layout_marginBottom="35dp"
-                    android:id="@+id/LLO9">
+                    android:paddingTop="255dp">
 
                     <android.support.design.widget.FloatingActionButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
-                        android:src="@drawable/ic_camera_alt"
-                        android:layout_marginTop="40dp">
+                        android:src="@drawable/ic_camera_alt">
                     </android.support.design.widget.FloatingActionButton>
 
                 </LinearLayout>
