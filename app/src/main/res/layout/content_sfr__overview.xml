@@ -10,60 +10,6 @@
     tools:showIn="@layout/activity_sfr__overview"
     android:background="#ffffff">
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/RLOV1"
-        android:background="#A32369">
-
-
-        <HorizontalScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/SVOV2"
-            android:paddingLeft="40dp">
-
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/RLOV2">
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="wrap_content"
-                android:id="@+id/LLOV2"
-                android:layout_height="50dp"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:background="#A32369">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="General"
-                    android:id="@+id/tvov1"
-                    android:layout_gravity="center_vertical"
-                    android:textColor="#999999"
-                    android:textSize="15dp" />
-
-            </LinearLayout>
-
-        </RelativeLayout>
-
-    </HorizontalScrollView>
-
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:id="@+id/ivov1"
-            android:src="@drawable/ic_add_circle_outline"
-            android:layout_gravity="center_vertical"
-            android:layout_marginTop="5dp"
-            android:clickable="true"
-            android:onClick="addOption" />
-
-    </RelativeLayout>
-
     <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -577,5 +523,59 @@
         </LinearLayout>
 
     </ScrollView>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/RLOV1"
+        android:background="#A32369">
+
+
+        <HorizontalScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/SVOV2"
+            android:paddingLeft="40dp">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/RLOV2">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:id="@+id/LLOV2"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:background="#A32369">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="General"
+                    android:id="@+id/tvov1"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="#999999"
+                    android:textSize="15dp" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </HorizontalScrollView>
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:id="@+id/ivov1"
+            android:src="@drawable/ic_add_circle_outline"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="5dp"
+            android:clickable="true"
+            android:onClick="addOption" />
+
+    </RelativeLayout>
 
 </RelativeLayout>

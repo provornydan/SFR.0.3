@@ -88,18 +88,26 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         contentValues.put(COL_10, strDate);
 
-        ContentValues content2 = new ContentValues();
-        content2.put("SITE_ID", "Hello");
-        content2.put("option_name", "Good bye");
 
 
         long result = db.insert(TABLE_NAME, null ,contentValues);
-        long result2 = db.insert(OPTION_NAME, null, content2);
-        if((result==-1)||(result2==-1)){
+        if(result==-1){
             return false;}
         else
             return true;
     }
+        public boolean insertAnOption(String Site_ID, String optionName){
+            SQLiteDatabase db = this.getWritableDatabase();
+            ContentValues content2 = new ContentValues();
+            content2.put("SITE_ID", Site_ID);
+            content2.put("option_name", optionName);
+
+            long result2 = db.insert(OPTION_NAME, null, content2);
+            if(result2==-1){
+                return false;}
+            else
+                return true;
+        }
 
     public Cursor getSiteData(String name) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -112,6 +120,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor res=db.rawQuery("Select ID, Site_name, search_area, Owners, CID, CSR, Site, pow_vf, pow_02 from "+TABLE_NAME+" where ID='"+id+"'", null);
         return res;
     }
+    public Cursor getThisID(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res=db.rawQuery("Select ID from "+TABLE_NAME+" ORDER BY ID DESC LIMIT 1", null);
+        return res;
+
+    }
+
 
 
     public Cursor getAllData() {
@@ -144,6 +159,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(COL_3, longitude);
         db.update(TABLE_NAME, contentValues, "ID = ?", new String[]{id});
         return true;
+    }
+
+    public boolean updateOption(String id, String optionName, String townName, String countyName, String postCode, String antennaHeight ){
+        SQLiteDatabase db=this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("option_name", optionName);
+        contentValues.put("Town", townName);
+        contentValues.put("County", countyName);
+        contentValues.put("Postcode", postCode);
+        contentValues.put("Antenna_height", antennaHeight);
+
+        db.update(OPTION_NAME, contentValues, "OPTION_ID = ?", new String[]{id});
+        return true;
+    }
+
+    public Cursor getAllOptions(String siteID){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res=db.rawQuery("Select OPTION_ID, option_name, Town, County, Postcode, Antenna_height  from "+OPTION_NAME+" where SITE_ID='"+siteID+"'", null);
+        return res;
     }
 }
 
