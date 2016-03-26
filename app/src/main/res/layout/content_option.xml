@@ -145,7 +145,8 @@
                     android:layout_alignParentRight="true"
                     android:layout_alignParentBottom="true"
                     android:gravity="right"
-                    android:layout_marginBottom="35dp">
+                    android:layout_marginBottom="35dp"
+                    android:id="@+id/LLO9">
 
                     <android.support.design.widget.FloatingActionButton
                         android:layout_width="wrap_content"
@@ -153,7 +154,7 @@
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
                         android:src="@drawable/ic_camera_alt"
-                        android:layout_marginTop="20dp">
+                        android:layout_marginTop="40dp">
                     </android.support.design.widget.FloatingActionButton>
 
                 </LinearLayout>
@@ -169,7 +170,8 @@
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:orientation="vertical"
-                    android:id="@+id/LLO5.1">
+                    android:id="@+id/LLO5.1"
+                    android:visibility="visible">
 
                     <EditText
                         android:layout_width="fill_parent"
@@ -180,7 +182,7 @@
                         android:layout_marginRight="20dp"
                         android:textColorHint="#999999"
                         android:textColor="#000000"
-                        android:visibility="invisible"
+                        android:visibility="visible"
                         android:textSize="20sp"
                         android:gravity="left"
                         android:layout_marginTop="10dp" />
@@ -191,7 +193,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:orientation="horizontal"
-                    android:id="@+id/LLO5.2">
+                    android:id="@+id/LLO5.2"
+                    android:visibility="invisible">
 
                     <TextView
                         android:layout_width="130dp"
@@ -317,7 +320,7 @@
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
                         android:id="@+id/LLO1.1"
-                        android:visibility="invisible">
+                        android:visibility="visible">
 
                         <EditText
                             android:layout_width="fill_parent"
@@ -326,12 +329,12 @@
                             android:textSize="20sp"
                             android:textColor="#000000"
                             android:hint="Town"
-                            android:textColorHint="#a6a6a6"
+                            android:textColorHint="#999999"
                             android:layout_marginTop="10dp"
                             android:layout_marginLeft="15dp"
                             android:layout_marginRight="15dp"
                             android:gravity="left"
-                            android:visibility="invisible" />
+                            android:visibility="visible" />
 
                     </LinearLayout>
 
@@ -340,7 +343,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:id="@+id/LLO1.2"
-                        android:visibility="visible">
+                        android:visibility="invisible">
 
                         <TextView
                             android:layout_width="130dp"
@@ -391,12 +394,12 @@
                             android:textSize="20sp"
                             android:textColor="#000000"
                             android:hint="County"
-                            android:textColorHint="#a6a6a6"
+                            android:textColorHint="#999999"
                             android:layout_marginTop="10dp"
                             android:layout_marginLeft="15dp"
                             android:layout_marginRight="15dp"
                             android:gravity="left"
-                            android:visibility="invisible" />
+                            android:visibility="visible" />
 
                     </LinearLayout>
 
@@ -405,7 +408,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:id="@+id/LLO2.2"
-                        android:visibility="visible">
+                        android:visibility="invisible">
 
                         <TextView
                             android:layout_width="130dp"
@@ -447,7 +450,7 @@
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
                         android:id="@+id/LLO4.1"
-                        android:visibility="invisible">
+                        android:visibility="visible">
 
                         <EditText
                             android:layout_width="fill_parent"
@@ -456,11 +459,12 @@
                             android:textSize="20sp"
                             android:textColor="#000000"
                             android:hint="Antena height"
-                            android:textColorHint="#a6a6a6"
+                            android:textColorHint="#999999"
                             android:layout_marginTop="10dp"
                             android:layout_marginLeft="15dp"
                             android:layout_marginRight="15dp"
-                            android:gravity="left" />
+                            android:gravity="left"
+                            android:visibility="visible" />
 
                     </LinearLayout>
 
@@ -469,7 +473,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:id="@+id/LLO4.2"
-                        android:visibility="visible">
+                        android:visibility="invisible">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -511,7 +515,7 @@
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
                         android:id="@+id/LLO3.1"
-                        android:visibility="invisible">
+                        android:visibility="visible">
 
                         <EditText
                             android:layout_width="fill_parent"
@@ -520,11 +524,12 @@
                             android:textSize="20sp"
                             android:textColor="#000000"
                             android:hint="Postcode"
-                            android:textColorHint="#a6a6a6"
+                            android:textColorHint="#999999"
                             android:layout_marginTop="10dp"
                             android:layout_marginLeft="15dp"
                             android:layout_marginRight="15dp"
-                            android:gravity="left" />
+                            android:gravity="left"
+                            android:visibility="visible" />
 
                     </LinearLayout>
 
@@ -533,7 +538,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:id="@+id/LLO3.2"
-                        android:visibility="visible">
+                        android:visibility="invisible">
 
                         <TextView
                             android:layout_width="130dp"
