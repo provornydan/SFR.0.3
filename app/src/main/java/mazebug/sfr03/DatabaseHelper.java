@@ -14,7 +14,7 @@ import java.util.Date;
  * Created by Provorny on 2/13/2016.
  */
 public class DatabaseHelper extends SQLiteOpenHelper {
-    public static final String DATABASE_NAME="SFR03.db";
+    public static final String DATABASE_NAME="SFR04.db";
     public static final String TABLE_NAME="mysfrs";
     public static final String COL_1 ="ID";
     //public static final String COL_2="Latitude";
@@ -101,6 +101,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             ContentValues content2 = new ContentValues();
             content2.put("SITE_ID", Site_ID);
             content2.put("option_name", optionName);
+
 
             long result2 = db.insert(OPTION_NAME, null, content2);
             if(result2==-1){

@@ -53,6 +53,10 @@ public class SFR_Overview extends AppCompatActivity {
     ArrayList<TextView> options = new ArrayList<>();
     ArrayList<String> OptionNames = new ArrayList<>();
     ArrayList<String> OptionID = new ArrayList<>();
+    ArrayList<String> OptionTown = new ArrayList<>();
+    ArrayList<String> OptionCounty= new ArrayList<>();
+    ArrayList<String> OptionPostCode = new ArrayList<>();
+    ArrayList<String> OptionHeight= new ArrayList<>();
     TextView tvov, tvo;
     LinearLayout optionLayout, linearDetails;
     Boolean show = true; int n=0;
@@ -160,6 +164,11 @@ public class SFR_Overview extends AppCompatActivity {
                 options.add(texts);
                 OptionNames.add(optionCursor.getString(1));
                 OptionID.add(optionCursor.getString(0));
+                OptionTown.add(optionCursor.getString(2));
+                OptionCounty.add(optionCursor.getString(3));
+                OptionPostCode.add(optionCursor.getString(4));
+                OptionHeight.add(optionCursor.getString(5));
+
             }
 
 
@@ -173,9 +182,19 @@ public class SFR_Overview extends AppCompatActivity {
                         EditText optionsname = (EditText)view1.findViewById(R.id.eto1);
                         if(alg!=-1){
                             OptionNames.set(alg, optionsname.getText().toString() );
+                            OptionTown.set(alg, edit10.getText().toString());
+                            OptionCounty.set(alg, edit11.getText().toString());
+                            OptionHeight.set(alg, edit12.getText().toString());
+                            OptionPostCode.set(alg, edit13.getText().toString());
                         }
+
                         optionsname.setText(OptionNames.get(ord));
                         tvo.setText(OptionNames.get(ord));
+                        text10.setText(OptionTown.get(ord));
+                        text11.setText(OptionCounty.get(ord));
+                        text12.setText(OptionHeight.get(ord));
+                        text13.setText(OptionPostCode.get(ord));
+
                         resetColors();
                         options.get(ord).setTextColor(Color.WHITE);
                         alg=ord;
@@ -300,9 +319,14 @@ public class SFR_Overview extends AppCompatActivity {
                 create = false;
             }
             else{
-
+                    if(alg==-1) alg=0;
+                    OptionNames.set(alg, edit9.getText().toString());
+                    OptionTown.set(alg, edit10.getText().toString());
+                    OptionCounty.set(alg, edit11.getText().toString());
+                    OptionHeight.set(alg, edit12.getText().toString());
+                    OptionPostCode.set(alg, edit13.getText().toString());
                     for(int i=0; i<OptionNames.size(); i++){
-                        data.updateOption(OptionID.get(i), OptionNames.get(i), null, null, null, null);
+                        data.updateOption(OptionID.get(i), OptionNames.get(i), OptionTown.get(i), OptionCounty.get(i), OptionPostCode.get(i), OptionHeight.get(i));
                     }
 
 
