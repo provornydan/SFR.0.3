@@ -20,6 +20,7 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AbsListView;
 import android.widget.EditText;
+import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -58,7 +59,7 @@ public class SFR_Overview extends AppCompatActivity {
     EditText lastChance;
 
     ScrollView scrollmain, scrollOption;
-
+    HorizontalScrollView hscroll;
     Cursor rs;
     Cursor optionCursor;
     Boolean create;
@@ -79,6 +80,7 @@ public class SFR_Overview extends AppCompatActivity {
 
         tvov =(TextView)findViewById(R.id.tvov1);
         scrollmain=(ScrollView)findViewById(R.id.SVOV1);
+        hscroll = (HorizontalScrollView)findViewById(R.id.SVOV2);
 
         Intent extras = getIntent();
         Bundle extrasBundle = extras.getExtras();
@@ -223,6 +225,12 @@ public class SFR_Overview extends AppCompatActivity {
             optionCursor.moveToLast();
             optionsname.setText(optionCursor.getString(1));
             tvo.setText(optionCursor.getString(1));
+            options.get((options.size()-1)).requestFocus();
+            hscroll.postDelayed(new Runnable() {
+                public void run() {
+                    hscroll.fullScroll(HorizontalScrollView.FOCUS_RIGHT);
+                }
+            }, 100L);
 
         }
 
@@ -397,6 +405,16 @@ public class SFR_Overview extends AppCompatActivity {
         }
         else{intent.putExtra("The id", idName);}
         startActivity(intent); */
+
+        data.insertAnOption(idName, null);
+        Intent intent = getIntent();
+        overridePendingTransition(0, 0);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        finish();
+        overridePendingTransition(0, 0);
+        intent.putExtra("The id", idName);
+        intent.putExtra("From Option", true);
+        startActivity(intent);
 
     }
 
