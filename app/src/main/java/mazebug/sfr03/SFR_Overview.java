@@ -64,7 +64,8 @@ public class SFR_Overview extends AppCompatActivity {
     Cursor optionCursor;
     Boolean create;
 
-    final int alg = -1;
+    int alg = -1;
+    Bundle extrasBundle;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         data = new DatabaseHelper(this);
@@ -85,7 +86,7 @@ public class SFR_Overview extends AppCompatActivity {
         hscroll = (HorizontalScrollView)findViewById(R.id.SVOV2);
 
         Intent extras = getIntent();
-        Bundle extrasBundle = extras.getExtras();
+        extrasBundle = extras.getExtras();
         if(extrasBundle!=null){
         if(extrasBundle.getString("Get Site")!=null)    title= extrasBundle.getString("Get Site");
             else title = edit1.getText().toString();
@@ -170,9 +171,9 @@ public class SFR_Overview extends AppCompatActivity {
                         scrollmain.pageScroll(View.FOCUS_UP);
                         hideGeneral();
                         EditText optionsname = (EditText)view1.findViewById(R.id.eto1);
-                        if(n!=-1){
-                            OptionNames.set(n, optionsname.getText().toString() );
-                            n=ord;
+                        if(alg!=-1){
+                            OptionNames.set(alg, optionsname.getText().toString() );
+                            alg=ord;
                         }
                         optionsname.setText(OptionNames.get(ord));
                         tvo.setText(OptionNames.get(ord));
@@ -254,6 +255,11 @@ public class SFR_Overview extends AppCompatActivity {
         this.menu=menu;
         if(idName!=null) {menu.getItem(0).setVisible(false);
             menu.getItem(1).setVisible(true);}
+        if(extrasBundle!=null)   if(extrasBundle.getBoolean("From Option")==true) {
+            menu.getItem(1).setVisible(false);
+            menu.getItem(0).setVisible(true);
+
+        }
         return true;
     }
 
@@ -287,13 +293,23 @@ public class SFR_Overview extends AppCompatActivity {
             else{
             if(create){
                 String itsname2 =  arr.get(0);
-                if(itsname2.equals("Bai"))   Toast.makeText(SFR_Overview.this, "Site Name is empty", Toast.LENGTH_LONG).show();
-           else{ boolean a = data.insertData(arr);
+                boolean a = data.insertData(arr);
             if (a)
                 Toast.makeText(SFR_Overview.this, "Site added Successfully", Toast.LENGTH_LONG).show();
             else Toast.makeText(SFR_Overview.this, "Failed", Toast.LENGTH_LONG).show();
                 create = false;
-            }}
+            }
+            else if(extrasBundle!=null)   if(extrasBundle.getBoolean("From Option")==true){
+                for(int i=0; i<OptionNames.size(); i++){
+                    data.updateOption(OptionID.get(i), OptionNames.get(i), null, null, null, null);
+                }
+                Intent intent = getIntent();
+                overridePendingTransition(0, 0);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                finish();
+                overridePendingTransition(0, 0);
+                startActivity(intent);
+            }
             else{
                 boolean a = data.updateDatabase(idName, returnText(edit1), returnText(edit2), returnText(edit3), returnText(edit4), returnText(edit5), returnText(edit6), returnText(edit7), returnText(edit8));
                 if (a)
