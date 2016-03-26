@@ -38,13 +38,13 @@ public class SFR_Overview extends AppCompatActivity {
     String idName;
     TextView TitleSite;
 
-    LinearLayout editLayout1, editLayout2, editLayout3, editLayout4, editLayout5, editLayout6, editLayout7, editLayout8;
-    LinearLayout[] editLayouts;
-    LinearLayout textLayout1, textLayout2, textLayout3, textLayout4, textLayout5, textLayout6, textLayout7, textLayout8;
-    LinearLayout[] textLayouts;
+    LinearLayout editLayout1, editLayout2, editLayout3, editLayout4, editLayout5, editLayout6, editLayout7, editLayout8, editLayout9, editLayout10, editLayout11, editLayout12, editLayout13;
+    LinearLayout[] editLayouts, secondeditLayouts;
+    LinearLayout textLayout1, textLayout2, textLayout3, textLayout4, textLayout5, textLayout6, textLayout7, textLayout8, textLayout9, textLayout10, textLayout11, textLayout12, textLayout13;
+    LinearLayout[] textLayouts, secondTextLayouts;
     RelativeLayout r1, r2, r3, r4, r5, r6, r7, r8;
-    EditText edit1, edit2, edit3, edit4, edit5, edit6, edit7, edit8; EditText[] edits;
-    TextView text1, text2, text3, text4, text5, text6, text7, text8; TextView[] texts;
+    EditText edit1, edit2, edit3, edit4, edit5, edit6, edit7, edit8, edit9, edit10, edit11, edit12, edit13; EditText[] edits, secondedits;
+    TextView text1, text2, text3, text4, text5, text6, text7, text8, text9, text10, text11, text12, text13; TextView[] texts, secondtexts;
     ImageView plusImage;    View view1;
 
 
@@ -75,8 +75,8 @@ public class SFR_Overview extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sfr__overview);
         TitleSite =(TextView)findViewById(R.id.title);
-        findElements();
         addOption();
+        findElements();
         lastChance=(EditText)view1.findViewById(R.id.eto3_1);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -173,12 +173,12 @@ public class SFR_Overview extends AppCompatActivity {
                         EditText optionsname = (EditText)view1.findViewById(R.id.eto1);
                         if(alg!=-1){
                             OptionNames.set(alg, optionsname.getText().toString() );
-                            alg=ord;
                         }
                         optionsname.setText(OptionNames.get(ord));
                         tvo.setText(OptionNames.get(ord));
                         resetColors();
                         options.get(ord).setTextColor(Color.WHITE);
+                        alg=ord;
                     }
                 });
             }
@@ -255,11 +255,11 @@ public class SFR_Overview extends AppCompatActivity {
         this.menu=menu;
         if(idName!=null) {menu.getItem(0).setVisible(false);
             menu.getItem(1).setVisible(true);}
-        if(extrasBundle!=null)   if(extrasBundle.getBoolean("From Option")==true) {
+       /* if(extrasBundle!=null)   if(extrasBundle.getBoolean("From Option")==true) {
             menu.getItem(1).setVisible(false);
             menu.getItem(0).setVisible(true);
 
-        }
+        }*/
         return true;
     }
 
@@ -299,18 +299,13 @@ public class SFR_Overview extends AppCompatActivity {
             else Toast.makeText(SFR_Overview.this, "Failed", Toast.LENGTH_LONG).show();
                 create = false;
             }
-            else if(extrasBundle!=null)   if(extrasBundle.getBoolean("From Option")==true){
-                for(int i=0; i<OptionNames.size(); i++){
-                    data.updateOption(OptionID.get(i), OptionNames.get(i), null, null, null, null);
-                }
-                Intent intent = getIntent();
-                overridePendingTransition(0, 0);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                finish();
-                overridePendingTransition(0, 0);
-                startActivity(intent);
-            }
             else{
+
+                    for(int i=0; i<OptionNames.size(); i++){
+                        data.updateOption(OptionID.get(i), OptionNames.get(i), null, null, null, null);
+                    }
+
+
                 boolean a = data.updateDatabase(idName, returnText(edit1), returnText(edit2), returnText(edit3), returnText(edit4), returnText(edit5), returnText(edit6), returnText(edit7), returnText(edit8));
                 if (a)
                     Toast.makeText(SFR_Overview.this, "Site updated Successfully", Toast.LENGTH_LONG).show();
@@ -349,6 +344,13 @@ public class SFR_Overview extends AppCompatActivity {
         for(int i=0; i<edit.length; i++){
             text[i].setText(edit[i].getText());
         }
+        for(int i=0; i<secondTextLayouts.length; i++){
+            secondeditLayouts[i].setVisibility(View.INVISIBLE);
+            secondTextLayouts[i].setVisibility(View.VISIBLE);
+        }
+        for(int i=0; i<secondedits.length; i++){
+            secondtexts[i].setText(secondedits[i].getText());
+        }
     }
 
     public void changeTextToEdit(TextView[] text, EditText[] edit, LinearLayout[] editLayouts, LinearLayout[] textLayouts){
@@ -358,6 +360,13 @@ public class SFR_Overview extends AppCompatActivity {
         }
         for(int i=0; i<edit.length; i++){
             edit[i].setText(text[i].getText());
+        }
+        for(int i=0; i<secondTextLayouts.length; i++){
+            secondTextLayouts[i].setVisibility(View.INVISIBLE);
+            secondeditLayouts[i].setVisibility(View.VISIBLE);
+        }
+        for(int i=0; i<secondedits.length; i++){
+            secondedits[i].setText(secondtexts[i].getText());
         }
     }
 
@@ -369,8 +378,14 @@ public class SFR_Overview extends AppCompatActivity {
         editLayout5 = (LinearLayout)findViewById(R.id. LL5_1);
         editLayout6 = (LinearLayout)findViewById(R.id. LL6_1);
         editLayout7 = (LinearLayout)findViewById(R.id. LL7_1);
-        editLayout8 = (LinearLayout)findViewById(R.id. LL8_1);
-        editLayouts = new LinearLayout[] {editLayout1, editLayout2, editLayout3, editLayout4, editLayout5, editLayout6, editLayout7, editLayout8 };
+        editLayout8 = (LinearLayout)findViewById(R.id.LL8_1);
+        editLayout9 = (LinearLayout)view1.findViewById(R.id.LLO5_1);
+        editLayout10= (LinearLayout)view1.findViewById(R.id.LLO1_1);
+        editLayout11= (LinearLayout)view1.findViewById(R.id.LLO2_1);
+        editLayout12= (LinearLayout)view1.findViewById(R.id.LLO4_1);
+        editLayout13= (LinearLayout)view1.findViewById(R.id.LLO3_1);
+        editLayouts = new LinearLayout[] {editLayout1, editLayout2, editLayout3, editLayout4, editLayout5, editLayout6, editLayout7, editLayout8};
+        secondeditLayouts= new LinearLayout[]{editLayout9, editLayout10, editLayout11, editLayout12, editLayout13 };
 
         textLayout1 = (LinearLayout)findViewById(R.id.LL1_2);
         textLayout2 = (LinearLayout)findViewById(R.id.LL2_2);
@@ -380,7 +395,13 @@ public class SFR_Overview extends AppCompatActivity {
         textLayout6 = (LinearLayout)findViewById(R.id.LL6_2);
         textLayout7 = (LinearLayout)findViewById(R.id.LL7_2);
         textLayout8 = (LinearLayout)findViewById(R.id.LL8_2);
+        textLayout9 = (LinearLayout)view1.findViewById(R.id.LLO5_2);
+        textLayout10= (LinearLayout)view1.findViewById(R.id.LLO1_2);
+        textLayout11= (LinearLayout)view1.findViewById(R.id.LLO2_2);
+        textLayout12= (LinearLayout)view1.findViewById(R.id.LLO4_2);
+        textLayout13= (LinearLayout)view1.findViewById(R.id.LLO3_2);
         textLayouts = new LinearLayout[] {textLayout1, textLayout2, textLayout3, textLayout4, textLayout5, textLayout6, textLayout7, textLayout8};
+        secondTextLayouts= new LinearLayout[]{textLayout9, textLayout10, textLayout11, textLayout12, textLayout13};
 
         edit1 = (EditText)findViewById(R.id.etov1);
         edit2 = (EditText)findViewById(R.id.etov2);
@@ -390,7 +411,13 @@ public class SFR_Overview extends AppCompatActivity {
         edit6 = (EditText)findViewById(R.id.etov6);
         edit7 = (EditText)findViewById(R.id.etov7);
         edit8 = (EditText)findViewById(R.id.etov8);
+        edit9= (EditText)view1.findViewById(R.id.eto1);
+        edit10= (EditText)view1.findViewById(R.id.eto1_1);
+        edit11= (EditText)view1.findViewById(R.id.eto2_1);
+        edit12= (EditText)view1.findViewById(R.id.eto4_1);
+        edit13= (EditText)view1.findViewById(R.id.eto3_1);
         edits = new EditText[] {edit1, edit2,edit3, edit4, edit5, edit6, edit7, edit8};
+        secondedits= new EditText[] {edit9, edit10, edit11, edit12, edit13};
 
 
         text1 = (TextView)findViewById(R.id.tvov1_2);
@@ -401,7 +428,13 @@ public class SFR_Overview extends AppCompatActivity {
         text6 = (TextView)findViewById(R.id.tvov6_2);
         text7 = (TextView)findViewById(R.id.tvov7_2);
         text8 = (TextView)findViewById(R.id.tvov8_2);
+        text9 = (TextView)view1.findViewById(R.id.tvo9);
+        text10= (TextView)view1.findViewById(R.id.tvo1_2);
+        text11= (TextView)view1.findViewById(R.id.tvo2_2);
+        text12= (TextView)view1.findViewById(R.id.tvo4_2);
+        text13= (TextView)view1.findViewById(R.id.tvo3_2);
         texts = new TextView[] {text1, text2, text3, text4, text5, text6, text7, text8};
+        secondtexts= new TextView[] {text9, text10, text11, text12, text13};
 
         r1 = (RelativeLayout)findViewById(R.id.RL1);
         r2 = (RelativeLayout)findViewById(R.id.RL2);
