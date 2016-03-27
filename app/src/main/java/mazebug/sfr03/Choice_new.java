@@ -55,7 +55,7 @@ public class Choice_new extends AppCompatActivity {
         });
     }
     public void siteInformation(View view){
-        Intent intent = new Intent(Choice_new.this, Option_detailsCN.class);
-        startActivity(intent);
+        //Intent intent = new Intent(Choice_new.this, Option_detailsCN.class);
+        //startActivity(intent);
     }
 }

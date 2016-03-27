@@ -190,9 +190,13 @@ public class SFR_Overview extends AppCompatActivity {
 
                         optionsname.setText(OptionNames.get(ord));
                         tvo.setText(OptionNames.get(ord));
+                        edit10.setText(OptionTown.get(ord));
                         text10.setText(OptionTown.get(ord));
+                        edit11.setText(OptionCounty.get(ord));
                         text11.setText(OptionCounty.get(ord));
+                        edit12.setText(OptionHeight.get(ord));
                         text12.setText(OptionHeight.get(ord));
+                        edit13.setText(OptionPostCode.get(ord));
                         text13.setText(OptionPostCode.get(ord));
 
                         resetColors();
@@ -213,9 +217,7 @@ public class SFR_Overview extends AppCompatActivity {
                 }
             });
         }
-        else{
-            plusImage.setVisibility(View.GONE);
-        }
+
 
 
         scrollOption= (ScrollView)view1.findViewById(R.id.SVO1);
@@ -252,6 +254,12 @@ public class SFR_Overview extends AppCompatActivity {
                optionCursor.moveToLast();
                optionsname.setText(optionCursor.getString(1));
                tvo.setText(optionCursor.getString(1));
+               text10.setText(optionCursor.getString(1));
+               text11.setText(optionCursor.getString(1));
+               text12.setText(optionCursor.getString(1));
+               text13.setText(optionCursor.getString(1));
+
+
                options.get((options.size() - 1)).requestFocus();
                hscroll.postDelayed(new Runnable() {
                    public void run() {
@@ -272,8 +280,10 @@ public class SFR_Overview extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu2, menu);
         this.menu=menu;
-        if(idName!=null) {menu.getItem(0).setVisible(false);
-            menu.getItem(1).setVisible(true);}
+        if(idName!=null) {menu.getItem(1).setVisible(false);
+            menu.getItem(2).setVisible(true);}
+        if(create) menu.getItem(0).setVisible(false);
+        else menu.getItem(0).setVisible(true);
        /* if(extrasBundle!=null)   if(extrasBundle.getBoolean("From Option")==true) {
             menu.getItem(1).setVisible(false);
             menu.getItem(0).setVisible(true);
@@ -319,12 +329,12 @@ public class SFR_Overview extends AppCompatActivity {
                 create = false;
             }
             else{
-                    if(alg==-1) alg=0;
+                if(extrasBundle!=null)   if(extrasBundle.getBoolean("From Option")==true){   if(alg==-1) alg=0;
                     OptionNames.set(alg, edit9.getText().toString());
                     OptionTown.set(alg, edit10.getText().toString());
                     OptionCounty.set(alg, edit11.getText().toString());
                     OptionHeight.set(alg, edit12.getText().toString());
-                    OptionPostCode.set(alg, edit13.getText().toString());
+                    OptionPostCode.set(alg, edit13.getText().toString()); }
                     for(int i=0; i<OptionNames.size(); i++){
                         data.updateOption(OptionID.get(i), OptionNames.get(i), OptionTown.get(i), OptionCounty.get(i), OptionPostCode.get(i), OptionHeight.get(i));
                     }
@@ -343,9 +353,8 @@ public class SFR_Overview extends AppCompatActivity {
             text1.setText(edit1.getText());*/
 
             {
-                menu.getItem(0).setVisible(false);
-                menu.getItem(1).setVisible(true);
-                plusImage.setVisibility(View.VISIBLE);
+                menu.getItem(1).setVisible(false);
+                menu.getItem(2).setVisible(true);
                 //startActivity(new Intent(SFR_Overview.this, MySFR.class));
             }
             TitleSite.setText(text1.getText().toString());}
@@ -353,8 +362,28 @@ public class SFR_Overview extends AppCompatActivity {
 
             if (id == R.id.eidtPencil) {
                 changeTextToEdit(texts, edits, editLayouts, textLayouts);
-                menu.getItem(1).setVisible(false);
-                menu.getItem(0).setVisible(true);
+                menu.getItem(2).setVisible(false);
+                menu.getItem(1).setVisible(true);
+            }
+
+            if(id == R.id.addOpt){
+                Intent intent = getIntent();
+                overridePendingTransition(0, 0);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                finish();
+                overridePendingTransition(0, 0);
+                if(idName==null){
+                    Cursor cursor = data.getThisID();
+                    if(cursor.getCount()>0){
+                        cursor.moveToNext();}
+                    idName=cursor.getString(0);
+                }
+                data.insertAnOption(idName, null);
+                intent.putExtra("The id", idName);
+                intent.putExtra("From Option", true);
+
+                startActivity(intent);
+
             }
 
             return super.onOptionsItemSelected(item);
@@ -470,43 +499,10 @@ public class SFR_Overview extends AppCompatActivity {
         r8 = (RelativeLayout)findViewById(R.id.RL8);
 
         horizontal = (LinearLayout)findViewById(R.id.LLOV2);
-        plusImage =(ImageView)findViewById(R.id.ivov1);
     }
     public String returnText (EditText edit) {
         String a = edit.getText().toString();
         return a;
-    }
-
-    public void addOption(View view) {
-
-        /*Intent intent = new Intent(SFR_Overview.this, Choice_new.class);
-        if(idName==null){
-            Cursor cursor = data.getThisID();
-            if(cursor.getCount()>0){
-                cursor.moveToNext();}
-            intent.putExtra("The id", cursor.getString(0));
-        }
-        else{intent.putExtra("The id", idName);}
-        startActivity(intent); */
-
-        Intent intent = getIntent();
-        overridePendingTransition(0, 0);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-        finish();
-        overridePendingTransition(0, 0);
-        if(idName==null){
-            Cursor cursor = data.getThisID();
-            if(cursor.getCount()>0){
-                cursor.moveToNext();}
-            idName=cursor.getString(0);
-        }
-        data.insertAnOption(idName, null);
-        intent.putExtra("The id", idName);
-        intent.putExtra("From Option", true);
-
-        startActivity(intent);
-
-
     }
 
     public void addOption(){

@@ -21,6 +21,13 @@
 
     </item>
     <item
+        android:id="@+id/addOpt"
+        android:title="Option"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_add_circle_outline"
+        />
+
+    <item
         android:id="@+id/oursearch"
         android:title="Done"
         app:showAsAction="ifRoom"
@@ -34,4 +41,5 @@
         android:icon="@drawable/ic_create"
         android:visible="false"
         />
+
 </menu>
