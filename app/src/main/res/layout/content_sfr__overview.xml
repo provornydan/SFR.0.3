@@ -32,7 +32,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:id="@+id/LL1.1"
-                    android:visibility="invisible">
+                    android:visibility="visible">
 
                     <EditText
                         android:layout_width="fill_parent"
@@ -54,7 +54,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:id="@+id/LL1.2"
-                    android:visibility="visible">
+                    android:visibility="invisible">
 
                     <TextView
                         android:layout_width="120dp"
@@ -94,7 +94,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:id="@+id/LL2.1"
-                    android:visibility="invisible">
+                    android:visibility="visible">
 
                     <EditText
                         android:layout_width="fill_parent"
@@ -116,7 +116,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:id="@+id/LL2.2"
-                    android:visibility="visible">
+                    android:visibility="invisible">
 
                     <TextView
                         android:layout_width="120dp"
@@ -156,7 +156,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:id="@+id/LL3.1"
-                    android:visibility="invisible">
+                    android:visibility="visible">
 
                     <EditText
                         android:layout_width="fill_parent"
@@ -178,7 +178,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:id="@+id/LL3.2"
-                    android:visibility="visible">
+                    android:visibility="invisible">
 
                     <TextView
                         android:layout_width="120dp"
@@ -218,7 +218,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:id="@+id/LL4.1"
-                    android:visibility="invisible">
+                    android:visibility="visible">
 
                     <EditText
                         android:layout_width="fill_parent"
@@ -240,7 +240,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:id="@+id/LL4.2"
-                    android:visibility="visible">
+                    android:visibility="invisible">
 
                     <TextView
                         android:layout_width="120dp"
@@ -280,7 +280,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:id="@+id/LL5.1"
-                    android:visibility="invisible">
+                    android:visibility="visible">
 
                     <EditText
                         android:layout_width="fill_parent"
@@ -302,7 +302,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:id="@+id/LL5.2"
-                    android:visibility="visible">
+                    android:visibility="invisible">
 
                     <TextView
                         android:layout_width="120dp"
@@ -342,7 +342,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:id="@+id/LL6.1"
-                    android:visibility="invisible">
+                    android:visibility="visible">
 
                     <EditText
                         android:layout_width="fill_parent"
@@ -364,7 +364,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:id="@+id/LL6.2"
-                    android:visibility="visible">
+                    android:visibility="invisible">
 
                     <TextView
                         android:layout_width="120dp"
@@ -404,7 +404,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:id="@+id/LL7.1"
-                    android:visibility="invisible">
+                    android:visibility="visible">
 
                     <EditText
                         android:layout_width="fill_parent"
@@ -426,7 +426,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:id="@+id/LL7.2"
-                    android:visibility="visible">
+                    android:visibility="invisible">
 
                     <TextView
                         android:layout_width="120dp"
@@ -466,7 +466,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:id="@+id/LL8.1"
-                    android:visibility="invisible">
+                    android:visibility="visible">
 
                     <EditText
                         android:layout_width="fill_parent"
@@ -488,7 +488,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:id="@+id/LL8.2"
-                    android:visibility="visible">
+                    android:visibility="invisible">
 
                     <TextView
                         android:layout_width="120dp"
@@ -534,8 +534,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/SVOV2"
-            android:paddingLeft="20dp"
-            android:paddingRight="10dp">
+            android:paddingLeft="20dp">
 
         <RelativeLayout
             android:layout_width="wrap_content"
