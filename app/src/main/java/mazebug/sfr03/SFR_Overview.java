@@ -221,7 +221,7 @@ public class SFR_Overview extends AppCompatActivity {
         scrollOption= (ScrollView)view1.findViewById(R.id.SVO1);
         tvo=(TextView)view1.findViewById(R.id.tvo9);
 
-        optionLayout=(LinearLayout)view1.findViewById(R.id.LLO8);
+       /* optionLayout=(LinearLayout)view1.findViewById(R.id.LLO8);
         optionLayout.setVisibility(View.GONE);
         linearDetails= (LinearLayout)view1.findViewById(R.id.LLO7);
         linearDetails.setOnClickListener(new View.OnClickListener() {
@@ -239,7 +239,7 @@ public class SFR_Overview extends AppCompatActivity {
                     optionLayout.setVisibility(View.GONE);
                 }
             }
-        });
+        }); */
 
         showGeneral();
         tvov.setTextColor(Color.WHITE);

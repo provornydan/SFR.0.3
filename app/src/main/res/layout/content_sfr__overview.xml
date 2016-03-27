@@ -32,7 +32,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:id="@+id/LL1.1"
-                    android:visibility="visible">
+                    android:visibility="invisible">
 
                     <EditText
                         android:layout_width="fill_parent"
@@ -54,7 +54,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:id="@+id/LL1.2"
-                    android:visibility="invisible">
+                    android:visibility="visible">
 
                     <TextView
                         android:layout_width="120dp"
@@ -66,7 +66,8 @@
                         android:layout_marginTop="10dp"
                         android:gravity="left|center"
                         android:layout_marginLeft="15dp"
-                        android:text="Site name:" />
+                        android:text="Site name:"
+                        android:fontFamily="sans-serif-thin" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -78,9 +79,7 @@
                         android:layout_marginTop="10dp"
                         android:gravity="left|center"
                         android:layout_marginRight="5dp"
-                        android:layout_marginLeft="15dp"
-                        android:fontFamily="sans-serif-thin"
-                        android:textStyle="bold" />
+                        android:layout_marginLeft="15dp" />
 
                 </LinearLayout>
 
@@ -95,7 +94,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:id="@+id/LL2.1"
-                    android:visibility="visible">
+                    android:visibility="invisible">
 
                     <EditText
                         android:layout_width="fill_parent"
@@ -117,7 +116,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:id="@+id/LL2.2"
-                    android:visibility="invisible">
+                    android:visibility="visible">
 
                     <TextView
                         android:layout_width="120dp"
@@ -129,7 +128,8 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginLeft="15dp"
                         android:gravity="left|center"
-                        android:text="Search area:" />
+                        android:text="Search area:"
+                        android:fontFamily="sans-serif-thin" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -140,7 +140,6 @@
                         android:textColor="#000000"
                         android:layout_marginTop="10dp"
                         android:layout_marginRight="5dp"
-                        android:fontFamily="sans-serif-thin"
                         android:gravity="left|center"
                         android:layout_marginLeft="15dp" />
 
@@ -157,7 +156,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:id="@+id/LL3.1"
-                    android:visibility="visible">
+                    android:visibility="invisible">
 
                     <EditText
                         android:layout_width="fill_parent"
@@ -179,7 +178,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:id="@+id/LL3.2"
-                    android:visibility="invisible">
+                    android:visibility="visible">
 
                     <TextView
                         android:layout_width="120dp"
@@ -191,7 +190,8 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginLeft="15dp"
                         android:gravity="left|center"
-                        android:text="Owner:" />
+                        android:text="Owner:"
+                        android:fontFamily="sans-serif-thin" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -203,7 +203,6 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginRight="5dp"
                         android:gravity="left|center"
-                        android:fontFamily="sans-serif-thin"
                         android:layout_marginLeft="15dp" />
 
                 </LinearLayout>
@@ -219,7 +218,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:id="@+id/LL4.1"
-                    android:visibility="visible">
+                    android:visibility="invisible">
 
                     <EditText
                         android:layout_width="fill_parent"
@@ -241,7 +240,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:id="@+id/LL4.2"
-                    android:visibility="invisible">
+                    android:visibility="visible">
 
                     <TextView
                         android:layout_width="120dp"
@@ -253,7 +252,8 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginLeft="15dp"
                         android:gravity="left|center"
-                        android:text="CID:" />
+                        android:text="CID:"
+                        android:fontFamily="sans-serif-thin" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -265,7 +265,6 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginRight="5dp"
                         android:gravity="left|center"
-                        android:fontFamily="sans-serif-thin"
                         android:layout_marginLeft="15dp" />
 
                 </LinearLayout>
@@ -281,7 +280,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:id="@+id/LL5.1"
-                    android:visibility="visible">
+                    android:visibility="invisible">
 
                     <EditText
                         android:layout_width="fill_parent"
@@ -303,7 +302,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:id="@+id/LL5.2"
-                    android:visibility="invisible">
+                    android:visibility="visible">
 
                     <TextView
                         android:layout_width="120dp"
@@ -315,7 +314,8 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginLeft="15dp"
                         android:gravity="left|center"
-                        android:text="CSR:" />
+                        android:text="CSR:"
+                        android:fontFamily="sans-serif-thin" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -327,7 +327,6 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginRight="5dp"
                         android:gravity="left|center"
-                        android:fontFamily="sans-serif-thin"
                         android:layout_marginLeft="15dp" />
 
                 </LinearLayout>
@@ -343,7 +342,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:id="@+id/LL6.1"
-                    android:visibility="visible">
+                    android:visibility="invisible">
 
                     <EditText
                         android:layout_width="fill_parent"
@@ -365,7 +364,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:id="@+id/LL6.2"
-                    android:visibility="invisible">
+                    android:visibility="visible">
 
                     <TextView
                         android:layout_width="120dp"
@@ -377,7 +376,8 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginLeft="15dp"
                         android:gravity="left|center"
-                        android:text="Site:" />
+                        android:text="Site:"
+                        android:fontFamily="sans-serif-thin" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -389,7 +389,6 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginRight="5dp"
                         android:gravity="left|center"
-                        android:fontFamily="sans-serif-thin"
                         android:layout_marginLeft="15dp" />
 
                 </LinearLayout>
@@ -405,7 +404,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:id="@+id/LL7.1"
-                    android:visibility="visible">
+                    android:visibility="invisible">
 
                     <EditText
                         android:layout_width="fill_parent"
@@ -427,7 +426,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:id="@+id/LL7.2"
-                    android:visibility="invisible">
+                    android:visibility="visible">
 
                     <TextView
                         android:layout_width="120dp"
@@ -439,7 +438,8 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginLeft="15dp"
                         android:gravity="left|center"
-                        android:text="POW (VF):" />
+                        android:text="POW (VF):"
+                        android:fontFamily="sans-serif-thin" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -451,7 +451,6 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginRight="5dp"
                         android:gravity="left|center"
-                        android:fontFamily="sans-serif-thin"
                         android:layout_marginLeft="15dp" />
 
                 </LinearLayout>
@@ -467,7 +466,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:id="@+id/LL8.1"
-                    android:visibility="visible">
+                    android:visibility="invisible">
 
                     <EditText
                         android:layout_width="fill_parent"
@@ -489,7 +488,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:id="@+id/LL8.2"
-                    android:visibility="invisible">
+                    android:visibility="visible">
 
                     <TextView
                         android:layout_width="120dp"
@@ -501,7 +500,8 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginLeft="15dp"
                         android:gravity="left|center"
-                        android:text="POW (O2):" />
+                        android:text="POW (O2):"
+                        android:fontFamily="sans-serif-thin" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -513,7 +513,6 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginRight="5dp"
                         android:gravity="left|center"
-                        android:fontFamily="sans-serif-thin"
                         android:layout_marginLeft="15dp" />
 
                 </LinearLayout>
@@ -535,7 +534,8 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/SVOV2"
-            android:paddingLeft="40dp">
+            android:paddingLeft="20dp"
+            android:paddingRight="10dp">
 
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -565,16 +565,6 @@
         </RelativeLayout>
 
     </HorizontalScrollView>
-
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:id="@+id/ivov1"
-            android:src="@drawable/ic_add_circle_outline"
-            android:layout_gravity="center_vertical"
-            android:layout_marginTop="5dp"
-            android:clickable="true"
-            android:onClick="addOption" />
 
     </RelativeLayout>
 
