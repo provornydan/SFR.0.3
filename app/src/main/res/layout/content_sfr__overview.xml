@@ -8,7 +8,8 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="mazebug.danuleoshaleosha.SFR_Overview"
     tools:showIn="@layout/activity_sfr__overview"
-    android:background="#ffffff">
+    android:background="#ffffff"
+    android:id="@+id/relMain">
 
     <ScrollView
         android:layout_width="wrap_content"
@@ -534,7 +535,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/SVOV2"
-            android:paddingLeft="20dp">
+            android:paddingLeft="60dp">
 
         <RelativeLayout
             android:layout_width="wrap_content"
