@@ -227,8 +227,6 @@ public class SFR_Overview extends AppCompatActivity {
 
         //sWIPEtEST
         scrollmain.setOnTouchListener(new OnSwipeTouchListener(SFR_Overview.this) {
-            public void onSwipeTop() {
-            }
 
             public void onSwipeRight() {
                 alg = -1;
@@ -271,9 +269,6 @@ public class SFR_Overview extends AppCompatActivity {
                 options.get(alg).setPaintFlags(options.get(alg).getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
             }
 
-            public void onSwipeBottom() {
-            }
-
         });
 
 
@@ -283,9 +278,6 @@ public class SFR_Overview extends AppCompatActivity {
         tvo=(TextView)view1.findViewById(R.id.tvo9);
 
         scrollOption.setOnTouchListener(new OnSwipeTouchListener(SFR_Overview.this) {
-            public void onSwipeTop() {
-            }
-
             public void onSwipeRight() {
 
 
@@ -354,8 +346,6 @@ public class SFR_Overview extends AppCompatActivity {
                 options.get(alg).setPaintFlags(options.get(alg).getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);}
             }
 
-            public void onSwipeBottom() {
-            }
 
         });
 
