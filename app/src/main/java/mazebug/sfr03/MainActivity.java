@@ -55,6 +55,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void signIn(View view){
-        startActivity(new Intent(MainActivity.this, MySFR.class));
+        startActivity(new Intent(MainActivity.this, testMap.class));
     }
 }
