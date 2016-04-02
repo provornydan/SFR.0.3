@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -37,6 +38,7 @@ public class SFR_Overview extends AppCompatActivity {
     String title;
     String idName;
     TextView TitleSite;
+    RelativeLayout relMain;
 
     LinearLayout editLayout1, editLayout2, editLayout3, editLayout4, editLayout5, editLayout6, editLayout7, editLayout8, editLayout9, editLayout10, editLayout11, editLayout12, editLayout13;
     LinearLayout[] editLayouts, secondeditLayouts;
@@ -88,6 +90,7 @@ public class SFR_Overview extends AppCompatActivity {
         tvov =(TextView)findViewById(R.id.tvov1);
         scrollmain=(ScrollView)findViewById(R.id.SVOV1);
         hscroll = (HorizontalScrollView)findViewById(R.id.SVOV2);
+        relMain = (RelativeLayout)findViewById(R.id.relMain);
 
         Intent extras = getIntent();
         extrasBundle = extras.getExtras();
@@ -200,7 +203,9 @@ public class SFR_Overview extends AppCompatActivity {
                         text13.setText(OptionPostCode.get(ord));
 
                         resetColors();
+
                         options.get(ord).setTextColor(Color.WHITE);
+                        options.get(ord).setPaintFlags(options.get(ord).getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
                         alg=ord;
                     }
                 });
@@ -210,18 +215,151 @@ public class SFR_Overview extends AppCompatActivity {
             tvov.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    alg=-1;
                     scrollmain.fullScroll(View.FOCUS_UP);
                     showGeneral();
                     resetColors();
                     tvov.setTextColor(Color.WHITE);
+                    tvov.setPaintFlags(tvov.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
                 }
             });
         }
+
+        //sWIPEtEST
+        scrollmain.setOnTouchListener(new OnSwipeTouchListener(SFR_Overview.this) {
+            public void onSwipeTop() {
+            }
+
+            public void onSwipeRight() {
+                alg = -1;
+                scrollmain.fullScroll(View.FOCUS_UP);
+                showGeneral();
+                resetColors();
+                tvov.setTextColor(Color.WHITE);
+                tvov.setPaintFlags(tvov.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+            }
+
+            public void onSwipeLeft() {
+
+                scrollmain.pageScroll(View.FOCUS_UP);
+                hideGeneral();
+                EditText optionsname = (EditText) view1.findViewById(R.id.eto1);
+                if (alg != -1) {
+                    OptionNames.set(alg, optionsname.getText().toString());
+                    OptionTown.set(alg, edit10.getText().toString());
+                    OptionCounty.set(alg, edit11.getText().toString());
+                    OptionHeight.set(alg, edit12.getText().toString());
+                    OptionPostCode.set(alg, edit13.getText().toString());
+                }
+
+                alg = 0;
+
+                optionsname.setText(OptionNames.get(alg));
+                tvo.setText(OptionNames.get(alg));
+                edit10.setText(OptionTown.get(alg));
+                text10.setText(OptionTown.get(alg));
+                edit11.setText(OptionCounty.get(alg));
+                text11.setText(OptionCounty.get(alg));
+                edit12.setText(OptionHeight.get(alg));
+                text12.setText(OptionHeight.get(alg));
+                edit13.setText(OptionPostCode.get(alg));
+                text13.setText(OptionPostCode.get(alg));
+
+                resetColors();
+
+                options.get(alg).setTextColor(Color.WHITE);
+                options.get(alg).setPaintFlags(options.get(alg).getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+            }
+
+            public void onSwipeBottom() {
+            }
+
+        });
+
 
 
 
         scrollOption= (ScrollView)view1.findViewById(R.id.SVO1);
         tvo=(TextView)view1.findViewById(R.id.tvo9);
+
+        scrollOption.setOnTouchListener(new OnSwipeTouchListener(SFR_Overview.this) {
+            public void onSwipeTop() {
+            }
+
+            public void onSwipeRight() {
+
+
+
+                    scrollmain.pageScroll(View.FOCUS_UP);
+                    hideGeneral();
+                    EditText optionsname = (EditText) view1.findViewById(R.id.eto1);
+                    OptionNames.set(alg, optionsname.getText().toString());
+                    OptionTown.set(alg, edit10.getText().toString());
+                    OptionCounty.set(alg, edit11.getText().toString());
+                    OptionHeight.set(alg, edit12.getText().toString());
+                    OptionPostCode.set(alg, edit13.getText().toString());
+
+                    alg--;
+                    if(alg==-1){
+                        scrollmain.fullScroll(View.FOCUS_UP);
+                        showGeneral();
+                        resetColors();
+                        tvov.setTextColor(Color.WHITE);
+                        tvov.setPaintFlags(tvov.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);}
+                    optionsname.setText(OptionNames.get(alg));
+                    tvo.setText(OptionNames.get(alg));
+                    edit10.setText(OptionTown.get(alg));
+                    text10.setText(OptionTown.get(alg));
+                    edit11.setText(OptionCounty.get(alg));
+                    text11.setText(OptionCounty.get(alg));
+                    edit12.setText(OptionHeight.get(alg));
+                    text12.setText(OptionHeight.get(alg));
+                    edit13.setText(OptionPostCode.get(alg));
+                    text13.setText(OptionPostCode.get(alg));
+
+                    resetColors();
+
+                    options.get(alg).setTextColor(Color.WHITE);
+                    options.get(alg).setPaintFlags(options.get(alg).getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+
+            }
+
+            public void onSwipeLeft() {
+                if(alg<(optionCursor.getCount()));{
+                scrollmain.pageScroll(View.FOCUS_UP);
+                hideGeneral();
+                EditText optionsname = (EditText) view1.findViewById(R.id.eto1);
+                if (alg != -1) {
+                    OptionNames.set(alg, optionsname.getText().toString());
+                    OptionTown.set(alg, edit10.getText().toString());
+                    OptionCounty.set(alg, edit11.getText().toString());
+                    OptionHeight.set(alg, edit12.getText().toString());
+                    OptionPostCode.set(alg, edit13.getText().toString());
+                }
+                alg++;
+                optionsname.setText(OptionNames.get(alg));
+                tvo.setText(OptionNames.get(alg));
+                edit10.setText(OptionTown.get(alg));
+                text10.setText(OptionTown.get(alg));
+                edit11.setText(OptionCounty.get(alg));
+                text11.setText(OptionCounty.get(alg));
+                edit12.setText(OptionHeight.get(alg));
+                text12.setText(OptionHeight.get(alg));
+                edit13.setText(OptionPostCode.get(alg));
+                text13.setText(OptionPostCode.get(alg));
+
+                resetColors();
+
+                options.get(alg).setTextColor(Color.WHITE);
+                options.get(alg).setPaintFlags(options.get(alg).getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);}
+            }
+
+            public void onSwipeBottom() {
+            }
+
+        });
+
+
 
        /* optionLayout=(LinearLayout)view1.findViewById(R.id.LLO8);
         optionLayout.setVisibility(View.GONE);
@@ -245,10 +383,12 @@ public class SFR_Overview extends AppCompatActivity {
 
         showGeneral();
         tvov.setTextColor(Color.WHITE);
+        tvov.setPaintFlags(tvov.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
        if(extrasBundle!=null)   if(extrasBundle.getBoolean("From Option")==true){
             resetColors();
            if(!options.isEmpty()) {
                options.get((options.size() - 1)).setTextColor(Color.WHITE);
+               options.get((options.size() - 1)).setPaintFlags(options.get((options.size() - 1)).getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
                hideGeneral();
                EditText optionsname = (EditText) view1.findViewById(R.id.eto1);
                optionCursor.moveToLast();
@@ -327,6 +467,7 @@ public class SFR_Overview extends AppCompatActivity {
                 Toast.makeText(SFR_Overview.this, "Site added Successfully", Toast.LENGTH_LONG).show();
             else Toast.makeText(SFR_Overview.this, "Failed", Toast.LENGTH_LONG).show();
                 create = false;
+                menu.getItem(0).setVisible(true);
             }
             else{
                 if(extrasBundle!=null)   if(extrasBundle.getBoolean("From Option")==true){   if(alg==-1) alg=0;
@@ -542,7 +683,9 @@ public class SFR_Overview extends AppCompatActivity {
     public void resetColors() {
         for(TextView tv:options){
             tv.setTextColor(Color.parseColor("#999999"));
+            tv.setPaintFlags(0);
         }
         tvov.setTextColor(Color.parseColor("#999999"));
+        tvov.setPaintFlags(0);
     }
 }
