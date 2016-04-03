@@ -11,6 +11,8 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.Map;
+
 public class MainActivity extends AppCompatActivity {
     DatabaseHelper data;
     @Override
@@ -27,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().hide();
-
 
 
     }
@@ -55,6 +56,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void signIn(View view){
-        startActivity(new Intent(MainActivity.this, MapsActivity.class));
+        startActivity(new Intent(MainActivity.this, testMap.class));
     }
 }
