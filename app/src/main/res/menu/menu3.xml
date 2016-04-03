@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="mazebug.sfr03.MainActivity">
     <item
-        android:id="@+id/mysettings"
+        android:id="@+id/mapsettings"
         android:orderInCategory="100"
         android:title="@string/action_settings"
         app:showAsAction="always"
@@ -20,22 +20,16 @@
         </menu>
 
     </item>
-    <item
-        android:id="@+id/addOpt"
-        android:title="Option"
-        app:showAsAction="always"
-        android:icon="@drawable/ic_add_circle_outline"
-        />
 
     <item
-        android:id="@+id/oursearch"
+        android:id="@+id/mapdone"
         android:title="Done"
         app:showAsAction="always"
         android:icon="@drawable/ic_done"
         />
 
     <item
-        android:id="@+id/eidtPencil"
+        android:id="@+id/mapeidt"
         android:title="Edit"
         app:showAsAction="always"
         android:icon="@drawable/ic_create"
