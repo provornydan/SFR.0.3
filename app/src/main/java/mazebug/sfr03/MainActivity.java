@@ -15,6 +15,7 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
     DatabaseHelper data;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -23,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
 
 
         data = new DatabaseHelper(this);
-
 
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -55,7 +55,12 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void signIn(View view){
+    public void signIn(View view) {
         startActivity(new Intent(MainActivity.this, testMap.class));
     }
+
+    public void forgotpass(View view) {
+        startActivity(new Intent(MainActivity.this, forgot_password.class));
+}
+
 }
