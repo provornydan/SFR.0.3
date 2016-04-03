@@ -68,11 +68,11 @@
                 android:id="@+id/bnm1"
                 android:layout_gravity="center_horizontal"
                 android:background="#A32369"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:layout_marginTop="70dp"
                 android:textColor="#ffffff"
                 android:onClick="signIn"
-                android:gravity="center_vertical|center_horizontal" />
+                android:gravity="center" />
 
             <TextView
                 android:layout_width="wrap_content"
