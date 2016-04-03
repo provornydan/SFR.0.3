@@ -14,7 +14,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/SVO1"
-        android:layout_weight="3.42">
+        android:layout_weight="3.42"
+        android:background="#1eeeeeee">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -174,8 +175,8 @@
                         android:layout_height="fill_parent"
                         android:hint="Option name"
                         android:id="@+id/eto1"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginRight="20dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="10dp"
                         android:textColorHint="#999999"
                         android:textColor="#000000"
                         android:visibility="visible"
@@ -200,10 +201,10 @@
                         android:textColor="#000000"
                         android:textSize="20sp"
                         android:text="Option name:"
-                        android:gravity="left|center"
                         android:visibility="visible"
                         android:layout_marginTop="10dp"
-                        android:fontFamily="sans-serif-thin" />
+                        android:fontFamily="sans-serif-thin"
+                        android:gravity="center" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -235,7 +236,7 @@
                     android:id="@+id/ivo2"
                     android:src="@drawable/ic_room_grey"
                     android:layout_marginLeft="20dp"
-                    android:layout_gravity="bottom" />
+                    android:layout_gravity="center_vertical" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -245,8 +246,8 @@
                     android:layout_marginRight="20dp"
                     android:textColor="#000000"
                     android:textSize="20sp"
-                    android:layout_gravity="bottom"
-                    android:fontFamily="sans-serif-thin" />
+                    android:fontFamily="sans-serif-thin"
+                    android:layout_gravity="center_vertical" />
 
             </LinearLayout>
 
@@ -254,7 +255,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/RL1.1"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="10dp">
 
                 <LinearLayout
                     android:orientation="vertical"
@@ -272,8 +275,6 @@
                         android:hint="Town"
                         android:textColorHint="#999999"
                         android:layout_marginTop="10dp"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginRight="15dp"
                         android:gravity="left"
                         android:visibility="visible" />
 
@@ -284,20 +285,24 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:id="@+id/LLO1.2"
-                    android:visibility="invisible">
+                    android:visibility="invisible"
+                    android:background="@drawable/optionborder">
 
                     <TextView
                         android:layout_width="130dp"
-                        android:layout_height="40dp"
+                        android:layout_height="match_parent"
                         android:id="@+id/tvo1.1"
                         android:visibility="visible"
                         android:textSize="20sp"
                         android:textColor="#000000"
-                        android:layout_marginTop="10dp"
                         android:gravity="left|center"
-                        android:layout_marginLeft="15dp"
                         android:text="Town:"
-                        android:fontFamily="sans-serif-thin" />
+                        android:fontFamily="sans-serif-thin"
+                        android:background="#F7F7F7F7"
+                        android:paddingLeft="5dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -306,10 +311,9 @@
                         android:visibility="visible"
                         android:textSize="20sp"
                         android:textColor="#000000"
-                        android:layout_marginTop="10dp"
                         android:gravity="left|center"
                         android:layout_marginRight="15dp"
-                        android:layout_marginLeft="15dp" />
+                        android:paddingLeft="5dp" />
 
                 </LinearLayout>
 
@@ -320,7 +324,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/RL2.1"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="-4dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="10dp">
 
                 <LinearLayout
                     android:orientation="vertical"
@@ -338,8 +344,6 @@
                         android:hint="County"
                         android:textColorHint="#999999"
                         android:layout_marginTop="10dp"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginRight="15dp"
                         android:gravity="left"
                         android:visibility="visible" />
 
@@ -350,20 +354,24 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:id="@+id/LLO2.2"
-                    android:visibility="invisible">
+                    android:visibility="invisible"
+                    android:background="@drawable/optionborder">
 
                     <TextView
                         android:layout_width="130dp"
-                        android:layout_height="40dp"
+                        android:layout_height="match_parent"
                         android:id="@+id/tvo2.1"
                         android:visibility="visible"
                         android:textSize="20sp"
                         android:textColor="#000000"
-                        android:layout_marginTop="10dp"
                         android:gravity="left|center"
-                        android:layout_marginLeft="15dp"
                         android:text="County:"
-                        android:fontFamily="sans-serif-thin" />
+                        android:fontFamily="sans-serif-thin"
+                        android:background="#F7F7F7F7"
+                        android:paddingLeft="5dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -372,10 +380,9 @@
                         android:visibility="visible"
                         android:textSize="20sp"
                         android:textColor="#000000"
-                        android:layout_marginTop="10dp"
                         android:gravity="left|center"
                         android:layout_marginRight="15dp"
-                        android:layout_marginLeft="15dp" />
+                        android:paddingLeft="5dp" />
 
                 </LinearLayout>
 
@@ -386,7 +393,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/RL3.1"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="-4dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="10dp">
 
                 <LinearLayout
                     android:orientation="vertical"
@@ -404,8 +413,6 @@
                         android:hint="Postcode"
                         android:textColorHint="#999999"
                         android:layout_marginTop="10dp"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginRight="15dp"
                         android:gravity="left"
                         android:visibility="visible" />
 
@@ -416,20 +423,24 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:id="@+id/LLO3.2"
-                    android:visibility="invisible">
+                    android:visibility="invisible"
+                    android:background="@drawable/optionborder">
 
                     <TextView
                         android:layout_width="130dp"
-                        android:layout_height="40dp"
+                        android:layout_height="match_parent"
                         android:id="@+id/tvo3.1"
                         android:visibility="visible"
                         android:textSize="20sp"
                         android:textColor="#000000"
-                        android:layout_marginTop="10dp"
                         android:gravity="left|center"
-                        android:layout_marginLeft="15dp"
                         android:text="Postcode:"
-                        android:fontFamily="sans-serif-thin" />
+                        android:fontFamily="sans-serif-thin"
+                        android:background="#F7F7F7F7"
+                        android:paddingLeft="5dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -438,10 +449,9 @@
                         android:visibility="visible"
                         android:textSize="20sp"
                         android:textColor="#000000"
-                        android:layout_marginTop="10dp"
                         android:gravity="left|center"
                         android:layout_marginRight="15dp"
-                        android:layout_marginLeft="15dp" />
+                        android:paddingLeft="5dp" />
 
                 </LinearLayout>
 
@@ -451,7 +461,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/RL4.1"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="-4dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="10dp">
 
                 <LinearLayout
                     android:orientation="vertical"
@@ -469,8 +481,6 @@
                         android:hint="Antena height"
                         android:textColorHint="#999999"
                         android:layout_marginTop="10dp"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginRight="15dp"
                         android:gravity="left"
                         android:visibility="visible" />
 
@@ -481,20 +491,24 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:id="@+id/LLO4.2"
-                    android:visibility="invisible">
+                    android:visibility="invisible"
+                    android:background="@drawable/optionborder">
 
                     <TextView
                         android:layout_width="130dp"
-                        android:layout_height="40dp"
+                        android:layout_height="match_parent"
                         android:id="@+id/tvo4.1"
                         android:visibility="visible"
                         android:textSize="20sp"
                         android:textColor="#000000"
-                        android:layout_marginTop="10dp"
                         android:gravity="left|center"
-                        android:layout_marginLeft="15dp"
                         android:text="Antena height:"
-                        android:fontFamily="sans-serif-thin" />
+                        android:fontFamily="sans-serif-thin"
+                        android:background="#F7F7F7F7"
+                        android:paddingLeft="5dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -503,10 +517,9 @@
                         android:visibility="visible"
                         android:textSize="20sp"
                         android:textColor="#000000"
-                        android:layout_marginTop="10dp"
                         android:gravity="left|center"
                         android:layout_marginRight="15dp"
-                        android:layout_marginLeft="15dp" />
+                        android:paddingLeft="5dp" />
 
                 </LinearLayout>
 
