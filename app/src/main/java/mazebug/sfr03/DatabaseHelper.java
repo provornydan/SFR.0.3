@@ -49,7 +49,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 //        SQLiteDatabase database = this.getWritableDatabase();
         //db.execSQL("create table if not exists " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, Latitude varchar(255) DEFAULT NULL, Longitude varchar(255) DEFAULT NULL, Site_name varchar(255), Supplier varchar(255), Owners varchar(255), CID varchar(255) DEFAULT NULL, CSR varchar(255) DEFAULT NULL, Site varchar(255) DEFAULT NULL, POW_VF varchar(255) DEFAULT NULL, POW_O2 varchar(255) DEFAULT NULL, Searc_Area_Description text, Development_Plan_Details text, Policies_Landuse_Conservation_Designations text,Notes text,  MS6_Forecast_Date date DEFAULT NULL,  Forecast_Rent float DEFAULT NULL,  Final_Assessment_Rank_Proceed_Option int(11) DEFAULT NULL, Date date DEFAULT NULL, Acquisition_Surveyor varchar(255) DEFAULT NULL)");
         db.execSQL("create table if not exists " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, site_name varchar(255), search_area varchar(255), Owners varchar(255), CID varchar(255), CSR varchar(255), Site varchar(255), pow_vf varchar(255), pow_02 varchar(255), addedDate varchar(255) NULL)");
-        db.execSQL("create table if not exists " + OPTION_NAME + " (OPTION_ID INTEGER PRIMARY KEY AUTOINCREMENT, SITE_ID INTEGER, option_name varchar(255), Town varchar(255), County varchar(255), Postcode varchar(255), Antenna_height varchar(255))");
+        db.execSQL("create table if not exists " + OPTION_NAME + " (OPTION_ID INTEGER PRIMARY KEY AUTOINCREMENT, SITE_ID INTEGER, option_name varchar(255), Town varchar(255), County varchar(255), Postcode varchar(255), Antenna_height varchar(255), Latitude varchar(255) DEFAULT NULL, Longitude varchar(255) DEFAULT NULL)");
     }
 
 
@@ -156,9 +156,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public boolean updateCoord(String id, String latitude, String longitude) {
         SQLiteDatabase db=this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(COL_2, latitude);
-        contentValues.put(COL_3, longitude);
-        db.update(TABLE_NAME, contentValues, "ID = ?", new String[]{id});
+        contentValues.put("Latitude", latitude);
+        contentValues.put("Longitude", longitude);
+        db.update(OPTION_NAME, contentValues, "OPTION_ID = ?", new String[]{id});
         return true;
     }
 
@@ -177,7 +177,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public Cursor getAllOptions(String siteID){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res=db.rawQuery("Select OPTION_ID, option_name, Town, County, Postcode, Antenna_height  from "+OPTION_NAME+" where SITE_ID='"+siteID+"'", null);
+        Cursor res=db.rawQuery("Select OPTION_ID, option_name, Town, County, Postcode, Antenna_height, Latitude, Longitude  from "+OPTION_NAME+" where SITE_ID='"+siteID+"'", null);
+        return res;
+    }
+
+    public Cursor getOptionByName(String OptionID){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res=db.rawQuery("Select OPTION_ID, option_name, Town, County, Postcode, Antenna_height, Latitude, Longitude  from "+OPTION_NAME+" where OPTION_ID='"+OptionID+"'", null);
         return res;
     }
 }

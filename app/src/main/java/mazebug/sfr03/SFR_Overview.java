@@ -1,21 +1,31 @@
 package mazebug.sfr03;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Typeface;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
@@ -29,6 +39,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.File;
 import java.util.ArrayList;
 
 public class SFR_Overview extends AppCompatActivity {
@@ -51,6 +62,10 @@ public class SFR_Overview extends AppCompatActivity {
 
 
     LinearLayout horizontal;
+    LinearLayout ll;
+    LinearLayout LLo1;
+    OnSwipeTouchListener onSwipeTouchListener;
+
 
     ArrayList<TextView> options = new ArrayList<>();
     ArrayList<String> OptionNames = new ArrayList<>();
@@ -59,6 +74,8 @@ public class SFR_Overview extends AppCompatActivity {
     ArrayList<String> OptionCounty= new ArrayList<>();
     ArrayList<String> OptionPostCode = new ArrayList<>();
     ArrayList<String> OptionHeight= new ArrayList<>();
+    ArrayList<String> OptionLatitude = new ArrayList<>();
+    ArrayList<String> OptionLongitude = new ArrayList<>();
     TextView tvov, tvo;
     LinearLayout optionLayout, linearDetails;
     Boolean show = true; int n=0;
@@ -72,6 +89,18 @@ public class SFR_Overview extends AppCompatActivity {
 
     int alg = -1;
     Bundle extrasBundle;
+
+    //Declaring for MaPS
+    ImageView locationMarker;
+    TextView textMarker;
+    TextView textLocation;
+
+    //Declaring for Photo
+    public final String APP_TAG = "MyCustomApp";
+    public final static int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 1034;
+    public String photoFileName = "photo4.jpg";
+    public String photoName = "photo3.jpg";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         data = new DatabaseHelper(this);
@@ -86,6 +115,11 @@ public class SFR_Overview extends AppCompatActivity {
         lastChance=(EditText)view1.findViewById(R.id.eto3_1);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        locationMarker = (ImageView)view1.findViewById(R.id.ivo2);
+        textMarker = (TextView)view1.findViewById(R.id.eto2);
+        textLocation = (TextView)view1.findViewById(R.id.eto2);
+
+
 
         tvov =(TextView)findViewById(R.id.tvov1);
         scrollmain=(ScrollView)findViewById(R.id.SVOV1);
@@ -171,6 +205,8 @@ public class SFR_Overview extends AppCompatActivity {
                 OptionCounty.add(optionCursor.getString(3));
                 OptionPostCode.add(optionCursor.getString(4));
                 OptionHeight.add(optionCursor.getString(5));
+                OptionLatitude.add(optionCursor.getString(6));
+                OptionLongitude.add(optionCursor.getString(7));
 
             }
 
@@ -191,6 +227,8 @@ public class SFR_Overview extends AppCompatActivity {
                             OptionPostCode.set(alg, edit13.getText().toString());
                         }
 
+                        textLocation.setText("Location");
+                        locationMarker.setImageResource(R.drawable.ic_action_location);
                         optionsname.setText(OptionNames.get(ord));
                         tvo.setText(OptionNames.get(ord));
                         edit10.setText(OptionTown.get(ord));
@@ -201,6 +239,16 @@ public class SFR_Overview extends AppCompatActivity {
                         text12.setText(OptionHeight.get(ord));
                         edit13.setText(OptionPostCode.get(ord));
                         text13.setText(OptionPostCode.get(ord));
+
+                        try{
+                            if(!OptionLatitude.get(ord).equals(null))
+                            {textLocation.setText(OptionLatitude.get(ord).substring(0,7)+", "+OptionLongitude.get(ord).substring(0,7));
+                            locationMarker.setImageResource(R.drawable.ic_action_location_blue);}
+                        }
+                        catch(Exception e){
+                            textLocation.setText("Location");
+                            locationMarker.setImageResource(R.drawable.ic_action_location);
+                        }
 
                         resetColors();
 
@@ -226,62 +274,20 @@ public class SFR_Overview extends AppCompatActivity {
         }
 
         //sWIPEtEST
-        scrollmain.setOnTouchListener(new OnSwipeTouchListener(SFR_Overview.this) {
-
-            public void onSwipeRight() {
-                alg = -1;
-                scrollmain.fullScroll(View.FOCUS_UP);
-                showGeneral();
-                resetColors();
-                tvov.setTextColor(Color.WHITE);
-                tvov.setPaintFlags(tvov.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-            }
-
-            public void onSwipeLeft() {
-
-                scrollmain.pageScroll(View.FOCUS_UP);
-                hideGeneral();
-                EditText optionsname = (EditText) view1.findViewById(R.id.eto1);
-                if (alg != -1) {
-                    OptionNames.set(alg, optionsname.getText().toString());
-                    OptionTown.set(alg, edit10.getText().toString());
-                    OptionCounty.set(alg, edit11.getText().toString());
-                    OptionHeight.set(alg, edit12.getText().toString());
-                    OptionPostCode.set(alg, edit13.getText().toString());
-                }
-
-                alg = 0;
-
-                optionsname.setText(OptionNames.get(alg));
-                tvo.setText(OptionNames.get(alg));
-                edit10.setText(OptionTown.get(alg));
-                text10.setText(OptionTown.get(alg));
-                edit11.setText(OptionCounty.get(alg));
-                text11.setText(OptionCounty.get(alg));
-                edit12.setText(OptionHeight.get(alg));
-                text12.setText(OptionHeight.get(alg));
-                edit13.setText(OptionPostCode.get(alg));
-                text13.setText(OptionPostCode.get(alg));
-
-                resetColors();
-
-                options.get(alg).setTextColor(Color.WHITE);
-                options.get(alg).setPaintFlags(options.get(alg).getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-            }
-
-        });
-
-
-
-
+        LLo1 = (LinearLayout) view1.findViewById(R.id.LLO1);
         scrollOption= (ScrollView)view1.findViewById(R.id.SVO1);
-        tvo=(TextView)view1.findViewById(R.id.tvo9);
+        onSwipeTouchListener = new OnSwipeTouchListener(SFR_Overview.this) {
 
-        scrollOption.setOnTouchListener(new OnSwipeTouchListener(SFR_Overview.this) {
             public void onSwipeRight() {
 
 
-
+                if (alg == -1) {
+                    scrollmain.fullScroll(View.FOCUS_UP);
+                    showGeneral();
+                    resetColors();
+                    tvov.setTextColor(Color.WHITE);
+                    tvov.setPaintFlags(tvov.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+                } else {
                     scrollmain.pageScroll(View.FOCUS_UP);
                     hideGeneral();
                     EditText optionsname = (EditText) view1.findViewById(R.id.eto1);
@@ -291,13 +297,12 @@ public class SFR_Overview extends AppCompatActivity {
                     OptionHeight.set(alg, edit12.getText().toString());
                     OptionPostCode.set(alg, edit13.getText().toString());
 
+
                     alg--;
-                    if(alg==-1){
-                        scrollmain.fullScroll(View.FOCUS_UP);
-                        showGeneral();
-                        resetColors();
-                        tvov.setTextColor(Color.WHITE);
-                        tvov.setPaintFlags(tvov.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);}
+                    textLocation.setText("Location");
+                    locationMarker.setImageResource(R.drawable.ic_action_location);
+
+
                     optionsname.setText(OptionNames.get(alg));
                     tvo.setText(OptionNames.get(alg));
                     edit10.setText(OptionTown.get(alg));
@@ -309,45 +314,79 @@ public class SFR_Overview extends AppCompatActivity {
                     edit13.setText(OptionPostCode.get(alg));
                     text13.setText(OptionPostCode.get(alg));
 
+                    try {
+
+                        if (OptionLatitude.get(alg) != null) {
+                            textLocation.setText(OptionLatitude.get(alg).substring(0, 7) + ", " + OptionLongitude.get(alg).substring(0, 7));
+                            locationMarker.setImageResource(R.drawable.ic_action_location_blue);
+                        }
+                    } catch (Exception e) {
+                        textLocation.setText("Location");
+                        locationMarker.setImageResource(R.drawable.ic_action_location);
+                    }
+
                     resetColors();
 
                     options.get(alg).setTextColor(Color.WHITE);
                     options.get(alg).setPaintFlags(options.get(alg).getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-
+                }
             }
 
             public void onSwipeLeft() {
-                if(alg<(optionCursor.getCount()));{
-                scrollmain.pageScroll(View.FOCUS_UP);
-                hideGeneral();
-                EditText optionsname = (EditText) view1.findViewById(R.id.eto1);
-                if (alg != -1) {
-                    OptionNames.set(alg, optionsname.getText().toString());
-                    OptionTown.set(alg, edit10.getText().toString());
-                    OptionCounty.set(alg, edit11.getText().toString());
-                    OptionHeight.set(alg, edit12.getText().toString());
-                    OptionPostCode.set(alg, edit13.getText().toString());
-                }
-                alg++;
-                optionsname.setText(OptionNames.get(alg));
-                tvo.setText(OptionNames.get(alg));
-                edit10.setText(OptionTown.get(alg));
-                text10.setText(OptionTown.get(alg));
-                edit11.setText(OptionCounty.get(alg));
-                text11.setText(OptionCounty.get(alg));
-                edit12.setText(OptionHeight.get(alg));
-                text12.setText(OptionHeight.get(alg));
-                edit13.setText(OptionPostCode.get(alg));
-                text13.setText(OptionPostCode.get(alg));
 
-                resetColors();
+                optionCursor.moveToFirst();
+                if (alg < (OptionID.size() - 1)) {
+                    scrollmain.pageScroll(View.FOCUS_UP);
+                    hideGeneral();
+                    EditText optionsname = (EditText) view1.findViewById(R.id.eto1);
+                    if (alg != -1) {
+                        OptionNames.set(alg, optionsname.getText().toString());
+                        OptionTown.set(alg, edit10.getText().toString());
+                        OptionCounty.set(alg, edit11.getText().toString());
+                        OptionHeight.set(alg, edit12.getText().toString());
+                        OptionPostCode.set(alg, edit13.getText().toString());
+                    }
+                    alg++;
+                    optionsname.setText(OptionNames.get(alg));
+                    tvo.setText(OptionNames.get(alg));
 
-                options.get(alg).setTextColor(Color.WHITE);
-                options.get(alg).setPaintFlags(options.get(alg).getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);}
+                    textLocation.setText("Location");
+                    locationMarker.setImageResource(R.drawable.ic_action_location);
+                    edit10.setText(OptionTown.get(alg));
+                    text10.setText(OptionTown.get(alg));
+                    edit11.setText(OptionCounty.get(alg));
+                    text11.setText(OptionCounty.get(alg));
+                    edit12.setText(OptionHeight.get(alg));
+                    text12.setText(OptionHeight.get(alg));
+                    edit13.setText(OptionPostCode.get(alg));
+                    text13.setText(OptionPostCode.get(alg));
+
+                    try {
+                        if (OptionLatitude.get(alg) != null) {
+                            textLocation.setText(OptionLatitude.get(alg).substring(0, 7) + ", " + OptionLongitude.get(alg).substring(0, 7));
+                            locationMarker.setImageResource(R.drawable.ic_action_location_blue);
+                        }
+                    } catch (Exception e) {
+                        textLocation.setText("Location");
+                        locationMarker.setImageResource(R.drawable.ic_action_location);
+                    }
+
+                    resetColors();
+
+                    options.get(alg).setTextColor(Color.WHITE);
+                    options.get(alg).setPaintFlags(options.get(alg).getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);}
             }
 
+        };
 
-        });
+        LLo1.setOnTouchListener(onSwipeTouchListener);
+        ll.setOnTouchListener(onSwipeTouchListener);
+
+
+
+
+        tvo=(TextView)view1.findViewById(R.id.tvo9);
+
 
 
 
@@ -383,11 +422,26 @@ public class SFR_Overview extends AppCompatActivity {
                EditText optionsname = (EditText) view1.findViewById(R.id.eto1);
                optionCursor.moveToLast();
                optionsname.setText(optionCursor.getString(1));
+               textLocation.setText("Location");
+               locationMarker.setImageResource(R.drawable.ic_action_location);
                tvo.setText(optionCursor.getString(1));
                text10.setText(optionCursor.getString(1));
                text11.setText(optionCursor.getString(1));
                text12.setText(optionCursor.getString(1));
                text13.setText(optionCursor.getString(1));
+
+               try{
+               if(OptionLatitude.get(1)!=null){
+                   textLocation.setText(OptionLatitude.get(1).substring(0,7)+", "+OptionLongitude.get(1).substring(0,7));
+                   locationMarker.setImageResource(R.drawable.ic_action_location_blue);
+               }}
+               catch (Exception e){
+                   textLocation.setText("Location");
+                   locationMarker.setImageResource(R.drawable.ic_action_location);
+
+               }
+
+               alg=options.size()-1;
 
 
                options.get((options.size() - 1)).requestFocus();
@@ -401,6 +455,23 @@ public class SFR_Overview extends AppCompatActivity {
            //menu.getItem(0).setVisible(true);
 
         }
+
+        //Find for Maps
+
+
+        View.OnClickListener goToMaps = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SFR_Overview.this, testMap.class);
+                intent.putExtra("Option id", OptionID.get(alg));
+                intent.putExtra("The id", idName);
+                startActivity(intent);
+            }
+        };
+
+        locationMarker.setOnClickListener(goToMaps);
+        textMarker.setOnClickListener(goToMaps);
+        //
 
 
     }
@@ -638,7 +709,7 @@ public class SFR_Overview extends AppCompatActivity {
 
     public void addOption(){
         LayoutInflater inflater = (LayoutInflater)this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        LinearLayout ll =(LinearLayout)findViewById(R.id.LLOV1);
+        ll =(LinearLayout)findViewById(R.id.LLOV1);
         view1 = inflater.inflate(R.layout.content_option, null,false);
         ImageView imageView = (ImageView)view1.findViewById(R.id.ivo1);
         imageView.setBackgroundResource(R.drawable.bible);
@@ -677,5 +748,69 @@ public class SFR_Overview extends AppCompatActivity {
         }
         tvov.setTextColor(Color.parseColor("#999999"));
         tvov.setPaintFlags(0);
+    }
+
+    public void onLaunchCamera(View view) {
+        // create Intent to take a picture and return control to the calling application
+        Intent intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, getPhotoFileUri(photoFileName)); // set the image file name
+
+        // If you call startActivityForResult() using an intent that no app can handle, your app will crash.
+        // So as long as the result is not null, it's safe to use the intent.
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            // Start the image capture intent to take photo
+            startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE) {
+            if (resultCode == RESULT_OK) {
+                Uri takenPhotoUri = getPhotoFileUri(photoFileName);
+                // by this point we have the camera photo on disk
+                Bitmap takenImage = BitmapFactory.decodeFile(takenPhotoUri.getPath());
+                // Load the taken image into a preview
+                ImageView ivPreview = (ImageView) view1.findViewById(R.id.ivo1);
+                Drawable d = new BitmapDrawable(getResources(), takenImage);
+                //ivPreview.setBackground(d);
+                ivPreview.setBackground(d);
+            } else { // Result was a failure
+                Toast.makeText(this, "Picture wasn't taken!", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    // Returns the Uri for a photo stored on disk given the fileName
+    public Uri getPhotoFileUri(String fileName) {
+        // Only continue if the SD Card is mounted
+        if (isExternalStorageAvailable()) {
+            // Get safe storage directory for photos
+            // Use `getExternalFilesDir` on Context to access package-specific directories.
+            // This way, we don't need to request external read/write runtime permissions.
+            File mediaStorageDir = new File(
+                    getExternalFilesDir(Environment.DIRECTORY_PICTURES), APP_TAG);
+
+            // Create the storage directory if it does not exist
+            if (!mediaStorageDir.exists() && !mediaStorageDir.mkdirs()){
+                Log.d(APP_TAG, "failed to create directory");
+            }
+
+            // Return the file target for the photo based on filename
+            return Uri.fromFile(new File(mediaStorageDir.getPath() + File.separator + fileName));
+        }
+        return null;
+    }
+
+    // Returns true if external storage for photos is available
+    private boolean isExternalStorageAvailable() {
+        String state = Environment.getExternalStorageState();
+        return state.equals(Environment.MEDIA_MOUNTED);
+    }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev){
+        onSwipeTouchListener.getGestureDetector().onTouchEvent(ev);
+        return super.dispatchTouchEvent(ev);
     }
 }

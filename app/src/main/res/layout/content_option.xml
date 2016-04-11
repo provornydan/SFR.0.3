@@ -151,7 +151,8 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
-                        android:src="@drawable/ic_camera_alt">
+                        android:src="@drawable/ic_camera_alt"
+                        android:onClick="onLaunchCamera">
                     </android.support.design.widget.FloatingActionButton>
 
                 </LinearLayout>

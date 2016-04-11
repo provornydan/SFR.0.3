@@ -10,20 +10,25 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
     DatabaseHelper data;
-
+    EditText login;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        login = (EditText)findViewById(R.id.etnm1);
+        InputMethodManager imm = (InputMethodManager) getSystemService(this.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(login.getWindowToken(), 0);
 
         data = new DatabaseHelper(this);
+
 
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -55,12 +60,11 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void signIn(View view) {
-        startActivity(new Intent(MainActivity.this, testMap.class));
+    public void signIn(View view){
+        startActivity(new Intent(MainActivity.this, MySFR.class));
     }
 
     public void forgotpass(View view) {
         startActivity(new Intent(MainActivity.this, forgot_password.class));
-}
-
+    }
 }
