@@ -131,7 +131,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/RLO3"
-                android:visibility="visible">
+                android:visibility="gone">
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -301,8 +301,7 @@
                         android:background="#F7F7F7F7"
                         android:paddingLeft="5dp"
                         android:layout_marginLeft="1dp"
-                        android:layout_marginTop="1dp"
-                        android:layout_marginBottom="1dp" />
+                        android:layout_marginTop="1dp" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -369,7 +368,6 @@
                         android:background="#F7F7F7F7"
                         android:paddingLeft="5dp"
                         android:layout_marginTop="1dp"
-                        android:layout_marginBottom="1dp"
                         android:layout_marginLeft="1dp" />
 
                     <TextView
@@ -437,8 +435,7 @@
                         android:background="#F7F7F7F7"
                         android:paddingLeft="5dp"
                         android:layout_marginLeft="1dp"
-                        android:layout_marginTop="1dp"
-                        android:layout_marginBottom="1dp" />
+                        android:layout_marginTop="1dp" />
 
                     <TextView
                         android:layout_width="fill_parent"
