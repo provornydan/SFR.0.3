@@ -131,7 +131,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/RLO3"
-                android:visibility="gone">
+                android:visibility="visible">
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -312,7 +312,8 @@
                         android:textSize="20sp"
                         android:textColor="#999999"
                         android:gravity="left|center"
-                        android:paddingLeft="5dp" />
+                        android:paddingLeft="5dp"
+                        android:layout_marginLeft="5dp" />
 
                 </LinearLayout>
 
@@ -379,7 +380,8 @@
                         android:textSize="20sp"
                         android:textColor="#999999"
                         android:gravity="left|center"
-                        android:paddingLeft="5dp" />
+                        android:paddingLeft="5dp"
+                        android:layout_marginLeft="5dp" />
 
                 </LinearLayout>
 
@@ -446,7 +448,8 @@
                         android:textSize="20sp"
                         android:textColor="#999999"
                         android:gravity="left|center"
-                        android:paddingLeft="5dp" />
+                        android:paddingLeft="5dp"
+                        android:layout_marginLeft="5dp" />
 
                 </LinearLayout>
 
@@ -512,7 +515,8 @@
                         android:textSize="20sp"
                         android:textColor="#999999"
                         android:gravity="left|center"
-                        android:paddingLeft="5dp" />
+                        android:paddingLeft="5dp"
+                        android:layout_marginLeft="5dp" />
 
                 </LinearLayout>
 
