@@ -26,7 +26,10 @@
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/RL1">
+                android:id="@+id/RL1"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp">
 
                 <LinearLayout
                     android:orientation="vertical"
@@ -44,8 +47,6 @@
                         android:hint="Site name"
                         android:textColorHint="#a6a6a6"
                         android:layout_marginTop="10dp"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginRight="15dp"
                         android:gravity="left" />
 
                 </LinearLayout>
@@ -55,20 +56,23 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:id="@+id/LL1.2"
-                    android:visibility="invisible">
+                    android:visibility="invisible"
+                    android:background="@drawable/optionborder">
 
                     <TextView
                         android:layout_width="120dp"
-                        android:layout_height="40dp"
+                        android:layout_height="match_parent"
                         android:id="@+id/tvov1.1"
                         android:visibility="visible"
                         android:textSize="20sp"
                         android:textColor="#000000"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="1dp"
                         android:gravity="left|center"
-                        android:layout_marginLeft="15dp"
+                        android:layout_marginLeft="1dp"
                         android:text="Site name:"
-                        android:fontFamily="sans-serif-thin" />
+                        android:background="#F7F7F7F7"
+                        android:paddingLeft="5dp"
+                        android:layout_marginBottom="1dp" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -76,11 +80,8 @@
                         android:id="@+id/tvov1.2"
                         android:visibility="visible"
                         android:textSize="20sp"
-                        android:textColor="#000000"
-                        android:layout_marginTop="10dp"
-                        android:gravity="left|center"
-                        android:layout_marginRight="5dp"
-                        android:layout_marginLeft="15dp" />
+                        android:textColor="#999999"
+                        android:gravity="left|center" />
 
                 </LinearLayout>
 
@@ -89,7 +90,10 @@
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/RL2">
+                android:id="@+id/RL2"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="-6dp"
+                android:layout_marginRight="10dp">
 
                 <LinearLayout
                     android:layout_width="fill_parent"
@@ -107,8 +111,6 @@
                         android:hint="Search area"
                         android:textColorHint="#a6a6a6"
                         android:layout_marginTop="10dp"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginRight="15dp"
                         android:gravity="left" />
 
                 </LinearLayout>
@@ -117,20 +119,23 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:id="@+id/LL2.2"
-                    android:visibility="invisible">
+                    android:visibility="invisible"
+                    android:background="@drawable/optionborder">
 
                     <TextView
                         android:layout_width="120dp"
-                        android:layout_height="40dp"
+                        android:layout_height="match_parent"
                         android:id="@+id/tvov2.1"
                         android:visibility="visible"
                         android:textSize="20sp"
                         android:textColor="#000000"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginLeft="1dp"
                         android:gravity="left|center"
                         android:text="Search area:"
-                        android:fontFamily="sans-serif-thin" />
+                        android:background="#F7F7F7F7"
+                        android:paddingLeft="5dp"
+                        android:layout_marginBottom="1dp" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -138,11 +143,8 @@
                         android:id="@+id/tvov2.2"
                         android:visibility="visible"
                         android:textSize="20sp"
-                        android:textColor="#000000"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="5dp"
                         android:gravity="left|center"
-                        android:layout_marginLeft="15dp" />
+                        android:textColor="#999999" />
 
                 </LinearLayout>
 
@@ -151,7 +153,10 @@
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/RL3">
+                android:id="@+id/RL3"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="-6dp"
+                android:layout_marginRight="10dp">
 
                 <LinearLayout
                     android:layout_width="fill_parent"
@@ -169,8 +174,6 @@
                         android:textColor="#000000"
                         android:hint="Owner"
                         android:layout_marginTop="10dp"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginRight="15dp"
                         android:gravity="left" />
 
                 </LinearLayout>
@@ -179,20 +182,23 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:id="@+id/LL3.2"
-                    android:visibility="invisible">
+                    android:visibility="invisible"
+                    android:background="@drawable/optionborder">
 
                     <TextView
                         android:layout_width="120dp"
-                        android:layout_height="40dp"
+                        android:layout_height="match_parent"
                         android:id="@+id/tvov3.1"
                         android:visibility="visible"
                         android:textSize="20sp"
                         android:textColor="#000000"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginLeft="1dp"
                         android:gravity="left|center"
                         android:text="Owner:"
-                        android:fontFamily="sans-serif-thin" />
+                        android:background="#F7F7F7F7"
+                        android:paddingLeft="5dp"
+                        android:layout_marginBottom="1dp" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -200,11 +206,8 @@
                         android:id="@+id/tvov3.2"
                         android:visibility="visible"
                         android:textSize="20sp"
-                        android:textColor="#000000"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="5dp"
-                        android:gravity="left|center"
-                        android:layout_marginLeft="15dp" />
+                        android:textColor="#999999"
+                        android:gravity="left|center" />
 
                 </LinearLayout>
 
@@ -213,7 +216,10 @@
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/RL4">
+                android:id="@+id/RL4"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="-6dp"
+                android:layout_marginRight="10dp">
 
                 <LinearLayout
                     android:layout_width="fill_parent"
@@ -231,8 +237,6 @@
                         android:hint="CID"
                         android:textColorHint="#a6a6a6"
                         android:layout_marginTop="10dp"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginRight="15dp"
                         android:gravity="left" />
 
                 </LinearLayout>
@@ -241,20 +245,23 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:id="@+id/LL4.2"
-                    android:visibility="invisible">
+                    android:visibility="invisible"
+                    android:background="@drawable/optionborder">
 
                     <TextView
                         android:layout_width="120dp"
-                        android:layout_height="40dp"
+                        android:layout_height="match_parent"
                         android:id="@+id/tvov4.1"
                         android:visibility="visible"
                         android:textSize="20sp"
                         android:textColor="#000000"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginLeft="1dp"
                         android:gravity="left|center"
                         android:text="CID:"
-                        android:fontFamily="sans-serif-thin" />
+                        android:background="#F7F7F7F7"
+                        android:paddingLeft="5dp"
+                        android:layout_marginBottom="1dp" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -262,11 +269,8 @@
                         android:id="@+id/tvov4.2"
                         android:visibility="visible"
                         android:textSize="20sp"
-                        android:textColor="#000000"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="5dp"
-                        android:gravity="left|center"
-                        android:layout_marginLeft="15dp" />
+                        android:textColor="#999999"
+                        android:gravity="left|center" />
 
                 </LinearLayout>
 
@@ -275,7 +279,10 @@
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/RL5">
+                android:id="@+id/RL5"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="-6dp"
+                android:layout_marginRight="10dp">
 
                 <LinearLayout
                     android:layout_width="fill_parent"
@@ -293,8 +300,6 @@
                         android:hint="CSR"
                         android:textColorHint="#a6a6a6"
                         android:layout_marginTop="10dp"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginRight="15dp"
                         android:gravity="left" />
 
                 </LinearLayout>
@@ -303,20 +308,23 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:id="@+id/LL5.2"
-                    android:visibility="invisible">
+                    android:visibility="invisible"
+                    android:background="@drawable/optionborder">
 
                     <TextView
                         android:layout_width="120dp"
-                        android:layout_height="40dp"
+                        android:layout_height="match_parent"
                         android:id="@+id/tvov5.1"
                         android:visibility="visible"
                         android:textSize="20sp"
                         android:textColor="#000000"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginLeft="1dp"
                         android:gravity="left|center"
                         android:text="CSR:"
-                        android:fontFamily="sans-serif-thin" />
+                        android:background="#F7F7F7F7"
+                        android:paddingLeft="5dp"
+                        android:layout_marginBottom="1dp" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -324,11 +332,8 @@
                         android:id="@+id/tvov5.2"
                         android:visibility="visible"
                         android:textSize="20sp"
-                        android:textColor="#000000"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="5dp"
-                        android:gravity="left|center"
-                        android:layout_marginLeft="15dp" />
+                        android:textColor="#999999"
+                        android:gravity="left|center" />
 
                 </LinearLayout>
 
@@ -337,7 +342,10 @@
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/RL6">
+                android:id="@+id/RL6"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="-6dp"
+                android:layout_marginRight="10dp">
 
                 <LinearLayout
                     android:layout_width="fill_parent"
@@ -355,8 +363,6 @@
                         android:hint="Site"
                         android:textColorHint="#a6a6a6"
                         android:layout_marginTop="10dp"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginRight="15dp"
                         android:gravity="left" />
 
                 </LinearLayout>
@@ -365,20 +371,23 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:id="@+id/LL6.2"
-                    android:visibility="invisible">
+                    android:visibility="invisible"
+                    android:background="@drawable/optionborder">
 
                     <TextView
                         android:layout_width="120dp"
-                        android:layout_height="40dp"
+                        android:layout_height="match_parent"
                         android:id="@+id/tvov6.1"
                         android:visibility="visible"
                         android:textSize="20sp"
                         android:textColor="#000000"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginLeft="1dp"
                         android:gravity="left|center"
                         android:text="Site:"
-                        android:fontFamily="sans-serif-thin" />
+                        android:background="#F7F7F7F7"
+                        android:paddingLeft="5dp"
+                        android:layout_marginBottom="1dp" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -386,11 +395,8 @@
                         android:id="@+id/tvov6.2"
                         android:visibility="visible"
                         android:textSize="20sp"
-                        android:textColor="#000000"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="5dp"
-                        android:gravity="left|center"
-                        android:layout_marginLeft="15dp" />
+                        android:textColor="#999999"
+                        android:gravity="left|center" />
 
                 </LinearLayout>
 
@@ -399,7 +405,10 @@
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/RL7">
+                android:id="@+id/RL7"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="-6dp"
+                android:layout_marginRight="10dp">
 
                 <LinearLayout
                     android:layout_width="fill_parent"
@@ -417,8 +426,6 @@
                         android:hint="POV (VF)"
                         android:textColorHint="#a6a6a6"
                         android:layout_marginTop="10dp"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginRight="15dp"
                         android:gravity="left" />
 
                 </LinearLayout>
@@ -427,20 +434,23 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:id="@+id/LL7.2"
-                    android:visibility="invisible">
+                    android:visibility="invisible"
+                    android:background="@drawable/optionborder">
 
                     <TextView
                         android:layout_width="120dp"
-                        android:layout_height="40dp"
+                        android:layout_height="match_parent"
                         android:id="@+id/tvov7.1"
                         android:visibility="visible"
                         android:textSize="20sp"
                         android:textColor="#000000"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginLeft="1dp"
                         android:gravity="left|center"
                         android:text="POW (VF):"
-                        android:fontFamily="sans-serif-thin" />
+                        android:background="#F7F7F7F7"
+                        android:paddingLeft="5dp"
+                        android:layout_marginBottom="1dp" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -448,11 +458,8 @@
                         android:id="@+id/tvov7.2"
                         android:visibility="visible"
                         android:textSize="20sp"
-                        android:textColor="#000000"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="5dp"
-                        android:gravity="left|center"
-                        android:layout_marginLeft="15dp" />
+                        android:textColor="#999999"
+                        android:gravity="left|center" />
 
                 </LinearLayout>
 
@@ -461,7 +468,10 @@
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/RL8">
+                android:id="@+id/RL8"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="-6dp"
+                android:layout_marginRight="10dp">
 
                 <LinearLayout
                     android:layout_width="fill_parent"
@@ -479,8 +489,6 @@
                         android:hint="POV (O2)"
                         android:textColorHint="#a6a6a6"
                         android:layout_marginTop="10dp"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginRight="15dp"
                         android:gravity="left" />
 
                 </LinearLayout>
@@ -489,20 +497,23 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:id="@+id/LL8.2"
-                    android:visibility="invisible">
+                    android:visibility="invisible"
+                    android:background="@drawable/optionborder">
 
                     <TextView
                         android:layout_width="120dp"
-                        android:layout_height="40dp"
+                        android:layout_height="match_parent"
                         android:id="@+id/tvov8.1"
                         android:visibility="visible"
                         android:textSize="20sp"
                         android:textColor="#000000"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginLeft="1dp"
                         android:gravity="left|center"
                         android:text="POW (O2):"
-                        android:fontFamily="sans-serif-thin" />
+                        android:background="#F7F7F7F7"
+                        android:paddingLeft="5dp"
+                        android:layout_marginBottom="1dp" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -510,11 +521,8 @@
                         android:id="@+id/tvov8.2"
                         android:visibility="visible"
                         android:textSize="20sp"
-                        android:textColor="#000000"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="5dp"
-                        android:gravity="left|center"
-                        android:layout_marginLeft="15dp" />
+                        android:textColor="#999999"
+                        android:gravity="left|center" />
 
                 </LinearLayout>
 
@@ -535,7 +543,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/SVOV2"
-            android:paddingLeft="20dp">
+            android:paddingLeft="10dp">
 
         <RelativeLayout
             android:layout_width="wrap_content"

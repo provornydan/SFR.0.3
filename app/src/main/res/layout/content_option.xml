@@ -131,7 +131,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/RLO3"
-                android:visibility="visible">
+                android:visibility="gone">
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -257,7 +257,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/RL1.1"
                 android:layout_marginTop="20dp"
-                android:layout_marginLeft="15dp"
+                android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp">
 
                 <LinearLayout
@@ -290,7 +290,7 @@
                     android:background="@drawable/optionborder">
 
                     <TextView
-                        android:layout_width="130dp"
+                        android:layout_width="140dp"
                         android:layout_height="match_parent"
                         android:id="@+id/tvo1.1"
                         android:visibility="visible"
@@ -298,7 +298,6 @@
                         android:textColor="#000000"
                         android:gravity="left|center"
                         android:text="Town:"
-                        android:fontFamily="sans-serif-thin"
                         android:background="#F7F7F7F7"
                         android:paddingLeft="5dp"
                         android:layout_marginLeft="1dp"
@@ -311,9 +310,8 @@
                         android:id="@+id/tvo1.2"
                         android:visibility="visible"
                         android:textSize="20sp"
-                        android:textColor="#000000"
+                        android:textColor="#999999"
                         android:gravity="left|center"
-                        android:layout_marginRight="15dp"
                         android:paddingLeft="5dp" />
 
                 </LinearLayout>
@@ -325,8 +323,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/RL2.1"
-                android:layout_marginTop="-4dp"
-                android:layout_marginLeft="15dp"
+                android:layout_marginTop="-6dp"
+                android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp">
 
                 <LinearLayout
@@ -359,7 +357,7 @@
                     android:background="@drawable/optionborder">
 
                     <TextView
-                        android:layout_width="130dp"
+                        android:layout_width="140dp"
                         android:layout_height="match_parent"
                         android:id="@+id/tvo2.1"
                         android:visibility="visible"
@@ -367,7 +365,6 @@
                         android:textColor="#000000"
                         android:gravity="left|center"
                         android:text="County:"
-                        android:fontFamily="sans-serif-thin"
                         android:background="#F7F7F7F7"
                         android:paddingLeft="5dp"
                         android:layout_marginTop="1dp"
@@ -380,9 +377,8 @@
                         android:id="@+id/tvo2.2"
                         android:visibility="visible"
                         android:textSize="20sp"
-                        android:textColor="#000000"
+                        android:textColor="#999999"
                         android:gravity="left|center"
-                        android:layout_marginRight="15dp"
                         android:paddingLeft="5dp" />
 
                 </LinearLayout>
@@ -394,8 +390,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/RL3.1"
-                android:layout_marginTop="-4dp"
-                android:layout_marginLeft="15dp"
+                android:layout_marginTop="-6dp"
+                android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp">
 
                 <LinearLayout
@@ -428,7 +424,7 @@
                     android:background="@drawable/optionborder">
 
                     <TextView
-                        android:layout_width="130dp"
+                        android:layout_width="140dp"
                         android:layout_height="match_parent"
                         android:id="@+id/tvo3.1"
                         android:visibility="visible"
@@ -436,7 +432,6 @@
                         android:textColor="#000000"
                         android:gravity="left|center"
                         android:text="Postcode:"
-                        android:fontFamily="sans-serif-thin"
                         android:background="#F7F7F7F7"
                         android:paddingLeft="5dp"
                         android:layout_marginLeft="1dp"
@@ -449,9 +444,8 @@
                         android:id="@+id/tvo3.2"
                         android:visibility="visible"
                         android:textSize="20sp"
-                        android:textColor="#000000"
+                        android:textColor="#999999"
                         android:gravity="left|center"
-                        android:layout_marginRight="15dp"
                         android:paddingLeft="5dp" />
 
                 </LinearLayout>
@@ -462,8 +456,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/RL4.1"
-                android:layout_marginTop="-4dp"
-                android:layout_marginLeft="15dp"
+                android:layout_marginTop="-6dp"
+                android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp">
 
                 <LinearLayout
@@ -496,7 +490,7 @@
                     android:background="@drawable/optionborder">
 
                     <TextView
-                        android:layout_width="130dp"
+                        android:layout_width="140dp"
                         android:layout_height="match_parent"
                         android:id="@+id/tvo4.1"
                         android:visibility="visible"
@@ -504,7 +498,6 @@
                         android:textColor="#000000"
                         android:gravity="left|center"
                         android:text="Antena height:"
-                        android:fontFamily="sans-serif-thin"
                         android:background="#F7F7F7F7"
                         android:paddingLeft="5dp"
                         android:layout_marginLeft="1dp"
@@ -517,9 +510,8 @@
                         android:id="@+id/tvo4.2"
                         android:visibility="visible"
                         android:textSize="20sp"
-                        android:textColor="#000000"
+                        android:textColor="#999999"
                         android:gravity="left|center"
-                        android:layout_marginRight="15dp"
                         android:paddingLeft="5dp" />
 
                 </LinearLayout>
