@@ -136,9 +136,9 @@
 
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="325dp"
+                    android:layout_height="320dp"
                     android:id="@+id/ivo1"
-                    android:layout_marginBottom="70dp" />
+                    android:layout_marginBottom="60dp" />
 
                 <LinearLayout
                     android:layout_width="fill_parent"
@@ -231,7 +231,7 @@
                         android:id="@+id/tvo8"
                         android:layout_marginLeft="1dp"
                         android:textColor="#000000"
-                        android:textSize="20sp"
+                        android:textSize="15sp"
                         android:text="Option name:"
                         android:visibility="visible"
                         android:layout_marginTop="1dp"
@@ -296,7 +296,7 @@
                         android:layout_height="match_parent"
                         android:id="@+id/tvo1.1"
                         android:visibility="visible"
-                        android:textSize="20sp"
+                        android:textSize="15sp"
                         android:textColor="#000000"
                         android:gravity="left|center"
                         android:text="Town:"
@@ -364,7 +364,7 @@
                         android:layout_height="match_parent"
                         android:id="@+id/tvo2.1"
                         android:visibility="visible"
-                        android:textSize="20sp"
+                        android:textSize="15sp"
                         android:textColor="#000000"
                         android:gravity="left|center"
                         android:text="County:"
@@ -432,7 +432,7 @@
                         android:layout_height="match_parent"
                         android:id="@+id/tvo3.1"
                         android:visibility="visible"
-                        android:textSize="20sp"
+                        android:textSize="15sp"
                         android:textColor="#000000"
                         android:gravity="left|center"
                         android:text="Postcode:"
@@ -499,7 +499,7 @@
                         android:layout_height="match_parent"
                         android:id="@+id/tvo4.1"
                         android:visibility="visible"
-                        android:textSize="20sp"
+                        android:textSize="15sp"
                         android:textColor="#000000"
                         android:gravity="left|center"
                         android:text="Antena height:"
