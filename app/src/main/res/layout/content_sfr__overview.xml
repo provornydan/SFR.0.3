@@ -15,7 +15,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/SVOV1"
-        android:layout_below="@+id/RLOV1">
+        android:layout_below="@+id/RLOV1"
+        android:background="#e8e8e8">
 
         <LinearLayout
             android:orientation="vertical"
@@ -70,7 +71,7 @@
                         android:gravity="left|center"
                         android:layout_marginLeft="1dp"
                         android:text="Site name:"
-                        android:background="#F7F7F7F7"
+                        android:background="#c8ededed"
                         android:paddingLeft="5dp"
                         android:layout_marginBottom="1dp" />
 
@@ -134,7 +135,7 @@
                         android:layout_marginLeft="1dp"
                         android:gravity="left|center"
                         android:text="Search area:"
-                        android:background="#F7F7F7F7"
+                        android:background="#c8ededed"
                         android:paddingLeft="5dp"
                         android:layout_marginBottom="1dp" />
 
@@ -198,7 +199,7 @@
                         android:layout_marginLeft="1dp"
                         android:gravity="left|center"
                         android:text="Owner:"
-                        android:background="#F7F7F7F7"
+                        android:background="#c8ededed"
                         android:paddingLeft="5dp"
                         android:layout_marginBottom="1dp" />
 
@@ -262,7 +263,7 @@
                         android:layout_marginLeft="1dp"
                         android:gravity="left|center"
                         android:text="CID:"
-                        android:background="#F7F7F7F7"
+                        android:background="#c8ededed"
                         android:paddingLeft="5dp"
                         android:layout_marginBottom="1dp" />
 
@@ -326,7 +327,7 @@
                         android:layout_marginLeft="1dp"
                         android:gravity="left|center"
                         android:text="CSR:"
-                        android:background="#F7F7F7F7"
+                        android:background="#c8ededed"
                         android:paddingLeft="5dp"
                         android:layout_marginBottom="1dp" />
 
@@ -390,7 +391,7 @@
                         android:layout_marginLeft="1dp"
                         android:gravity="left|center"
                         android:text="Site:"
-                        android:background="#F7F7F7F7"
+                        android:background="#c8ededed"
                         android:paddingLeft="5dp"
                         android:layout_marginBottom="1dp" />
 
@@ -454,7 +455,7 @@
                         android:layout_marginLeft="1dp"
                         android:gravity="left|center"
                         android:text="POW (VF):"
-                        android:background="#F7F7F7F7"
+                        android:background="#c8ededed"
                         android:paddingLeft="5dp"
                         android:layout_marginBottom="1dp" />
 
@@ -518,7 +519,7 @@
                         android:layout_marginLeft="1dp"
                         android:gravity="left|center"
                         android:text="POW (O2):"
-                        android:background="#F7F7F7F7"
+                        android:background="#c8ededed"
                         android:paddingLeft="5dp"
                         android:layout_marginBottom="1dp" />
 
