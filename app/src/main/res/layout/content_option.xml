@@ -22,7 +22,8 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:id="@+id/LLO1"
-            android:weightSum="1">
+            android:weightSum="1"
+            android:background="#e8e8e8">
 
             <RelativeLayout
                 android:layout_width="wrap_content"
@@ -137,7 +138,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="300dp"
                     android:id="@+id/ivo1"
-                    android:layout_marginBottom="65dp" />
+                    android:layout_marginBottom="45dp" />
 
                 <LinearLayout
                     android:layout_width="fill_parent"
@@ -182,8 +183,9 @@
                     android:id="@+id/eto2"
                     android:layout_marginRight="20dp"
                     android:textColor="#000000"
-                    android:textSize="20sp"
-                    android:layout_gravity="center_vertical" />
+                    android:textSize="25sp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="15dp" />
 
             </LinearLayout>
 
@@ -235,7 +237,7 @@
                         android:visibility="visible"
                         android:layout_marginTop="1dp"
                         android:gravity="left|center"
-                        android:background="#F7F7F7F7"
+                        android:background="#c8ededed"
                         android:paddingLeft="5dp"
                         android:layout_marginBottom="1dp" />
 
@@ -244,7 +246,7 @@
                         android:layout_height="40dp"
                         android:id="@+id/tvo9"
                         android:layout_marginLeft="5dp"
-                        android:textColor="#000000"
+                        android:textColor="#999999"
                         android:textSize="20sp"
                         android:gravity="left|center"
                         android:visibility="visible" />
@@ -299,7 +301,7 @@
                         android:textColor="#000000"
                         android:gravity="left|center"
                         android:text="Town:"
-                        android:background="#F7F7F7F7"
+                        android:background="#c8ededed"
                         android:paddingLeft="5dp"
                         android:layout_marginLeft="1dp"
                         android:layout_marginTop="1dp"
@@ -367,7 +369,7 @@
                         android:textColor="#000000"
                         android:gravity="left|center"
                         android:text="County:"
-                        android:background="#F7F7F7F7"
+                        android:background="#c8ededed"
                         android:paddingLeft="5dp"
                         android:layout_marginTop="1dp"
                         android:layout_marginLeft="1dp"
@@ -435,7 +437,7 @@
                         android:textColor="#000000"
                         android:gravity="left|center"
                         android:text="Postcode:"
-                        android:background="#F7F7F7F7"
+                        android:background="#c8ededed"
                         android:paddingLeft="5dp"
                         android:layout_marginLeft="1dp"
                         android:layout_marginTop="1dp"
@@ -502,7 +504,7 @@
                         android:textColor="#000000"
                         android:gravity="left|center"
                         android:text="Antena height:"
-                        android:background="#F7F7F7F7"
+                        android:background="#c8ededed"
                         android:paddingLeft="5dp"
                         android:layout_marginLeft="1dp"
                         android:layout_marginTop="1dp"

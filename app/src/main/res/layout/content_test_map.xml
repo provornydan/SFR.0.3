@@ -14,7 +14,9 @@
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="fill_parent"
         android:layout_height="match_parent"
-        tools:context="mazebug.sfr03.Maps_SFR" />
+        tools:context="mazebug.sfr03.Maps_SFR"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="fill_parent"
