@@ -14,6 +14,7 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
 import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -254,6 +255,17 @@ public class SFR_Overview extends AppCompatActivity {
 
                         options.get(ord).setTextColor(Color.WHITE);
                         options.get(ord).setPaintFlags(options.get(ord).getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+                        new Handler().post(new Runnable() {
+                            @Override
+                            public void run() {
+                                int vLeft = hscroll.getLeft();
+                                int vRight = options.get(ord).getLeft();
+                                //int sWidth = scroll.getWidth();
+                                if(alg<=2) hscroll.fullScroll(View.FOCUS_LEFT);
+
+
+                            }
+                        });
                         alg=ord;
                     }
                 });
@@ -279,25 +291,22 @@ public class SFR_Overview extends AppCompatActivity {
         onSwipeTouchListener = new OnSwipeTouchListener(SFR_Overview.this) {
 
             public void onSwipeRight() {
-
-
-                if (alg == -1) {
+                EditText optionsname = (EditText) view1.findViewById(R.id.eto1);
+                if(alg!=-1){scrollmain.pageScroll(View.FOCUS_UP);
+                hideGeneral();
+                OptionNames.set(alg, optionsname.getText().toString());
+                OptionTown.set(alg, edit10.getText().toString());
+                OptionCounty.set(alg, edit11.getText().toString());
+                OptionHeight.set(alg, edit12.getText().toString());
+                OptionPostCode.set(alg, edit13.getText().toString());}
+                if (alg == 0) {
+                    alg--;
                     scrollmain.fullScroll(View.FOCUS_UP);
                     showGeneral();
                     resetColors();
                     tvov.setTextColor(Color.WHITE);
                     tvov.setPaintFlags(tvov.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-                } else {
-                    scrollmain.pageScroll(View.FOCUS_UP);
-                    hideGeneral();
-                    EditText optionsname = (EditText) view1.findViewById(R.id.eto1);
-                    OptionNames.set(alg, optionsname.getText().toString());
-                    OptionTown.set(alg, edit10.getText().toString());
-                    OptionCounty.set(alg, edit11.getText().toString());
-                    OptionHeight.set(alg, edit12.getText().toString());
-                    OptionPostCode.set(alg, edit13.getText().toString());
-
-
+                } else if (alg!=-1){
                     alg--;
                     textLocation.setText("Location");
                     locationMarker.setImageResource(R.drawable.ic_action_location);
@@ -329,6 +338,17 @@ public class SFR_Overview extends AppCompatActivity {
 
                     options.get(alg).setTextColor(Color.WHITE);
                     options.get(alg).setPaintFlags(options.get(alg).getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+                    new Handler().post(new Runnable() {
+                        @Override
+                        public void run() {
+                            int vLeft = hscroll.getLeft();
+                            int vRight = options.get(alg).getLeft();
+                            //int sWidth = scroll.getWidth();
+                            if(alg<=3) hscroll.fullScroll(View.FOCUS_LEFT);
+                            else hscroll.smoothScrollTo((vRight), 0);
+                        }
+                    });
+
                 }
             }
 
@@ -374,7 +394,18 @@ public class SFR_Overview extends AppCompatActivity {
                     resetColors();
 
                     options.get(alg).setTextColor(Color.WHITE);
-                    options.get(alg).setPaintFlags(options.get(alg).getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);}
+                    options.get(alg).setPaintFlags(options.get(alg).getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+                    new Handler().post(new Runnable() {
+                        @Override
+                        public void run() {
+                            int vLeft = hscroll.getLeft();
+                            int vRight = options.get(alg).getLeft();
+                            //int sWidth = scroll.getWidth();
+                            if((alg>=3))  hscroll.smoothScrollTo((vRight), 0);
+                        }
+                    });
+
+                }
             }
 
         };
@@ -413,11 +444,21 @@ public class SFR_Overview extends AppCompatActivity {
         showGeneral();
         tvov.setTextColor(Color.WHITE);
         tvov.setPaintFlags(tvov.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-       if(extrasBundle!=null)   if(extrasBundle.getBoolean("From Option")==true){
+        if (extrasBundle != null) if (extrasBundle.getBoolean("From Option")==true){
             resetColors();
            if(!options.isEmpty()) {
                options.get((options.size() - 1)).setTextColor(Color.WHITE);
                options.get((options.size() - 1)).setPaintFlags(options.get((options.size() - 1)).getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+               new Handler().post(new Runnable() {
+                   @Override
+                   public void run() {
+                       int vLeft = hscroll.getLeft();
+                       int vRight = options.get((options.size()-1)).getLeft();
+                       //int sWidth = scroll.getWidth();
+                       if(options.size()==1) hscroll.fullScroll(View.FOCUS_LEFT);
+                       //hscroll.smoothScrollTo((vRight), 0);
+                   }
+               });
                hideGeneral();
                EditText optionsname = (EditText) view1.findViewById(R.id.eto1);
                optionCursor.moveToLast();
@@ -456,6 +497,49 @@ public class SFR_Overview extends AppCompatActivity {
 
         }
 
+        if (extrasBundle != null) if (extrasBundle.getBoolean("from Maps")==true) {
+            resetColors();
+            alg=extrasBundle.getInt("Option order");
+            if (!options.isEmpty()) {
+                options.get(alg).setTextColor(Color.WHITE);
+                options.get(alg).setPaintFlags(options.get((options.size() - 1)).getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+                new Handler().post(new Runnable() {
+                    @Override
+                    public void run() {
+                        int vLeft = hscroll.getLeft();
+                        int vRight = options.get(alg).getLeft();
+                        //int sWidth = scroll.getWidth();
+                        if (alg >= 3) hscroll.smoothScrollTo((vRight), 0);
+                    }
+                });
+                hideGeneral();
+                EditText optionsname = (EditText) view1.findViewById(R.id.eto1);
+                optionCursor.moveToPosition(alg);
+                optionsname.setText(optionCursor.getString(1));
+                textLocation.setText("Location");
+                locationMarker.setImageResource(R.drawable.ic_action_location);
+                tvo.setText(optionCursor.getString(1));
+                text10.setText(optionCursor.getString(1));
+                text11.setText(optionCursor.getString(1));
+                text12.setText(optionCursor.getString(1));
+                text13.setText(optionCursor.getString(1));
+
+                try {
+                    if (OptionLatitude.get(alg) != null) {
+                        textLocation.setText(OptionLatitude.get(alg).substring(0, 7) + ", " + OptionLongitude.get(alg).substring(0, 7));
+                        locationMarker.setImageResource(R.drawable.ic_action_location_blue);
+                    }
+                } catch (Exception e) {
+                    textLocation.setText("Location");
+                    locationMarker.setImageResource(R.drawable.ic_action_location);
+
+                }
+
+            }
+        }
+
+
+
         //Find for Maps
 
 
@@ -465,6 +549,7 @@ public class SFR_Overview extends AppCompatActivity {
                 Intent intent = new Intent(SFR_Overview.this, testMap.class);
                 intent.putExtra("Option id", OptionID.get(alg));
                 intent.putExtra("The id", idName);
+                intent.putExtra("Option order", alg);
                 startActivity(intent);
             }
         };

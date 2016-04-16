@@ -40,6 +40,7 @@ public class testMap extends AppCompatActivity implements GoogleMap.OnMapLongCli
 
     TextView bottomLine;
     String OptionID;
+    int optionOrder;
     String idName;
     boolean MarkerMoved;
     @Override
@@ -63,6 +64,8 @@ public class testMap extends AppCompatActivity implements GoogleMap.OnMapLongCli
             public void onClick(View v) {
                 Intent intent = new Intent(testMap.this, SFR_Overview.class);
                 intent.putExtra("The id", idName);
+                intent.putExtra("from Maps", true);
+                intent.putExtra("Option order", optionOrder);
                 startActivity(intent);
             }
         });
@@ -83,6 +86,7 @@ public class testMap extends AppCompatActivity implements GoogleMap.OnMapLongCli
         Intent extras = getIntent();
         extrasBundle = extras.getExtras();
         if(extrasBundle!=null){
+            optionOrder=extrasBundle.getInt("Option order");
             OptionID = extrasBundle.getString("Option id");
             optionCursor=data.getOptionByName(OptionID);
             optionCursor.moveToNext();
@@ -184,6 +188,7 @@ public class testMap extends AppCompatActivity implements GoogleMap.OnMapLongCli
             data.updateCoord(OptionID, Latitude, Longitude );
                 menu.getItem(0).setVisible(false);
             }
+            Toast.makeText(testMap.this, "Location Saved", Toast.LENGTH_LONG).show();
 
         }
 
