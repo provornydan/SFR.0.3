@@ -545,7 +545,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/RLOV1"
-        android:background="#A32369">
+        android:background="#c8a32369">
 
 
         <HorizontalScrollView
@@ -565,8 +565,7 @@
                 android:id="@+id/LLOV2"
                 android:layout_height="50dp"
                 android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:background="#A32369">
+                android:layout_centerHorizontal="true">
 
                 <TextView
                     android:layout_width="wrap_content"
