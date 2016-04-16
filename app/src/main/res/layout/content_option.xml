@@ -159,70 +159,6 @@
 
             </RelativeLayout>
 
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/RLO4">
-
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:orientation="vertical"
-                    android:id="@+id/LLO5.1"
-                    android:visibility="visible">
-
-                    <EditText
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:hint="Option name"
-                        android:id="@+id/eto1"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginRight="10dp"
-                        android:textColorHint="#999999"
-                        android:textColor="#000000"
-                        android:visibility="visible"
-                        android:textSize="20sp"
-                        android:gravity="left"
-                        android:layout_marginTop="10dp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:orientation="horizontal"
-                    android:id="@+id/LLO5.2"
-                    android:visibility="invisible">
-
-                    <TextView
-                        android:layout_width="130dp"
-                        android:layout_height="40dp"
-                        android:id="@+id/tvo8"
-                        android:layout_marginLeft="15dp"
-                        android:textColor="#000000"
-                        android:textSize="20sp"
-                        android:text="Option name:"
-                        android:visibility="visible"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="sans-serif-thin"
-                        android:gravity="center" />
-
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="40dp"
-                        android:id="@+id/tvo9"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginRight="15dp"
-                        android:textColor="#000000"
-                        android:textSize="20sp"
-                        android:gravity="left|center"
-                        android:visibility="visible"
-                        android:layout_marginTop="10dp" />
-
-                </LinearLayout>
-
-            </RelativeLayout>
-
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
@@ -247,7 +183,6 @@
                     android:layout_marginRight="20dp"
                     android:textColor="#000000"
                     android:textSize="20sp"
-                    android:fontFamily="sans-serif-thin"
                     android:layout_gravity="center_vertical" />
 
             </LinearLayout>
@@ -255,8 +190,74 @@
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/RLO4"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="20dp">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:orientation="vertical"
+                    android:id="@+id/LLO5.1"
+                    android:visibility="visible">
+
+                    <EditText
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:hint="Option name"
+                        android:id="@+id/eto1"
+                        android:textColorHint="#999999"
+                        android:textColor="#000000"
+                        android:visibility="visible"
+                        android:textSize="20sp"
+                        android:gravity="left"
+                        android:layout_marginTop="10dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal"
+                    android:id="@+id/LLO5.2"
+                    android:visibility="invisible"
+                    android:background="@drawable/optionborder">
+
+                    <TextView
+                        android:layout_width="140dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/tvo8"
+                        android:layout_marginLeft="1dp"
+                        android:textColor="#000000"
+                        android:textSize="20sp"
+                        android:text="Option name:"
+                        android:visibility="visible"
+                        android:layout_marginTop="1dp"
+                        android:gravity="left|center"
+                        android:background="#F7F7F7F7"
+                        android:paddingLeft="5dp"
+                        android:layout_marginBottom="1dp" />
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="40dp"
+                        android:id="@+id/tvo9"
+                        android:layout_marginLeft="5dp"
+                        android:textColor="#000000"
+                        android:textSize="20sp"
+                        android:gravity="left|center"
+                        android:visibility="visible" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:id="@+id/RL1.1"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="-12dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp">
 
@@ -301,7 +302,8 @@
                         android:background="#F7F7F7F7"
                         android:paddingLeft="5dp"
                         android:layout_marginLeft="1dp"
-                        android:layout_marginTop="1dp" />
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -323,7 +325,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/RL2.1"
-                android:layout_marginTop="-6dp"
+                android:layout_marginTop="-12dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp">
 
@@ -368,7 +370,8 @@
                         android:background="#F7F7F7F7"
                         android:paddingLeft="5dp"
                         android:layout_marginTop="1dp"
-                        android:layout_marginLeft="1dp" />
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginBottom="1dp" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -390,7 +393,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/RL3.1"
-                android:layout_marginTop="-6dp"
+                android:layout_marginTop="-12dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp">
 
@@ -435,7 +438,8 @@
                         android:background="#F7F7F7F7"
                         android:paddingLeft="5dp"
                         android:layout_marginLeft="1dp"
-                        android:layout_marginTop="1dp" />
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -456,7 +460,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/RL4.1"
-                android:layout_marginTop="-6dp"
+                android:layout_marginTop="-12dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp">
 
