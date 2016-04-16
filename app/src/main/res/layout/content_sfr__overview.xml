@@ -80,7 +80,7 @@
                         android:layout_height="40dp"
                         android:id="@+id/tvov1.2"
                         android:visibility="visible"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
                         android:textColor="#464444"
                         android:gravity="left|center"
                         android:layout_marginLeft="15dp" />
@@ -144,7 +144,7 @@
                         android:layout_height="40dp"
                         android:id="@+id/tvov2.2"
                         android:visibility="visible"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
                         android:gravity="left|center"
                         android:textColor="#464444"
                         android:layout_marginLeft="15dp" />
@@ -208,7 +208,7 @@
                         android:layout_height="40dp"
                         android:id="@+id/tvov3.2"
                         android:visibility="visible"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
                         android:textColor="#464444"
                         android:gravity="left|center"
                         android:layout_marginLeft="15dp" />
@@ -272,7 +272,7 @@
                         android:layout_height="40dp"
                         android:id="@+id/tvov4.2"
                         android:visibility="visible"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
                         android:textColor="#464444"
                         android:gravity="left|center"
                         android:layout_marginLeft="15dp" />
@@ -336,7 +336,7 @@
                         android:layout_height="40dp"
                         android:id="@+id/tvov5.2"
                         android:visibility="visible"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
                         android:textColor="#464444"
                         android:gravity="left|center"
                         android:layout_marginLeft="15dp" />
@@ -400,7 +400,7 @@
                         android:layout_height="40dp"
                         android:id="@+id/tvov6.2"
                         android:visibility="visible"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
                         android:textColor="#464444"
                         android:gravity="left|center"
                         android:layout_marginLeft="15dp" />
@@ -464,7 +464,7 @@
                         android:layout_height="40dp"
                         android:id="@+id/tvov7.2"
                         android:visibility="visible"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
                         android:textColor="#464444"
                         android:gravity="left|center"
                         android:layout_marginLeft="15dp" />
@@ -528,7 +528,7 @@
                         android:layout_height="40dp"
                         android:id="@+id/tvov8.2"
                         android:visibility="visible"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
                         android:textColor="#464444"
                         android:gravity="left|center"
                         android:layout_marginLeft="15dp" />
