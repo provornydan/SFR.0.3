@@ -144,7 +144,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/LLO9"
                     android:gravity="right"
-                    android:paddingTop="255dp">
+                    android:paddingTop="270dp">
 
                     <android.support.design.widget.FloatingActionButton
                         android:layout_width="wrap_content"
