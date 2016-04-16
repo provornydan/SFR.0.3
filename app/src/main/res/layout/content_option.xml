@@ -142,7 +142,7 @@
 
                 <LinearLayout
                     android:layout_width="fill_parent"
-                    android:layout_height="340dp"
+                    android:layout_height="wrap_content"
                     android:id="@+id/LLO9"
                     android:gravity="right"
                     android:paddingTop="270dp">
