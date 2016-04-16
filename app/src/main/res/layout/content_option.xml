@@ -136,7 +136,7 @@
 
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="300dp"
+                    android:layout_height="325dp"
                     android:id="@+id/ivo1"
                     android:layout_marginBottom="70dp" />
 
@@ -245,7 +245,7 @@
                         android:layout_height="40dp"
                         android:id="@+id/tvo9"
                         android:layout_marginLeft="10dp"
-                        android:textColor="#999999"
+                        android:textColor="#464444"
                         android:textSize="20sp"
                         android:gravity="left|center"
                         android:visibility="visible" />
@@ -312,7 +312,7 @@
                         android:id="@+id/tvo1.2"
                         android:visibility="visible"
                         android:textSize="20sp"
-                        android:textColor="#999999"
+                        android:textColor="#464444"
                         android:gravity="left|center"
                         android:paddingLeft="5dp"
                         android:layout_marginLeft="5dp" />
@@ -380,7 +380,7 @@
                         android:id="@+id/tvo2.2"
                         android:visibility="visible"
                         android:textSize="20sp"
-                        android:textColor="#999999"
+                        android:textColor="#464444"
                         android:gravity="left|center"
                         android:paddingLeft="5dp"
                         android:layout_marginLeft="5dp" />
@@ -448,7 +448,7 @@
                         android:id="@+id/tvo3.2"
                         android:visibility="visible"
                         android:textSize="20sp"
-                        android:textColor="#999999"
+                        android:textColor="#464444"
                         android:gravity="left|center"
                         android:paddingLeft="5dp"
                         android:layout_marginLeft="5dp" />
@@ -515,7 +515,7 @@
                         android:id="@+id/tvo4.2"
                         android:visibility="visible"
                         android:textSize="20sp"
-                        android:textColor="#999999"
+                        android:textColor="#464444"
                         android:gravity="left|center"
                         android:paddingLeft="5dp"
                         android:layout_marginLeft="5dp" />

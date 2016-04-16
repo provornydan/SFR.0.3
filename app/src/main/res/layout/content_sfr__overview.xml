@@ -81,10 +81,9 @@
                         android:id="@+id/tvov1.2"
                         android:visibility="visible"
                         android:textSize="20sp"
-                        android:textColor="#999999"
+                        android:textColor="#464444"
                         android:gravity="left|center"
-                        android:layout_marginLeft="15dp"
-                        android:textStyle="bold" />
+                        android:layout_marginLeft="15dp" />
 
                 </LinearLayout>
 
@@ -147,9 +146,8 @@
                         android:visibility="visible"
                         android:textSize="20sp"
                         android:gravity="left|center"
-                        android:textColor="#999999"
-                        android:layout_marginLeft="15dp"
-                        android:textStyle="bold" />
+                        android:textColor="#464444"
+                        android:layout_marginLeft="15dp" />
 
                 </LinearLayout>
 
@@ -211,10 +209,9 @@
                         android:id="@+id/tvov3.2"
                         android:visibility="visible"
                         android:textSize="20sp"
-                        android:textColor="#999999"
+                        android:textColor="#464444"
                         android:gravity="left|center"
-                        android:layout_marginLeft="15dp"
-                        android:textStyle="bold" />
+                        android:layout_marginLeft="15dp" />
 
                 </LinearLayout>
 
@@ -276,10 +273,9 @@
                         android:id="@+id/tvov4.2"
                         android:visibility="visible"
                         android:textSize="20sp"
-                        android:textColor="#999999"
+                        android:textColor="#464444"
                         android:gravity="left|center"
-                        android:layout_marginLeft="15dp"
-                        android:textStyle="bold" />
+                        android:layout_marginLeft="15dp" />
 
                 </LinearLayout>
 
@@ -341,10 +337,9 @@
                         android:id="@+id/tvov5.2"
                         android:visibility="visible"
                         android:textSize="20sp"
-                        android:textColor="#999999"
+                        android:textColor="#464444"
                         android:gravity="left|center"
-                        android:layout_marginLeft="15dp"
-                        android:textStyle="bold" />
+                        android:layout_marginLeft="15dp" />
 
                 </LinearLayout>
 
@@ -406,10 +401,9 @@
                         android:id="@+id/tvov6.2"
                         android:visibility="visible"
                         android:textSize="20sp"
-                        android:textColor="#999999"
+                        android:textColor="#464444"
                         android:gravity="left|center"
-                        android:layout_marginLeft="15dp"
-                        android:textStyle="bold" />
+                        android:layout_marginLeft="15dp" />
 
                 </LinearLayout>
 
@@ -471,10 +465,9 @@
                         android:id="@+id/tvov7.2"
                         android:visibility="visible"
                         android:textSize="20sp"
-                        android:textColor="#999999"
+                        android:textColor="#464444"
                         android:gravity="left|center"
-                        android:layout_marginLeft="15dp"
-                        android:textStyle="bold" />
+                        android:layout_marginLeft="15dp" />
 
                 </LinearLayout>
 
@@ -536,10 +529,9 @@
                         android:id="@+id/tvov8.2"
                         android:visibility="visible"
                         android:textSize="20sp"
-                        android:textColor="#999999"
+                        android:textColor="#464444"
                         android:gravity="left|center"
-                        android:layout_marginLeft="15dp"
-                        android:textStyle="bold" />
+                        android:layout_marginLeft="15dp" />
 
                 </LinearLayout>
 
