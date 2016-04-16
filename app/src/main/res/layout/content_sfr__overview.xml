@@ -565,7 +565,8 @@
                 android:id="@+id/LLOV2"
                 android:layout_height="50dp"
                 android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true">
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/white_line">
 
                 <TextView
                     android:layout_width="wrap_content"
