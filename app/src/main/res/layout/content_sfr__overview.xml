@@ -93,7 +93,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/RL2"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="-6dp"
+                android:layout_marginTop="-12dp"
                 android:layout_marginRight="10dp">
 
                 <LinearLayout
@@ -157,7 +157,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/RL3"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="-6dp"
+                android:layout_marginTop="-12dp"
                 android:layout_marginRight="10dp">
 
                 <LinearLayout
@@ -221,7 +221,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/RL4"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="-6dp"
+                android:layout_marginTop="-12dp"
                 android:layout_marginRight="10dp">
 
                 <LinearLayout
@@ -285,7 +285,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/RL5"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="-6dp"
+                android:layout_marginTop="-12dp"
                 android:layout_marginRight="10dp">
 
                 <LinearLayout
@@ -349,7 +349,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/RL6"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="-6dp"
+                android:layout_marginTop="-12dp"
                 android:layout_marginRight="10dp">
 
                 <LinearLayout
@@ -413,7 +413,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/RL7"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="-6dp"
+                android:layout_marginTop="-12dp"
                 android:layout_marginRight="10dp">
 
                 <LinearLayout
@@ -477,7 +477,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/RL8"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="-6dp"
+                android:layout_marginTop="-12dp"
                 android:layout_marginRight="10dp">
 
                 <LinearLayout
