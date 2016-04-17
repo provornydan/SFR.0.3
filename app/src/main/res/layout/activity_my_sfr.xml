@@ -29,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:text="My SFRs"
                 android:textSize="25sp"
-                android:textColor="#404040"
+                android:textColor="#464444"
                 />
 
             <EditText
