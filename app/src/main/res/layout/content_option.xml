@@ -136,7 +136,7 @@
 
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="300dp"
+                    android:layout_height="250dp"
                     android:id="@+id/ivo1"
                     android:layout_marginBottom="70dp" />
 
@@ -145,7 +145,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/LLO9"
                     android:gravity="right"
-                    android:paddingTop="270dp">
+                    android:paddingTop="220dp">
 
                     <android.support.design.widget.FloatingActionButton
                         android:layout_width="wrap_content"
