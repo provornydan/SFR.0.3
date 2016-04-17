@@ -44,7 +44,6 @@
                 android:visibility="visible"
                 android:singleLine="false"
                 android:textColorHint="#a6a6a6"
-                android:fontFamily="sans-serif-thin"
                 android:textStyle="bold" />
 
             <EditText
