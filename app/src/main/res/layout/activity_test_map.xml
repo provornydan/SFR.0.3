@@ -32,7 +32,6 @@
                 android:text="Location"
                 android:textSize="30sp"
                 android:textColor="#404040"
-                android:fontFamily="sans-serif-thin"
                 android:layout_marginLeft="-10dp"
                 />
 

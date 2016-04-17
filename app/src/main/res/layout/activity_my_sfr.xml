@@ -30,7 +30,6 @@
                 android:text="My SFRs"
                 android:textSize="25sp"
                 android:textColor="#404040"
-                android:fontFamily="sans-serif-thin"
                 />
 
             <EditText
