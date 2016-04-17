@@ -14,7 +14,7 @@ import java.util.Date;
  * Created by Provorny on 2/13/2016.
  */
 public class DatabaseHelper extends SQLiteOpenHelper {
-    public static final String DATABASE_NAME="SFR04.db";
+    public static final String DATABASE_NAME="SFR03_2.db";
     public static final String TABLE_NAME="mysfrs";
     public static final String COL_1 ="ID";
     //public static final String COL_2="Latitude";
@@ -39,6 +39,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COL_10="addedDate";
 
     public static final String OPTION_NAME = "Options";
+    public static final String IMAGE_NAME= "Images";
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
@@ -50,6 +51,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         //db.execSQL("create table if not exists " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, Latitude varchar(255) DEFAULT NULL, Longitude varchar(255) DEFAULT NULL, Site_name varchar(255), Supplier varchar(255), Owners varchar(255), CID varchar(255) DEFAULT NULL, CSR varchar(255) DEFAULT NULL, Site varchar(255) DEFAULT NULL, POW_VF varchar(255) DEFAULT NULL, POW_O2 varchar(255) DEFAULT NULL, Searc_Area_Description text, Development_Plan_Details text, Policies_Landuse_Conservation_Designations text,Notes text,  MS6_Forecast_Date date DEFAULT NULL,  Forecast_Rent float DEFAULT NULL,  Final_Assessment_Rank_Proceed_Option int(11) DEFAULT NULL, Date date DEFAULT NULL, Acquisition_Surveyor varchar(255) DEFAULT NULL)");
         db.execSQL("create table if not exists " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, site_name varchar(255), search_area varchar(255), Owners varchar(255), CID varchar(255), CSR varchar(255), Site varchar(255), pow_vf varchar(255), pow_02 varchar(255), addedDate varchar(255) NULL)");
         db.execSQL("create table if not exists " + OPTION_NAME + " (OPTION_ID INTEGER PRIMARY KEY AUTOINCREMENT, SITE_ID INTEGER, option_name varchar(255), Town varchar(255), County varchar(255), Postcode varchar(255), Antenna_height varchar(255), Latitude varchar(255) DEFAULT NULL, Longitude varchar(255) DEFAULT NULL)");
+        db.execSQL("create table if not exists " + IMAGE_NAME + " (IMAGE_CODE INTEGER PRIMARY KEY AUTOINCREMENT, OPTION_ID INTEGER, FILE_PATH varchar(255))");
     }
 
 
@@ -110,6 +112,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 return true;
         }
 
+        public boolean insertAnImage(String OptionID, String FilePath){
+            SQLiteDatabase db = this.getWritableDatabase();
+            ContentValues content3 = new ContentValues();
+            content3.put("OPTION_ID", OptionID);
+            content3.put("FILE_PATH", FilePath);
+
+            long result2 = db.insert(IMAGE_NAME, null, content3);
+            if(result2==-1){
+                return false;}
+            else
+                return true;
+        }
+
     public Cursor getSiteData(String name) {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor res=db.rawQuery("Select ID, Site_name, Supplier, Owners, CID, CSR from "+TABLE_NAME+" where Site_name='"+name+"'", null);
@@ -121,12 +136,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor res=db.rawQuery("Select ID, Site_name, search_area, Owners, CID, CSR, Site, pow_vf, pow_02 from "+TABLE_NAME+" where ID='"+id+"'", null);
         return res;
     }
+
+    public Cursor getImageData(String option_id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res=db.rawQuery("Select IMAGE_CODE, FILE_PATH from "+IMAGE_NAME+" where OPTION_ID='"+option_id+"' ORDER BY IMAGE_CODE DESC", null);
+        return res;
+    }
     public Cursor getThisID(){
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor res=db.rawQuery("Select ID from "+TABLE_NAME+" ORDER BY ID DESC LIMIT 1", null);
         return res;
 
     }
+
+
 
 
 
@@ -175,6 +198,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return true;
     }
 
+    public boolean updateImage(String imageCode, String FilePath){
+        SQLiteDatabase db=this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("FILE_PATH", FilePath);
+
+        db.update(IMAGE_NAME, contentValues, "IMAGE_CODE = ?", new String[]{imageCode});
+        return true;
+    }
+
+
     public Cursor getAllOptions(String siteID){
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor res=db.rawQuery("Select OPTION_ID, option_name, Town, County, Postcode, Antenna_height, Latitude, Longitude  from "+OPTION_NAME+" where SITE_ID='"+siteID+"'", null);
@@ -186,6 +219,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor res=db.rawQuery("Select OPTION_ID, option_name, Town, County, Postcode, Antenna_height, Latitude, Longitude  from "+OPTION_NAME+" where OPTION_ID='"+OptionID+"'", null);
         return res;
     }
+
+
 }
 
 

@@ -1,5 +1,6 @@
 package mazebug.sfr03;
 
+import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -12,20 +13,24 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
     DatabaseHelper data;
     EditText login;
+    ImageView logo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        login = (EditText)findViewById(R.id.etnm1);
-        InputMethodManager imm = (InputMethodManager) getSystemService(this.INPUT_METHOD_SERVICE);
-        imm.hideSoftInputFromWindow(login.getWindowToken(), 0);
+        login = (EditText)findViewById(R.id.etnm2);
+        logo=(ImageView)findViewById(R.id.ivnm1);
+
+        ((LinearLayout) findViewById(R.id.dummy_id)).requestFocus();
 
         data = new DatabaseHelper(this);
 

@@ -61,7 +61,6 @@ public class SFR_Overview extends AppCompatActivity {
     TextView text1, text2, text3, text4, text5, text6, text7, text8, text9, text10, text11, text12, text13; TextView[] texts, secondtexts;
     ImageView plusImage;    View view1;
 
-
     LinearLayout horizontal;
     LinearLayout ll;
     LinearLayout LLo1;
@@ -69,6 +68,7 @@ public class SFR_Overview extends AppCompatActivity {
 
 
     ArrayList<TextView> options = new ArrayList<>();
+    ArrayList<LinearLayout> forLine = new ArrayList<>();
     ArrayList<String> OptionNames = new ArrayList<>();
     ArrayList<String> OptionID = new ArrayList<>();
     ArrayList<String> OptionTown = new ArrayList<>();
@@ -81,6 +81,7 @@ public class SFR_Overview extends AppCompatActivity {
     LinearLayout optionLayout, linearDetails;
     Boolean show = true; int n=0;
     EditText lastChance;
+    LinearLayout mainLine;
 
     ScrollView scrollmain, scrollOption;
     HorizontalScrollView hscroll;
@@ -101,6 +102,7 @@ public class SFR_Overview extends AppCompatActivity {
     public final static int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 1034;
     public String photoFileName = "photo4.jpg";
     public String photoName = "photo3.jpg";
+    RelativeLayout photoBorder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -119,7 +121,8 @@ public class SFR_Overview extends AppCompatActivity {
         locationMarker = (ImageView)view1.findViewById(R.id.ivo2);
         textMarker = (TextView)view1.findViewById(R.id.eto2);
         textLocation = (TextView)view1.findViewById(R.id.eto2);
-
+        mainLine = (LinearLayout)findViewById(R.id.LLOV3);
+        photoBorder= (RelativeLayout)findViewById(R.id.RLO3);
 
 
         tvov =(TextView)findViewById(R.id.tvov1);
@@ -186,20 +189,27 @@ public class SFR_Overview extends AppCompatActivity {
 
                 texts.setTypeface(Typeface.DEFAULT);
                 texts.setTextColor(Color.parseColor("#999999"));
-                LinearLayout.LayoutParams lay2 = new  LinearLayout.LayoutParams(AbsListView.LayoutParams.WRAP_CONTENT, AbsListView.LayoutParams.WRAP_CONTENT);
-                texts.setGravity(Gravity.CENTER);horizontal.setGravity(Gravity.CENTER_VERTICAL);
+                LinearLayout.LayoutParams lay2 = new  LinearLayout.LayoutParams(AbsListView.LayoutParams.WRAP_CONTENT, AbsListView.LayoutParams.MATCH_PARENT);
+                texts.setGravity(Gravity.CENTER);
 
                 int sizeImage = 20;
                 int imageInDp = (int) TypedValue.applyDimension(
                         TypedValue.COMPLEX_UNIT_DIP, sizeImage, getResources().getDisplayMetrics());
                 lay2.setMargins(imageInDp, 0, 0, 0);
 
-                horizontal.addView(texts, lay2);
+                LinearLayout vl = new LinearLayout(this);
+                vl.setOrientation(LinearLayout.HORIZONTAL);
+                vl.setLayoutParams(new LinearLayout.LayoutParams(AbsListView.LayoutParams.WRAP_CONTENT, AbsListView.LayoutParams.MATCH_PARENT));
+                vl.setGravity(Gravity.CENTER_VERTICAL);
+                vl.addView(texts);
+                horizontal.addView(vl, lay2);
 
                 title=text1.getText().toString();
                 TitleSite.setText(title);
 
                 options.add(texts);
+                forLine.add(vl);
+
                 OptionNames.add(optionCursor.getString(1));
                 OptionID.add(optionCursor.getString(0));
                 OptionTown.add(optionCursor.getString(2));
@@ -254,21 +264,24 @@ public class SFR_Overview extends AppCompatActivity {
                         resetColors();
 
                         options.get(ord).setTextColor(Color.WHITE);
-                        options.get(ord).setPaintFlags(options.get(ord).getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+                        forLine.get(ord).setBackgroundResource(R.drawable.white_line);
                         new Handler().post(new Runnable() {
                             @Override
                             public void run() {
                                 int vLeft = hscroll.getLeft();
-                                int vRight = options.get(ord).getLeft();
+                                int vRight = forLine.get(ord).getLeft();
                                 //int sWidth = scroll.getWidth();
-                                if(alg<=2) hscroll.fullScroll(View.FOCUS_LEFT);
+                                if (alg <= 2) hscroll.fullScroll(View.FOCUS_LEFT);
 
 
                             }
                         });
                         alg=ord;
+                        showImage();
                     }
                 });
+
+
             }
 
 
@@ -280,7 +293,7 @@ public class SFR_Overview extends AppCompatActivity {
                     showGeneral();
                     resetColors();
                     tvov.setTextColor(Color.WHITE);
-                    tvov.setPaintFlags(tvov.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+                    mainLine.setBackgroundResource(R.drawable.white_line);
                 }
             });
         }
@@ -305,7 +318,7 @@ public class SFR_Overview extends AppCompatActivity {
                     showGeneral();
                     resetColors();
                     tvov.setTextColor(Color.WHITE);
-                    tvov.setPaintFlags(tvov.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+                    mainLine.setBackgroundResource(R.drawable.white_line);
                 } else if (alg!=-1){
                     alg--;
                     textLocation.setText("Location");
@@ -322,7 +335,7 @@ public class SFR_Overview extends AppCompatActivity {
                     text12.setText(OptionHeight.get(alg));
                     edit13.setText(OptionPostCode.get(alg));
                     text13.setText(OptionPostCode.get(alg));
-
+                    showImage();
                     try {
 
                         if (OptionLatitude.get(alg) != null) {
@@ -337,12 +350,13 @@ public class SFR_Overview extends AppCompatActivity {
                     resetColors();
 
                     options.get(alg).setTextColor(Color.WHITE);
-                    options.get(alg).setPaintFlags(options.get(alg).getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+                    forLine.get(alg).setBackgroundResource(R.drawable.white_line);
+
                     new Handler().post(new Runnable() {
                         @Override
                         public void run() {
                             int vLeft = hscroll.getLeft();
-                            int vRight = options.get(alg).getLeft();
+                            int vRight = forLine.get(alg).getLeft();
                             //int sWidth = scroll.getWidth();
                             if(alg<=3) hscroll.fullScroll(View.FOCUS_LEFT);
                             else hscroll.smoothScrollTo((vRight), 0);
@@ -380,7 +394,7 @@ public class SFR_Overview extends AppCompatActivity {
                     text12.setText(OptionHeight.get(alg));
                     edit13.setText(OptionPostCode.get(alg));
                     text13.setText(OptionPostCode.get(alg));
-
+                    showImage();
                     try {
                         if (OptionLatitude.get(alg) != null) {
                             textLocation.setText(OptionLatitude.get(alg).substring(0, 7) + ", " + OptionLongitude.get(alg).substring(0, 7));
@@ -394,12 +408,12 @@ public class SFR_Overview extends AppCompatActivity {
                     resetColors();
 
                     options.get(alg).setTextColor(Color.WHITE);
-                    options.get(alg).setPaintFlags(options.get(alg).getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+                    forLine.get(alg).setBackgroundResource(R.drawable.white_line);
                     new Handler().post(new Runnable() {
                         @Override
                         public void run() {
                             int vLeft = hscroll.getLeft();
-                            int vRight = options.get(alg).getLeft();
+                            int vRight = forLine.get(alg).getLeft();
                             //int sWidth = scroll.getWidth();
                             if((alg>=3))  hscroll.smoothScrollTo((vRight), 0);
                         }
@@ -443,17 +457,17 @@ public class SFR_Overview extends AppCompatActivity {
 
         showGeneral();
         tvov.setTextColor(Color.WHITE);
-        tvov.setPaintFlags(tvov.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        mainLine.setBackgroundResource(R.drawable.white_line);
         if (extrasBundle != null) if (extrasBundle.getBoolean("From Option")==true){
             resetColors();
            if(!options.isEmpty()) {
                options.get((options.size() - 1)).setTextColor(Color.WHITE);
-               options.get((options.size() - 1)).setPaintFlags(options.get((options.size() - 1)).getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+               forLine.get((options.size()-1)).setBackgroundResource(R.drawable.white_line);
                new Handler().post(new Runnable() {
                    @Override
                    public void run() {
                        int vLeft = hscroll.getLeft();
-                       int vRight = options.get((options.size()-1)).getLeft();
+                       int vRight = forLine.get((options.size()-1)).getLeft();
                        //int sWidth = scroll.getWidth();
                        if(options.size()==1) hscroll.fullScroll(View.FOCUS_LEFT);
                        //hscroll.smoothScrollTo((vRight), 0);
@@ -483,7 +497,7 @@ public class SFR_Overview extends AppCompatActivity {
                }
 
                alg=options.size()-1;
-
+               showImage();
 
                options.get((options.size() - 1)).requestFocus();
                hscroll.postDelayed(new Runnable() {
@@ -502,12 +516,12 @@ public class SFR_Overview extends AppCompatActivity {
             alg=extrasBundle.getInt("Option order");
             if (!options.isEmpty()) {
                 options.get(alg).setTextColor(Color.WHITE);
-                options.get(alg).setPaintFlags(options.get((options.size() - 1)).getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+                forLine.get(alg).setBackgroundResource(R.drawable.white_line);
                 new Handler().post(new Runnable() {
                     @Override
                     public void run() {
                         int vLeft = hscroll.getLeft();
-                        int vRight = options.get(alg).getLeft();
+                        int vRight = forLine.get(alg).getLeft();
                         //int sWidth = scroll.getWidth();
                         if (alg >= 3) hscroll.smoothScrollTo((vRight), 0);
                     }
@@ -523,6 +537,7 @@ public class SFR_Overview extends AppCompatActivity {
                 text11.setText(optionCursor.getString(1));
                 text12.setText(optionCursor.getString(1));
                 text13.setText(optionCursor.getString(1));
+                showImage();
 
                 try {
                     if (OptionLatitude.get(alg) != null) {
@@ -829,16 +844,23 @@ public class SFR_Overview extends AppCompatActivity {
     public void resetColors() {
         for(TextView tv:options){
             tv.setTextColor(Color.parseColor("#999999"));
-            tv.setPaintFlags(0);
+        }
+        for(LinearLayout ll:forLine){
+            ll.setBackgroundColor(Color.parseColor("#bd287a"));
         }
         tvov.setTextColor(Color.parseColor("#999999"));
-        tvov.setPaintFlags(0);
+        mainLine.setBackgroundColor(Color.parseColor("#bd287a"));
     }
 
     public void onLaunchCamera(View view) {
         // create Intent to take a picture and return control to the calling application
         Intent intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-        intent.putExtra(MediaStore.EXTRA_OUTPUT, getPhotoFileUri(photoFileName)); // set the image file name
+
+
+        data.insertAnImage(OptionID.get(alg), null);
+        Cursor imageCursor = data.getImageData(OptionID.get(alg));
+        imageCursor.moveToNext();
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(new File(getPhotoFileUri(imageCursor.getString(0))))); // set the image file name
 
         // If you call startActivityForResult() using an intent that no app can handle, your app will crash.
         // So as long as the result is not null, it's safe to use the intent.
@@ -849,10 +871,13 @@ public class SFR_Overview extends AppCompatActivity {
     }
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    public void onActivityResult(int requestCode, int resultCode, Intent data_new) {
         if (requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
-                Uri takenPhotoUri = getPhotoFileUri(photoFileName);
+                Cursor imageCursor = data.getImageData(OptionID.get(alg));
+                imageCursor.moveToNext();
+                data.updateImage(imageCursor.getString(0), getPhotoFileUri(imageCursor.getString(0)));
+                Uri takenPhotoUri = Uri.fromFile(new File(getPhotoFileUri(imageCursor.getString(0))));
                 // by this point we have the camera photo on disk
                 Bitmap takenImage = BitmapFactory.decodeFile(takenPhotoUri.getPath());
                 // Load the taken image into a preview
@@ -867,7 +892,7 @@ public class SFR_Overview extends AppCompatActivity {
     }
 
     // Returns the Uri for a photo stored on disk given the fileName
-    public Uri getPhotoFileUri(String fileName) {
+    public String getPhotoFileUri(String fileName) {
         // Only continue if the SD Card is mounted
         if (isExternalStorageAvailable()) {
             // Get safe storage directory for photos
@@ -882,7 +907,7 @@ public class SFR_Overview extends AppCompatActivity {
             }
 
             // Return the file target for the photo based on filename
-            return Uri.fromFile(new File(mediaStorageDir.getPath() + File.separator + fileName));
+            return mediaStorageDir.getPath()+File.separator+fileName;
         }
         return null;
     }
@@ -897,5 +922,28 @@ public class SFR_Overview extends AppCompatActivity {
     public boolean dispatchTouchEvent(MotionEvent ev){
         onSwipeTouchListener.getGestureDetector().onTouchEvent(ev);
         return super.dispatchTouchEvent(ev);
+    }
+
+    public void showImage(){
+        ImageView ivPreview = (ImageView) view1.findViewById(R.id.ivo1);
+
+
+        try{
+            Cursor imageCursor = data.getImageData(OptionID.get(alg));
+            imageCursor.moveToNext();
+            data.updateImage(imageCursor.getString(0), getPhotoFileUri(imageCursor.getString(0)));
+            Uri takenPhotoUri = Uri.fromFile(new File(getPhotoFileUri(imageCursor.getString(0))));
+            // by this point we have the camera photo on disk
+            Bitmap takenImage = BitmapFactory.decodeFile(takenPhotoUri.getPath());
+            // Load the taken image into a preview
+            Drawable d = new BitmapDrawable(getResources(), takenImage);
+            //ivPreview.setBackground(d);
+            ivPreview.setBackground(d);}
+
+            catch (Exception e){
+            ivPreview.setBackgroundResource(R.drawable.gyg);
+
+
+        }
     }
 }

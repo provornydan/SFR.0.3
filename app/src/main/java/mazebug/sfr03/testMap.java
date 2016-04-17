@@ -83,6 +83,10 @@ public class testMap extends AppCompatActivity implements GoogleMap.OnMapLongCli
                 .draggable(true)
                 .snippet("First Marker"));
 
+        map.moveCamera( CameraUpdateFactory.newLatLngZoom(new LatLng(54.648413, -4.416504), 5f) );
+
+        // use map to move camera into position
+
         Intent extras = getIntent();
         extrasBundle = extras.getExtras();
         if(extrasBundle!=null){
@@ -150,7 +154,7 @@ public class testMap extends AppCompatActivity implements GoogleMap.OnMapLongCli
                         .build();
 
         // use map to move camera into position
-        map.moveCamera(CameraUpdateFactory.newCameraPosition(INIT));
+        //map.moveCamera(CameraUpdateFactory.newCameraPosition(INIT));
 
         menu.getItem(0).setVisible(true);
 
