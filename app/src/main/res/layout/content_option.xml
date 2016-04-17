@@ -138,7 +138,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="250dp"
                     android:id="@+id/ivo1"
-                    android:layout_marginBottom="70dp" />
+                    android:layout_marginBottom="50dp" />
 
                 <LinearLayout
                     android:layout_width="fill_parent"
@@ -230,25 +230,26 @@
                         android:layout_height="match_parent"
                         android:id="@+id/tvo8"
                         android:layout_marginLeft="1dp"
-                        android:textColor="#000000"
+                        android:textColor="#464444"
                         android:textSize="15sp"
                         android:text="Option name:"
                         android:visibility="visible"
                         android:layout_marginTop="1dp"
                         android:gravity="left|center"
                         android:background="#c8ededed"
-                        android:paddingLeft="5dp"
+                        android:paddingLeft="10dp"
                         android:layout_marginBottom="1dp" />
 
                     <TextView
                         android:layout_width="fill_parent"
                         android:layout_height="40dp"
                         android:id="@+id/tvo9"
-                        android:layout_marginLeft="10dp"
-                        android:textColor="#464444"
+                        android:textColor="#000000"
                         android:textSize="18sp"
                         android:gravity="left|center"
-                        android:visibility="visible" />
+                        android:visibility="visible"
+                        android:paddingLeft="5dp"
+                        android:text="London" />
 
                 </LinearLayout>
 
@@ -297,11 +298,11 @@
                         android:id="@+id/tvo1.1"
                         android:visibility="visible"
                         android:textSize="15sp"
-                        android:textColor="#000000"
+                        android:textColor="#464444"
                         android:gravity="left|center"
                         android:text="Town:"
                         android:background="#c8ededed"
-                        android:paddingLeft="5dp"
+                        android:paddingLeft="10dp"
                         android:layout_marginLeft="1dp"
                         android:layout_marginTop="1dp"
                         android:layout_marginBottom="1dp" />
@@ -312,10 +313,10 @@
                         android:id="@+id/tvo1.2"
                         android:visibility="visible"
                         android:textSize="18sp"
-                        android:textColor="#464444"
+                        android:textColor="#000000"
                         android:gravity="left|center"
                         android:paddingLeft="5dp"
-                        android:layout_marginLeft="5dp" />
+                        android:text="London" />
 
                 </LinearLayout>
 
@@ -365,11 +366,11 @@
                         android:id="@+id/tvo2.1"
                         android:visibility="visible"
                         android:textSize="15sp"
-                        android:textColor="#000000"
+                        android:textColor="#464444"
                         android:gravity="left|center"
                         android:text="County:"
                         android:background="#c8ededed"
-                        android:paddingLeft="5dp"
+                        android:paddingLeft="10dp"
                         android:layout_marginTop="1dp"
                         android:layout_marginLeft="1dp"
                         android:layout_marginBottom="1dp" />
@@ -380,10 +381,10 @@
                         android:id="@+id/tvo2.2"
                         android:visibility="visible"
                         android:textSize="18sp"
-                        android:textColor="#464444"
+                        android:textColor="#000000"
                         android:gravity="left|center"
                         android:paddingLeft="5dp"
-                        android:layout_marginLeft="5dp" />
+                        android:text="London" />
 
                 </LinearLayout>
 
@@ -433,11 +434,11 @@
                         android:id="@+id/tvo3.1"
                         android:visibility="visible"
                         android:textSize="15sp"
-                        android:textColor="#000000"
+                        android:textColor="#464444"
                         android:gravity="left|center"
                         android:text="Postcode:"
                         android:background="#c8ededed"
-                        android:paddingLeft="5dp"
+                        android:paddingLeft="10dp"
                         android:layout_marginLeft="1dp"
                         android:layout_marginTop="1dp"
                         android:layout_marginBottom="1dp" />
@@ -448,10 +449,10 @@
                         android:id="@+id/tvo3.2"
                         android:visibility="visible"
                         android:textSize="18sp"
-                        android:textColor="#464444"
+                        android:textColor="#000000"
                         android:gravity="left|center"
                         android:paddingLeft="5dp"
-                        android:layout_marginLeft="5dp" />
+                        android:text="London" />
 
                 </LinearLayout>
 
@@ -500,11 +501,11 @@
                         android:id="@+id/tvo4.1"
                         android:visibility="visible"
                         android:textSize="15sp"
-                        android:textColor="#000000"
+                        android:textColor="#464444"
                         android:gravity="left|center"
                         android:text="Antena height:"
                         android:background="#c8ededed"
-                        android:paddingLeft="5dp"
+                        android:paddingLeft="10dp"
                         android:layout_marginLeft="1dp"
                         android:layout_marginTop="1dp"
                         android:layout_marginBottom="1dp" />
@@ -515,10 +516,10 @@
                         android:id="@+id/tvo4.2"
                         android:visibility="visible"
                         android:textSize="18sp"
-                        android:textColor="#464444"
+                        android:textColor="#000000"
                         android:gravity="left|center"
                         android:paddingLeft="5dp"
-                        android:layout_marginLeft="5dp" />
+                        android:text="London" />
 
                 </LinearLayout>
 

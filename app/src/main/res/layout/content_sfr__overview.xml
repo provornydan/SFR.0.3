@@ -66,14 +66,15 @@
                         android:id="@+id/tvov1.1"
                         android:visibility="visible"
                         android:textSize="15sp"
-                        android:textColor="#000000"
+                        android:textColor="#464444"
                         android:layout_marginTop="1dp"
                         android:gravity="left|center"
                         android:layout_marginLeft="1dp"
                         android:text="Site name:"
                         android:background="#c8ededed"
-                        android:paddingLeft="5dp"
-                        android:layout_marginBottom="1dp" />
+                        android:paddingLeft="10dp"
+                        android:layout_marginBottom="1dp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -81,9 +82,9 @@
                         android:id="@+id/tvov1.2"
                         android:visibility="visible"
                         android:textSize="18sp"
-                        android:textColor="#464444"
+                        android:textColor="#000000"
                         android:gravity="left|center"
-                        android:layout_marginLeft="15dp" />
+                        android:paddingLeft="5dp" />
 
                 </LinearLayout>
 
@@ -130,14 +131,15 @@
                         android:id="@+id/tvov2.1"
                         android:visibility="visible"
                         android:textSize="15sp"
-                        android:textColor="#000000"
+                        android:textColor="#464444"
                         android:layout_marginTop="1dp"
                         android:layout_marginLeft="1dp"
                         android:gravity="left|center"
                         android:text="Search area:"
                         android:background="#c8ededed"
-                        android:paddingLeft="5dp"
-                        android:layout_marginBottom="1dp" />
+                        android:paddingLeft="10dp"
+                        android:layout_marginBottom="1dp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -146,8 +148,8 @@
                         android:visibility="visible"
                         android:textSize="18sp"
                         android:gravity="left|center"
-                        android:textColor="#464444"
-                        android:layout_marginLeft="15dp" />
+                        android:textColor="#000000"
+                        android:paddingLeft="5dp" />
 
                 </LinearLayout>
 
@@ -194,14 +196,15 @@
                         android:id="@+id/tvov3.1"
                         android:visibility="visible"
                         android:textSize="15sp"
-                        android:textColor="#000000"
+                        android:textColor="#464444"
                         android:layout_marginTop="1dp"
                         android:layout_marginLeft="1dp"
                         android:gravity="left|center"
                         android:text="Owner:"
                         android:background="#c8ededed"
-                        android:paddingLeft="5dp"
-                        android:layout_marginBottom="1dp" />
+                        android:paddingLeft="10dp"
+                        android:layout_marginBottom="1dp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -209,9 +212,9 @@
                         android:id="@+id/tvov3.2"
                         android:visibility="visible"
                         android:textSize="18sp"
-                        android:textColor="#464444"
+                        android:textColor="#000000"
                         android:gravity="left|center"
-                        android:layout_marginLeft="15dp" />
+                        android:paddingLeft="5dp" />
 
                 </LinearLayout>
 
@@ -258,14 +261,15 @@
                         android:id="@+id/tvov4.1"
                         android:visibility="visible"
                         android:textSize="15sp"
-                        android:textColor="#000000"
+                        android:textColor="#464444"
                         android:layout_marginTop="1dp"
                         android:layout_marginLeft="1dp"
                         android:gravity="left|center"
                         android:text="CID:"
                         android:background="#c8ededed"
-                        android:paddingLeft="5dp"
-                        android:layout_marginBottom="1dp" />
+                        android:paddingLeft="10dp"
+                        android:layout_marginBottom="1dp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -273,9 +277,9 @@
                         android:id="@+id/tvov4.2"
                         android:visibility="visible"
                         android:textSize="18sp"
-                        android:textColor="#464444"
+                        android:textColor="#000000"
                         android:gravity="left|center"
-                        android:layout_marginLeft="15dp" />
+                        android:paddingLeft="5dp" />
 
                 </LinearLayout>
 
@@ -322,14 +326,15 @@
                         android:id="@+id/tvov5.1"
                         android:visibility="visible"
                         android:textSize="15sp"
-                        android:textColor="#000000"
+                        android:textColor="#464444"
                         android:layout_marginTop="1dp"
                         android:layout_marginLeft="1dp"
                         android:gravity="left|center"
                         android:text="CSR:"
                         android:background="#c8ededed"
-                        android:paddingLeft="5dp"
-                        android:layout_marginBottom="1dp" />
+                        android:paddingLeft="10dp"
+                        android:layout_marginBottom="1dp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -337,9 +342,9 @@
                         android:id="@+id/tvov5.2"
                         android:visibility="visible"
                         android:textSize="18sp"
-                        android:textColor="#464444"
+                        android:textColor="#000000"
                         android:gravity="left|center"
-                        android:layout_marginLeft="15dp" />
+                        android:paddingLeft="5dp" />
 
                 </LinearLayout>
 
@@ -386,14 +391,15 @@
                         android:id="@+id/tvov6.1"
                         android:visibility="visible"
                         android:textSize="15sp"
-                        android:textColor="#000000"
+                        android:textColor="#464444"
                         android:layout_marginTop="1dp"
                         android:layout_marginLeft="1dp"
                         android:gravity="left|center"
                         android:text="Site:"
                         android:background="#c8ededed"
-                        android:paddingLeft="5dp"
-                        android:layout_marginBottom="1dp" />
+                        android:paddingLeft="10dp"
+                        android:layout_marginBottom="1dp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -401,9 +407,9 @@
                         android:id="@+id/tvov6.2"
                         android:visibility="visible"
                         android:textSize="18sp"
-                        android:textColor="#464444"
+                        android:textColor="#000000"
                         android:gravity="left|center"
-                        android:layout_marginLeft="15dp" />
+                        android:paddingLeft="5dp" />
 
                 </LinearLayout>
 
@@ -450,14 +456,15 @@
                         android:id="@+id/tvov7.1"
                         android:visibility="visible"
                         android:textSize="15sp"
-                        android:textColor="#000000"
+                        android:textColor="#464444"
                         android:layout_marginTop="1dp"
                         android:layout_marginLeft="1dp"
                         android:gravity="left|center"
                         android:text="POW (VF):"
                         android:background="#c8ededed"
-                        android:paddingLeft="5dp"
-                        android:layout_marginBottom="1dp" />
+                        android:paddingLeft="10dp"
+                        android:layout_marginBottom="1dp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -465,9 +472,9 @@
                         android:id="@+id/tvov7.2"
                         android:visibility="visible"
                         android:textSize="18sp"
-                        android:textColor="#464444"
+                        android:textColor="#000000"
                         android:gravity="left|center"
-                        android:layout_marginLeft="15dp" />
+                        android:paddingLeft="5dp" />
 
                 </LinearLayout>
 
@@ -514,14 +521,15 @@
                         android:id="@+id/tvov8.1"
                         android:visibility="visible"
                         android:textSize="15sp"
-                        android:textColor="#000000"
+                        android:textColor="#464444"
                         android:layout_marginTop="1dp"
                         android:layout_marginLeft="1dp"
                         android:gravity="left|center"
                         android:text="POW (O2):"
                         android:background="#c8ededed"
-                        android:paddingLeft="5dp"
-                        android:layout_marginBottom="1dp" />
+                        android:paddingLeft="10dp"
+                        android:layout_marginBottom="1dp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -529,9 +537,9 @@
                         android:id="@+id/tvov8.2"
                         android:visibility="visible"
                         android:textSize="18sp"
-                        android:textColor="#464444"
+                        android:textColor="#000000"
                         android:gravity="left|center"
-                        android:layout_marginLeft="15dp" />
+                        android:paddingLeft="5dp" />
 
                 </LinearLayout>
 
