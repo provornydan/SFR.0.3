@@ -197,32 +197,11 @@
                 android:layout_marginTop="20dp">
 
                 <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:orientation="vertical"
-                    android:id="@+id/LLO5.1"
-                    android:visibility="visible">
-
-                    <EditText
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:hint="Option name"
-                        android:id="@+id/eto1"
-                        android:textColorHint="#999999"
-                        android:textColor="#000000"
-                        android:visibility="visible"
-                        android:textSize="20sp"
-                        android:gravity="left"
-                        android:layout_marginTop="10dp" />
-
-                </LinearLayout>
-
-                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:orientation="horizontal"
                     android:id="@+id/LLO5.2"
-                    android:visibility="invisible"
+                    android:visibility="visible"
                     android:background="@drawable/optionborder">
 
                     <TextView
@@ -235,10 +214,12 @@
                         android:text="Option name:"
                         android:visibility="visible"
                         android:layout_marginTop="1dp"
-                        android:gravity="left|center"
+                        android:gravity="left"
                         android:background="#c8ededed"
                         android:paddingLeft="10dp"
-                        android:layout_marginBottom="1dp" />
+                        android:layout_marginBottom="1dp"
+                        android:textStyle="bold"
+                        android:paddingTop="10dp" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -248,8 +229,27 @@
                         android:textSize="18sp"
                         android:gravity="left|center"
                         android:visibility="visible"
-                        android:paddingLeft="5dp"
-                        android:text="London" />
+                        android:paddingLeft="5dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:orientation="vertical"
+                    android:id="@+id/LLO5.1"
+                    android:visibility="visible">
+
+                    <EditText
+                        android:layout_width="fill_parent"
+                        android:layout_height="40dp"
+                        android:id="@+id/eto1"
+                        android:textColor="#000000"
+                        android:visibility="visible"
+                        android:textSize="18sp"
+                        android:gravity="left|center"
+                        android:layout_marginLeft="140dp"
+                        android:paddingLeft="5dp" />
 
                 </LinearLayout>
 
@@ -264,32 +264,11 @@
                 android:layout_marginRight="10dp">
 
                 <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:id="@+id/LLO1.1"
-                    android:visibility="visible">
-
-                    <EditText
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:id="@+id/eto1.1"
-                        android:textSize="20sp"
-                        android:textColor="#000000"
-                        android:hint="Town"
-                        android:textColorHint="#999999"
-                        android:layout_marginTop="10dp"
-                        android:gravity="left"
-                        android:visibility="visible" />
-
-                </LinearLayout>
-
-                <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:id="@+id/LLO1.2"
-                    android:visibility="invisible"
+                    android:visibility="visible"
                     android:background="@drawable/optionborder">
 
                     <TextView
@@ -299,13 +278,15 @@
                         android:visibility="visible"
                         android:textSize="15sp"
                         android:textColor="#464444"
-                        android:gravity="left|center"
+                        android:gravity="left"
                         android:text="Town:"
                         android:background="#c8ededed"
                         android:paddingLeft="10dp"
                         android:layout_marginLeft="1dp"
                         android:layout_marginTop="1dp"
-                        android:layout_marginBottom="1dp" />
+                        android:layout_marginBottom="1dp"
+                        android:textStyle="bold"
+                        android:paddingTop="10dp" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -315,8 +296,27 @@
                         android:textSize="18sp"
                         android:textColor="#000000"
                         android:gravity="left|center"
-                        android:paddingLeft="5dp"
-                        android:text="London" />
+                        android:paddingLeft="5dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/LLO1.1"
+                    android:visibility="visible">
+
+                    <EditText
+                        android:layout_width="fill_parent"
+                        android:layout_height="40dp"
+                        android:id="@+id/eto1.1"
+                        android:textSize="18sp"
+                        android:textColor="#000000"
+                        android:gravity="left|center"
+                        android:visibility="visible"
+                        android:layout_marginLeft="140dp"
+                        android:paddingLeft="5dp" />
 
                 </LinearLayout>
 
@@ -332,32 +332,11 @@
                 android:layout_marginRight="10dp">
 
                 <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:id="@+id/LLO2.1"
-                    android:visibility="visible">
-
-                    <EditText
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:id="@+id/eto2.1"
-                        android:textSize="20sp"
-                        android:textColor="#000000"
-                        android:hint="County"
-                        android:textColorHint="#999999"
-                        android:layout_marginTop="10dp"
-                        android:gravity="left"
-                        android:visibility="visible" />
-
-                </LinearLayout>
-
-                <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:id="@+id/LLO2.2"
-                    android:visibility="invisible"
+                    android:visibility="visible"
                     android:background="@drawable/optionborder">
 
                     <TextView
@@ -367,13 +346,15 @@
                         android:visibility="visible"
                         android:textSize="15sp"
                         android:textColor="#464444"
-                        android:gravity="left|center"
+                        android:gravity="left"
                         android:text="County:"
                         android:background="#c8ededed"
                         android:paddingLeft="10dp"
                         android:layout_marginTop="1dp"
                         android:layout_marginLeft="1dp"
-                        android:layout_marginBottom="1dp" />
+                        android:layout_marginBottom="1dp"
+                        android:textStyle="bold"
+                        android:paddingTop="10dp" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -383,8 +364,27 @@
                         android:textSize="18sp"
                         android:textColor="#000000"
                         android:gravity="left|center"
-                        android:paddingLeft="5dp"
-                        android:text="London" />
+                        android:paddingLeft="5dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/LLO2.1"
+                    android:visibility="visible">
+
+                    <EditText
+                        android:layout_width="fill_parent"
+                        android:layout_height="40dp"
+                        android:id="@+id/eto2.1"
+                        android:textSize="18sp"
+                        android:textColor="#000000"
+                        android:gravity="left|center"
+                        android:visibility="visible"
+                        android:layout_marginLeft="140dp"
+                        android:paddingLeft="5dp" />
 
                 </LinearLayout>
 
@@ -400,32 +400,11 @@
                 android:layout_marginRight="10dp">
 
                 <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:id="@+id/LLO3.1"
-                    android:visibility="visible">
-
-                    <EditText
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:id="@+id/eto3.1"
-                        android:textSize="20sp"
-                        android:textColor="#000000"
-                        android:hint="Postcode"
-                        android:textColorHint="#999999"
-                        android:layout_marginTop="10dp"
-                        android:gravity="left"
-                        android:visibility="visible" />
-
-                </LinearLayout>
-
-                <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:id="@+id/LLO3.2"
-                    android:visibility="invisible"
+                    android:visibility="visible"
                     android:background="@drawable/optionborder">
 
                     <TextView
@@ -435,13 +414,15 @@
                         android:visibility="visible"
                         android:textSize="15sp"
                         android:textColor="#464444"
-                        android:gravity="left|center"
+                        android:gravity="left"
                         android:text="Postcode:"
                         android:background="#c8ededed"
                         android:paddingLeft="10dp"
                         android:layout_marginLeft="1dp"
                         android:layout_marginTop="1dp"
-                        android:layout_marginBottom="1dp" />
+                        android:layout_marginBottom="1dp"
+                        android:textStyle="bold"
+                        android:paddingTop="10dp" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -451,8 +432,27 @@
                         android:textSize="18sp"
                         android:textColor="#000000"
                         android:gravity="left|center"
-                        android:paddingLeft="5dp"
-                        android:text="London" />
+                        android:paddingLeft="5dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/LLO3.1"
+                    android:visibility="visible">
+
+                    <EditText
+                        android:layout_width="fill_parent"
+                        android:layout_height="40dp"
+                        android:id="@+id/eto3.1"
+                        android:textSize="18sp"
+                        android:textColor="#000000"
+                        android:gravity="left|center"
+                        android:visibility="visible"
+                        android:layout_marginLeft="140dp"
+                        android:paddingLeft="5dp" />
 
                 </LinearLayout>
 
@@ -467,32 +467,11 @@
                 android:layout_marginRight="10dp">
 
                 <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:id="@+id/LLO4.1"
-                    android:visibility="visible">
-
-                    <EditText
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:id="@+id/eto4.1"
-                        android:textSize="20sp"
-                        android:textColor="#000000"
-                        android:hint="Antena height"
-                        android:textColorHint="#999999"
-                        android:layout_marginTop="10dp"
-                        android:gravity="left"
-                        android:visibility="visible" />
-
-                </LinearLayout>
-
-                <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="40dp"
                     android:id="@+id/LLO4.2"
-                    android:visibility="invisible"
+                    android:visibility="visible"
                     android:background="@drawable/optionborder">
 
                     <TextView
@@ -502,13 +481,15 @@
                         android:visibility="visible"
                         android:textSize="15sp"
                         android:textColor="#464444"
-                        android:gravity="left|center"
+                        android:gravity="left"
                         android:text="Antena height:"
                         android:background="#c8ededed"
                         android:paddingLeft="10dp"
                         android:layout_marginLeft="1dp"
                         android:layout_marginTop="1dp"
-                        android:layout_marginBottom="1dp" />
+                        android:layout_marginBottom="1dp"
+                        android:textStyle="bold"
+                        android:paddingTop="10dp" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -518,8 +499,27 @@
                         android:textSize="18sp"
                         android:textColor="#000000"
                         android:gravity="left|center"
-                        android:paddingLeft="5dp"
-                        android:text="London" />
+                        android:paddingLeft="5dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/LLO4.1"
+                    android:visibility="visible">
+
+                    <EditText
+                        android:layout_width="fill_parent"
+                        android:layout_height="40dp"
+                        android:id="@+id/eto4.1"
+                        android:textSize="18sp"
+                        android:textColor="#000000"
+                        android:gravity="left|center"
+                        android:visibility="visible"
+                        android:layout_marginLeft="140dp"
+                        android:paddingLeft="5dp" />
 
                 </LinearLayout>
 
