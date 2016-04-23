@@ -631,16 +631,16 @@ public class SFR_Overview extends AppCompatActivity {
                 menu.getItem(0).setVisible(true);
             }
             else{
-                if(extrasBundle!=null)   if(extrasBundle.getBoolean("From Option")==true){   if(alg==-1) alg=0;
+                    if(OptionNames.size()!=0){
                     OptionNames.set(alg, edit9.getText().toString());
                     OptionTown.set(alg, edit10.getText().toString());
                     OptionCounty.set(alg, edit11.getText().toString());
                     OptionHeight.set(alg, edit12.getText().toString());
-                    OptionPostCode.set(alg, edit13.getText().toString()); }
+                    OptionPostCode.set(alg, edit13.getText().toString());}
                     for(int i=0; i<OptionNames.size(); i++){
                         data.updateOption(OptionID.get(i), OptionNames.get(i), OptionTown.get(i), OptionCounty.get(i), OptionPostCode.get(i), OptionHeight.get(i));
                     }
-
+                if(alg==-1) alg=0;
 
                 boolean a = data.updateDatabase(idName, returnText(edit1), returnText(edit2), returnText(edit3), returnText(edit4), returnText(edit5), returnText(edit6), returnText(edit7), returnText(edit8));
                 if (a)
