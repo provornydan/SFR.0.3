@@ -631,7 +631,7 @@ public class SFR_Overview extends AppCompatActivity {
                 menu.getItem(0).setVisible(true);
             }
             else{
-                    if(OptionNames.size()!=0){
+                    if((OptionNames.size()!=0)&&(alg!=-1)){
                     OptionNames.set(alg, edit9.getText().toString());
                     OptionTown.set(alg, edit10.getText().toString());
                     OptionCounty.set(alg, edit11.getText().toString());
