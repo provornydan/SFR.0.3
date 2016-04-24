@@ -238,7 +238,8 @@
                     android:layout_height="fill_parent"
                     android:orientation="vertical"
                     android:id="@+id/LLO5.1"
-                    android:visibility="visible">
+                    android:visibility="visible"
+                    android:layout_marginLeft="140dp">
 
                     <EditText
                         android:layout_width="fill_parent"
@@ -248,7 +249,6 @@
                         android:visibility="visible"
                         android:textSize="18sp"
                         android:gravity="left|center"
-                        android:layout_marginLeft="140dp"
                         android:paddingLeft="5dp" />
 
                 </LinearLayout>
@@ -305,7 +305,8 @@
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:id="@+id/LLO1.1"
-                    android:visibility="visible">
+                    android:visibility="visible"
+                    android:layout_marginLeft="140dp">
 
                     <EditText
                         android:layout_width="fill_parent"
@@ -315,7 +316,6 @@
                         android:textColor="#000000"
                         android:gravity="left|center"
                         android:visibility="visible"
-                        android:layout_marginLeft="140dp"
                         android:paddingLeft="5dp" />
 
                 </LinearLayout>
@@ -373,7 +373,8 @@
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:id="@+id/LLO2.1"
-                    android:visibility="visible">
+                    android:visibility="visible"
+                    android:layout_marginLeft="140dp">
 
                     <EditText
                         android:layout_width="fill_parent"
@@ -383,7 +384,6 @@
                         android:textColor="#000000"
                         android:gravity="left|center"
                         android:visibility="visible"
-                        android:layout_marginLeft="140dp"
                         android:paddingLeft="5dp" />
 
                 </LinearLayout>
@@ -441,7 +441,8 @@
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:id="@+id/LLO3.1"
-                    android:visibility="visible">
+                    android:visibility="visible"
+                    android:layout_marginLeft="140dp">
 
                     <EditText
                         android:layout_width="fill_parent"
@@ -451,7 +452,6 @@
                         android:textColor="#000000"
                         android:gravity="left|center"
                         android:visibility="visible"
-                        android:layout_marginLeft="140dp"
                         android:paddingLeft="5dp" />
 
                 </LinearLayout>
@@ -508,7 +508,8 @@
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:id="@+id/LLO4.1"
-                    android:visibility="visible">
+                    android:visibility="visible"
+                    android:layout_marginLeft="140dp">
 
                     <EditText
                         android:layout_width="fill_parent"
@@ -518,7 +519,6 @@
                         android:textColor="#000000"
                         android:gravity="left|center"
                         android:visibility="visible"
-                        android:layout_marginLeft="140dp"
                         android:paddingLeft="5dp" />
 
                 </LinearLayout>
