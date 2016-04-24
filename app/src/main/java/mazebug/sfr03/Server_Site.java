@@ -1,6 +1,5 @@
 package mazebug.sfr03;
 
-
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
@@ -26,16 +25,35 @@ import java.util.ArrayList;
 public class Server_Site extends AsyncTask<Void, Void, Void> {
     Context context;
     String SERVER_ADDRESS;
-    String image_code;
-    String option_id;
-    String link;
+    String userName;
+    String idSite;
+    String nameSite;
+    String area;
+    String owners;
+    String cid;
+    String csr;
+    String site;
+    String powvf;
+    String powo2;
+    String date;
+    final String Image_address="http://sfrapplication.comli.com/sfr03/pictures/";
 
-    public Server_Site(Context context, String SERVER_ADDRESS, String image_code, String option_id, String link) {
+    public Server_Site(Context context, String userName, String SERVER_ADDRESS,String idSite, String nameSite,String area,
+            String owners, String cid, String csr, String site, String powvf, String powo2, String date) {
         this.context = context;
+        this.userName= userName;
         this.SERVER_ADDRESS = SERVER_ADDRESS;
-        this.image_code = image_code;
-        this.option_id = option_id;
-        this.link = link;
+        this.idSite = idSite;
+        this.nameSite = nameSite;
+        this.area = area;
+        this.owners = owners;
+        this.cid = cid;
+        this.csr = csr;
+        this.site = site;
+        this.powvf  = powvf;
+        this.powo2 = powo2;
+        this.date = date;
+
     }
 
 
@@ -50,9 +68,17 @@ public class Server_Site extends AsyncTask<Void, Void, Void> {
 
 
         ArrayList<NameValuePair> dataToSend = new ArrayList<>();
-        dataToSend.add(new BasicNameValuePair("image_code", image_code));
-        dataToSend.add(new BasicNameValuePair("optionID", option_id));
-        dataToSend.add(new BasicNameValuePair("Image_link", link));
+        dataToSend.add(new BasicNameValuePair("Site_ID", userName+"_site_"+idSite));
+        dataToSend.add(new BasicNameValuePair("site_name", nameSite));
+        dataToSend.add(new BasicNameValuePair("search_area", area));
+        dataToSend.add(new BasicNameValuePair("owners", owners));
+        dataToSend.add(new BasicNameValuePair("CID", cid));
+        dataToSend.add(new BasicNameValuePair("CSR", csr));
+        dataToSend.add(new BasicNameValuePair("Site",site));
+        dataToSend.add(new BasicNameValuePair("pow_vf", powvf));
+        dataToSend.add(new BasicNameValuePair("pow_o2", powo2));
+        dataToSend.add(new BasicNameValuePair("dateAdded", date));
+
 
         HttpParams httpParams = getHttpRequestParams();
 
