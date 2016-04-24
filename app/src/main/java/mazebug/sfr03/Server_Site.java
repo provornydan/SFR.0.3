@@ -36,12 +36,12 @@ public class Server_Site extends AsyncTask<Void, Void, Void> {
     String powvf;
     String powo2;
     String date;
-    final String Image_address="http://sfrapplication.comli.com/sfr03/pictures/";
+    final String Image_address = "http://sfrapplication.comli.com/sfr03/pictures/";
 
-    public Server_Site(Context context, String userName, String SERVER_ADDRESS,String idSite, String nameSite,String area,
-            String owners, String cid, String csr, String site, String powvf, String powo2, String date) {
+    public Server_Site(Context context, String userName, String SERVER_ADDRESS, String idSite, String nameSite, String area,
+                       String owners, String cid, String csr, String site, String powvf, String powo2, String date) {
         this.context = context;
-        this.userName= userName;
+        this.userName = userName;
         this.SERVER_ADDRESS = SERVER_ADDRESS;
         this.idSite = idSite;
         this.nameSite = nameSite;
@@ -50,7 +50,7 @@ public class Server_Site extends AsyncTask<Void, Void, Void> {
         this.cid = cid;
         this.csr = csr;
         this.site = site;
-        this.powvf  = powvf;
+        this.powvf = powvf;
         this.powo2 = powo2;
         this.date = date;
 
@@ -60,7 +60,6 @@ public class Server_Site extends AsyncTask<Void, Void, Void> {
     @Override
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
-        Toast.makeText(context, "Information Updated", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -68,13 +67,13 @@ public class Server_Site extends AsyncTask<Void, Void, Void> {
 
 
         ArrayList<NameValuePair> dataToSend = new ArrayList<>();
-        dataToSend.add(new BasicNameValuePair("Site_ID", userName+"_site_"+idSite));
+        dataToSend.add(new BasicNameValuePair("Site_ID", userName + "_site_" + idSite));
         dataToSend.add(new BasicNameValuePair("site_name", nameSite));
         dataToSend.add(new BasicNameValuePair("search_area", area));
         dataToSend.add(new BasicNameValuePair("owners", owners));
         dataToSend.add(new BasicNameValuePair("CID", cid));
         dataToSend.add(new BasicNameValuePair("CSR", csr));
-        dataToSend.add(new BasicNameValuePair("Site",site));
+        dataToSend.add(new BasicNameValuePair("Site", site));
         dataToSend.add(new BasicNameValuePair("pow_vf", powvf));
         dataToSend.add(new BasicNameValuePair("pow_o2", powo2));
         dataToSend.add(new BasicNameValuePair("dateAdded", date));

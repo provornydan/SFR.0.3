@@ -60,6 +60,7 @@ public class SFR_Overview extends AppCompatActivity {
     EditText edit1, edit2, edit3, edit4, edit5, edit6, edit7, edit8, edit9, edit10, edit11, edit12, edit13; EditText[] edits, secondedits;
     TextView text1, text2, text3, text4, text5, text6, text7, text8, text9, text10, text11, text12, text13; TextView[] texts, secondtexts;
     ImageView plusImage;    View view1;
+    String userName;
 
     LinearLayout horizontal;
     LinearLayout ll;
@@ -147,7 +148,9 @@ public class SFR_Overview extends AppCompatActivity {
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SFR_Overview.this, MySFR.class));
+                Intent intent = new Intent(SFR_Overview.this, MySFR.class);
+                intent.putExtra("User", userName);
+                startActivity(intent);
             }
         });
 
@@ -221,6 +224,11 @@ public class SFR_Overview extends AppCompatActivity {
 
             }
 
+            Intent extras1 = getIntent();
+            Bundle extrasBundle1 = extras1.getExtras();
+            if(extrasBundle1!=null){
+                userName= extrasBundle1.getString("User");
+            }
 
             for(int i=0; i<options.size(); i++){
                 final int ord = i;
@@ -643,9 +651,15 @@ public class SFR_Overview extends AppCompatActivity {
                 if(alg==-1) alg=0;
 
                 boolean a = data.updateDatabase(idName, returnText(edit1), returnText(edit2), returnText(edit3), returnText(edit4), returnText(edit5), returnText(edit6), returnText(edit7), returnText(edit8));
-                if (a)
+                if (a){
                     Toast.makeText(SFR_Overview.this, "Site updated Successfully", Toast.LENGTH_LONG).show();
+                    data.setEditedSite(idName);
+                    data.setEditedOptions(idName);
+
+                }
                 else Toast.makeText(SFR_Overview.this, "Failed", Toast.LENGTH_LONG).show();
+
+
             }
 
 
@@ -683,6 +697,7 @@ public class SFR_Overview extends AppCompatActivity {
                 data.insertAnOption(idName, null);
                 intent.putExtra("The id", idName);
                 intent.putExtra("From Option", true);
+                intent.putExtra("User", userName);
 
                 startActivity(intent);
 
@@ -694,14 +709,14 @@ public class SFR_Overview extends AppCompatActivity {
     public void changeEditToText(EditText[] edit, TextView[] text, LinearLayout[] textLayouts, LinearLayout[] editLayouts){
         for(int i=0; i<textLayouts.length; i++){
             editLayouts[i].setVisibility(View.INVISIBLE);
-            textLayouts[i].setVisibility(View.VISIBLE);
+            texts[i].setVisibility(View.VISIBLE);
         }
         for(int i=0; i<edit.length; i++){
             text[i].setText(edit[i].getText());
         }
         for(int i=0; i<secondTextLayouts.length; i++){
             secondeditLayouts[i].setVisibility(View.INVISIBLE);
-            secondTextLayouts[i].setVisibility(View.VISIBLE);
+            secondtexts[i].setVisibility(View.VISIBLE);
         }
         for(int i=0; i<secondedits.length; i++){
             secondtexts[i].setText(secondedits[i].getText());
@@ -710,14 +725,15 @@ public class SFR_Overview extends AppCompatActivity {
 
     public void changeTextToEdit(TextView[] text, EditText[] edit, LinearLayout[] editLayouts, LinearLayout[] textLayouts){
         for(int i=0; i<textLayouts.length; i++){
-            textLayouts[i].setVisibility(View.INVISIBLE);
+            texts[i].setVisibility(View.INVISIBLE);
             editLayouts[i].setVisibility(View.VISIBLE);
         }
         for(int i=0; i<edit.length; i++){
+
             edit[i].setText(text[i].getText());
         }
         for(int i=0; i<secondTextLayouts.length; i++){
-            secondTextLayouts[i].setVisibility(View.INVISIBLE);
+            secondtexts[i].setVisibility(View.INVISIBLE);
             secondeditLayouts[i].setVisibility(View.VISIBLE);
         }
         for(int i=0; i<secondedits.length; i++){

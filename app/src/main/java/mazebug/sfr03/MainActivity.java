@@ -15,6 +15,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import java.util.Map;
 
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        login = (EditText)findViewById(R.id.etnm2);
+        login = (EditText)findViewById(R.id.etnm1);
         logo=(ImageView)findViewById(R.id.ivnm1);
 
         ((LinearLayout) findViewById(R.id.dummy_id)).requestFocus();
@@ -66,7 +67,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void signIn(View view){
-        startActivity(new Intent(MainActivity.this, MySFR.class));
+
+
+        if(login.getText().toString().isEmpty()){
+            Toast.makeText(this, "UserName Required", Toast.LENGTH_LONG).show();
+        }
+        else {
+            Intent intent = new Intent(MainActivity.this, MySFR.class);
+            intent.putExtra("User", login.getText().toString());
+            startActivity(intent);
+
+        }
     }
 
     public void forgotpass(View view) {

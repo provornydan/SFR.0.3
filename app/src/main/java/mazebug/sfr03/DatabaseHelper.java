@@ -14,7 +14,7 @@ import java.util.Date;
  * Created by Provorny on 2/13/2016.
  */
 public class DatabaseHelper extends SQLiteOpenHelper {
-    public static final String DATABASE_NAME="SFR03_3.db";
+    public static final String DATABASE_NAME="SFR03_9.db";
     public static final String TABLE_NAME="mysfrs";
     public static final String COL_1 ="ID";
     //public static final String COL_2="Latitude";
@@ -89,6 +89,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
         contentValues.put(COL_10, strDate);
+        contentValues.put("Created", "1");
+        contentValues.put("Edited", "0");
 
 
 
@@ -103,6 +105,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             ContentValues content2 = new ContentValues();
             content2.put("SITE_ID", Site_ID);
             content2.put("option_name", optionName);
+            content2.put("Created", "1");
+            content2.put("Edited", "0");
 
 
             long result2 = db.insert(OPTION_NAME, null, content2);
@@ -117,6 +121,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             ContentValues content3 = new ContentValues();
             content3.put("OPTION_ID", OptionID);
             content3.put("FILE_PATH", FilePath);
+            content3.put("Created", "1");
 
             long result2 = db.insert(IMAGE_NAME, null, content3);
             if(result2==-1){
@@ -137,6 +142,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return res;
     }
 
+    public Cursor getData(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res=db.rawQuery("Select ID, Site_name, search_area, Owners, CID, CSR, Site, pow_vf, pow_02, addedDate, Created, Edited  from "+TABLE_NAME, null);
+        return res;
+    }
+
     public Cursor getImageData(String option_id){
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor res=db.rawQuery("Select IMAGE_CODE, FILE_PATH from "+IMAGE_NAME+" where OPTION_ID='"+option_id+"' ORDER BY IMAGE_CODE DESC", null);
@@ -145,7 +156,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public Cursor getAllImages(){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res=db.rawQuery("Select IMAGE_CODE, FILE_PATH, OPTION_ID from "+IMAGE_NAME+" ORDER BY IMAGE_CODE ASC", null);
+        Cursor res=db.rawQuery("Select IMAGE_CODE, FILE_PATH, OPTION_ID, Created from "+IMAGE_NAME+" ORDER BY IMAGE_CODE ASC", null);
         return res;
     }
 
@@ -210,6 +221,57 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return true;
     }
 
+    public void setEditedSite(String id){
+        SQLiteDatabase db=this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("Edited", "1");
+
+        db.update(TABLE_NAME, contentValues, "ID = ?", new String[]{id});
+    }
+
+    public void setEditedOptions(String id){
+        SQLiteDatabase db=this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("Edited", "1");
+        db.update(OPTION_NAME, contentValues, "SITE_ID = ?", new String[]{id});
+    }
+
+    public void setNotEditedSite(String id){
+        SQLiteDatabase db=this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("Edited", "0");
+
+        db.update(TABLE_NAME, contentValues, "ID = ?", new String[]{id});
+    }
+
+    public void setNotEditedOptions(String id){
+        SQLiteDatabase db=this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("Edited", "0");
+        db.update(OPTION_NAME, contentValues, "OPTION_ID = ?", new String[]{id});
+    }
+
+    public void setNotCreatedSite(String id){
+        SQLiteDatabase db=this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("Created", "0");
+
+        db.update(TABLE_NAME, contentValues, "ID = ?", new String[]{id});
+    }
+
+    public void setNotCreatedOptions(String id){
+        SQLiteDatabase db=this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("Created", "0");
+        db.update(OPTION_NAME, contentValues, "OPTION_ID = ?", new String[]{id});
+    }
+    public void setNotCreatedImages(String id){
+        SQLiteDatabase db=this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("Created", "0");
+        db.update(IMAGE_NAME, contentValues, "IMAGE_CODE = ?", new String[]{id});
+    }
+
     public boolean updateImage(String imageCode, String FilePath){
         SQLiteDatabase db=this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -229,6 +291,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public Cursor getOptionByName(String OptionID){
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor res=db.rawQuery("Select OPTION_ID, option_name, Town, County, Postcode, Antenna_height, Latitude, Longitude  from "+OPTION_NAME+" where OPTION_ID='"+OptionID+"'", null);
+        return res;
+    }
+
+    public Cursor getOptions(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res=db.rawQuery("Select OPTION_ID, option_name, Town, County, Postcode, Antenna_height, Latitude, Longitude, SITE_ID, Created, Edited  from "+OPTION_NAME, null);
         return res;
     }
 

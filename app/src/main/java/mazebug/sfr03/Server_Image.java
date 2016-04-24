@@ -42,7 +42,6 @@ public class Server_Image extends AsyncTask<Void, Void, Void> {
     @Override
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
-        Toast.makeText(context, "Information Updated", Toast.LENGTH_SHORT).show();
     }
 
     @Override
