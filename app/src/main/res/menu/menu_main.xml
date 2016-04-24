@@ -21,6 +21,13 @@
 
         </item>
     <item
+        android:id="@+id/server"
+        android:title="Server"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_cloud_upload"
+        />
+
+    <item
         android:id="@+id/search"
         android:title="Send"
         app:showAsAction="ifRoom"
