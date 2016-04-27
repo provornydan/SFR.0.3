@@ -42,6 +42,7 @@ public class Server_Image extends AsyncTask<Void, Void, Void> {
     @Override
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
+        Toast.makeText(context, "Loading...", Toast.LENGTH_SHORT ).show();
     }
 
     @Override
@@ -73,4 +74,5 @@ public class Server_Image extends AsyncTask<Void, Void, Void> {
         HttpConnectionParams.setSoTimeout(httpRequestParams, 1000 * 30);
         return httpRequestParams;
     }
+
 }

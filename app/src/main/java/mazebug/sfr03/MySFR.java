@@ -310,8 +310,8 @@ public class MySFR extends AppCompatActivity {
                             data.setNotEditedSite(siteCursor.getString(0));
 
                         }
-
                     }
+                    Toast.makeText(MySFR.this, "LOADING...", Toast.LENGTH_SHORT ).show();
                 } catch (Exception e) {}
                 try{
                     Cursor optionCursor = data.getOptions();
@@ -327,8 +327,8 @@ public class MySFR extends AppCompatActivity {
                                     optionCursor.getString(3), optionCursor.getString(4), optionCursor.getString(5), optionCursor.getString(6), optionCursor.getString(7)).execute();
                             data.setNotEditedOptions(optionCursor.getString(0));
                         }
-
-                    }}
+                    } Toast.makeText(MySFR.this, "LOADING...", Toast.LENGTH_SHORT ).show();
+                }
                 catch (Exception e){}
 
                 try{
@@ -341,11 +341,12 @@ public class MySFR extends AppCompatActivity {
                         new Server_Image(this, userName, "http://sfrapplication.comli.com/sfr03/insertImage.php", imageCursor.getString(0), imageCursor.getString(2)).execute();
                         data.setNotCreatedImages(imageCursor.getString(0));
                     }
-                }
 
+                }
+                    Toast.makeText(MySFR.this, "LOADING...", Toast.LENGTH_SHORT ).show();
             }
                 catch (Exception e){}
-
+                Toast.makeText(MySFR.this, "Success", Toast.LENGTH_LONG ).show();
             }
 
         if (id == R.id.cancel){
@@ -405,7 +406,7 @@ public class MySFR extends AppCompatActivity {
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
-            Toast.makeText(MySFR.this, "DATA ON SERVER", Toast.LENGTH_LONG ).show();
+            Toast.makeText(MySFR.this, "Loading...", Toast.LENGTH_SHORT ).show();
         }
 
         @Override
@@ -441,4 +442,5 @@ public class MySFR extends AppCompatActivity {
             HttpConnectionParams.setSoTimeout(httpRequestParams, 1000*30);
             return  httpRequestParams;
         }
+
 }

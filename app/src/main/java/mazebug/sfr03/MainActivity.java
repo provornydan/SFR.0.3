@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         login = (EditText)findViewById(R.id.etnm1);
         logo=(ImageView)findViewById(R.id.ivnm1);
 
-        ((LinearLayout) findViewById(R.id.dummy_id)).requestFocus();
+        ((LinearLayout) findViewById(R.id.LLM3)).requestFocus();
 
         data = new DatabaseHelper(this);
 

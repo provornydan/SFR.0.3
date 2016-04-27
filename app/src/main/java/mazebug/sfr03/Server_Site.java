@@ -38,6 +38,7 @@ public class Server_Site extends AsyncTask<Void, Void, Void> {
     String date;
     final String Image_address = "http://sfrapplication.comli.com/sfr03/pictures/";
 
+
     public Server_Site(Context context, String userName, String SERVER_ADDRESS, String idSite, String nameSite, String area,
                        String owners, String cid, String csr, String site, String powvf, String powo2, String date) {
         this.context = context;
@@ -60,6 +61,7 @@ public class Server_Site extends AsyncTask<Void, Void, Void> {
     @Override
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
+        Toast.makeText(context, "Loading...", Toast.LENGTH_SHORT ).show();
     }
 
     @Override
@@ -99,4 +101,5 @@ public class Server_Site extends AsyncTask<Void, Void, Void> {
         HttpConnectionParams.setSoTimeout(httpRequestParams, 1000 * 30);
         return httpRequestParams;
     }
+
 }
