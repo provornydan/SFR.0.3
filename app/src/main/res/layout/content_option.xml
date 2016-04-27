@@ -235,7 +235,7 @@
 
                 <LinearLayout
                     android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
+                    android:layout_height="50dp"
                     android:orientation="vertical"
                     android:id="@+id/LLO5.1"
                     android:visibility="visible"
@@ -303,7 +303,7 @@
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
+                    android:layout_height="50dp"
                     android:id="@+id/LLO1.1"
                     android:visibility="visible"
                     android:layout_marginLeft="140dp">
@@ -371,7 +371,7 @@
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
+                    android:layout_height="50dp"
                     android:id="@+id/LLO2.1"
                     android:visibility="visible"
                     android:layout_marginLeft="140dp">
@@ -439,7 +439,7 @@
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
+                    android:layout_height="50dp"
                     android:id="@+id/LLO3.1"
                     android:visibility="visible"
                     android:layout_marginLeft="140dp">
@@ -506,7 +506,7 @@
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
+                    android:layout_height="50dp"
                     android:id="@+id/LLO4.1"
                     android:visibility="visible"
                     android:layout_marginLeft="140dp">

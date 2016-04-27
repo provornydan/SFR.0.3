@@ -32,8 +32,8 @@
                 android:focusableInTouchMode="true" />
 
             <ImageView
-                android:layout_width="264dp"
-                android:layout_height="124dp"
+                android:layout_width="244dp"
+                android:layout_height="104dp"
                 android:id="@+id/ivnm1"
                 android:layout_gravity="center_horizontal"
                 android:src="@drawable/ctil_logo"
