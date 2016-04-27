@@ -43,7 +43,7 @@
                 android:maxLength="25"
                 android:textStyle="bold"
                 android:hint="Search"
-                android:textColorHint="#a6a6a6"
+                android:textColorHint="#999999"
                 />
             </android.support.v7.widget.Toolbar>
 
