@@ -24,7 +24,7 @@
         android:id="@+id/server"
         android:title="Server"
         app:showAsAction="always"
-        android:icon="@drawable/ic_cloud_upload"
+        android:icon="@drawable/ic_file_upload"
         />
 
     <item
