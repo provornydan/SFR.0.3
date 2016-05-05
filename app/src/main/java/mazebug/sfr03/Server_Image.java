@@ -1,7 +1,10 @@
 package mazebug.sfr03;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.util.Base64;
 import android.widget.Toast;
@@ -19,6 +22,7 @@ import org.apache.http.params.HttpParams;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -46,16 +50,20 @@ public class Server_Image extends AsyncTask<String, Void, String> {
     @Override
     protected void onPostExecute(String aVoid) {
         super.onPostExecute(aVoid);
-        Toast.makeText(context, aVoid, Toast.LENGTH_SHORT ).show();
+
+
+
+
+
     }
 
     @Override
     protected String doInBackground(String... params) {
 
-
+        //SERVER_ADDRESS = "http://sfrapplication.comli.com/sfr03/SavePicture.php";
         ArrayList<NameValuePair> dataToSend = new ArrayList<>();
         dataToSend.add(new BasicNameValuePair("optionID", option_id));
-        dataToSend.add(new BasicNameValuePair("Image_link", image_code+".JPG"));
+        dataToSend.add(new BasicNameValuePair("Image_link", Image_address+image_code + ".JPG"));
 
         HttpParams httpParams = getHttpRequestParams();
 
@@ -95,4 +103,48 @@ public class Server_Image extends AsyncTask<String, Void, String> {
         return httpRequestParams;
     }
 
-}
+    public class UploadImage extends AsyncTask<Void, Void, Void>{
+        Bitmap image;
+        String name;
+
+        public UploadImage(Bitmap image, String name){
+            this.image=image;
+            this.name=name;
+        }
+
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            Toast.makeText(context, "Loading...", Toast.LENGTH_SHORT ).show();
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            image.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
+            byte[] b = byteArrayOutputStream.toByteArray();
+            String encodedImage = Base64.encodeToString(byteArrayOutputStream.toByteArray(), Base64.DEFAULT);
+
+
+            ArrayList<NameValuePair> dataToSend = new ArrayList<>();
+            dataToSend.add(new BasicNameValuePair("image", encodedImage));
+            dataToSend.add(new BasicNameValuePair("name", name));
+
+            HttpParams httpParams = getHttpRequestParams();
+
+            HttpClient client = new DefaultHttpClient(httpParams);
+            HttpPost httpPost = new HttpPost(SERVER_ADDRESS);
+
+            try{
+                httpPost.setEntity(new UrlEncodedFormEntity(dataToSend));
+                client.execute(httpPost);
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+            return null;
+        }
+    }
+
+    }

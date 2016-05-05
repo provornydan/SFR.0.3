@@ -85,7 +85,7 @@ public class Server_Site extends AsyncTask<String, Void, String> {
             StringBuilder builder = new StringBuilder();
             int i = 0;
             while (true) {
-                if (Character.isDigit(code[i])) {
+                 if (Character.isDigit(code[i])) {
                     builder.append(code[i]);
                     i++;
                 } else break;
@@ -100,24 +100,34 @@ public class Server_Site extends AsyncTask<String, Void, String> {
 
                 Cursor optionCursor = data.getAllOptions(idSite);
                 while (optionCursor.moveToNext()) {
+
+                    Cursor siteOnServer = data.getIdData(optionCursor.getString(8));
+                    siteOnServer.moveToNext();
+                    siteID = siteOnServer.getString(9);
+
                     if (optionCursor.getString(9).equals("1")) {
-                        Cursor siteOnServer = data.getIdData(optionCursor.getString(8));
-                        siteOnServer.moveToNext();
-                        siteID = siteOnServer.getString(9);
                         new Server_Option(context, userName, "http://sfrapplication.comli.com/sfr03/insertOption.php", optionCursor.getString(0), siteID, optionCursor.getString(1), optionCursor.getString(2),
                                 optionCursor.getString(3), optionCursor.getString(4), optionCursor.getString(5), optionCursor.getString(6), optionCursor.getString(7)).execute();
                         data.setNotCreatedOptions(optionCursor.getString(0));
                         data.setNotEditedOptions(optionCursor.getString(0));
                         Toast.makeText(context, "LOADING...", Toast.LENGTH_SHORT).show();
-                    } else if (optionCursor.getString(10).equals("1")) {
-                        new Server_Option(context, userName, "http://sfrapplication.comli.com/sfr03/updateOption.php", optionCursor.getString(11), siteID, optionCursor.getString(1), optionCursor.getString(2),
+                    } else //if (optionCursor.getString(10).equals("1"))
+                    {
+                        Toast.makeText(context, "UPDATING...", Toast.LENGTH_SHORT).show();
+                        Cursor optionOnServer  = data.getOptionByName(optionCursor.getString(0));
+                        optionOnServer.moveToNext();
+                        String optionID = optionOnServer.getString(8);
+
+
+                        new Server_Option(context, userName, "http://sfrapplication.comli.com/sfr03/updateOption.php", optionID, siteID, optionCursor.getString(1), optionCursor.getString(2),
                                 optionCursor.getString(3), optionCursor.getString(4), optionCursor.getString(5), optionCursor.getString(6), optionCursor.getString(7)).execute();
                         data.setNotEditedOptions(optionCursor.getString(0));
-                        Toast.makeText(context, "LOADING...", Toast.LENGTH_SHORT).show();
+
                     }
                 }
 
             } catch (Exception e) {
+                Toast.makeText(context, e.toString(), Toast.LENGTH_SHORT).show();
             }
 
 

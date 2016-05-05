@@ -892,6 +892,8 @@ public class SFR_Overview extends AppCompatActivity {
                 Cursor imageCursor = data.getImageData(OptionID.get(alg));
                 imageCursor.moveToNext();
                 data.updateImage(imageCursor.getString(0), getPhotoFileUri(imageCursor.getString(0)));
+                data.setEditedSite(idName);
+                data.setEditedOptions(idName);
                 Uri takenPhotoUri = Uri.fromFile(new File(getPhotoFileUri(imageCursor.getString(0))));
                 // by this point we have the camera photo on disk
                 Bitmap takenImage = BitmapFactory.decodeFile(takenPhotoUri.getPath());

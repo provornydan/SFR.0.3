@@ -14,7 +14,7 @@ import java.util.Date;
  * Created by Provorny on 2/13/2016.
  */
 public class DatabaseHelper extends SQLiteOpenHelper {
-    public static final String DATABASE_NAME="SFR03_10.db";
+    public static final String DATABASE_NAME="SFR03_11.db";
     public static final String TABLE_NAME="mysfrs";
     public static final String COL_1 ="ID";
     //public static final String COL_2="Latitude";
@@ -151,7 +151,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public Cursor getImageData(String option_id){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res=db.rawQuery("Select IMAGE_CODE, FILE_PATH from "+IMAGE_NAME+" where OPTION_ID='"+option_id+"' ORDER BY IMAGE_CODE DESC", null);
+        Cursor res=db.rawQuery("Select IMAGE_CODE, FILE_PATH, Created from "+IMAGE_NAME+" where OPTION_ID='"+option_id+"' ORDER BY IMAGE_CODE DESC", null);
         return res;
     }
 
@@ -317,6 +317,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public Cursor getOptions(){
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor res=db.rawQuery("Select OPTION_ID, option_name, Town, County, Postcode, Antenna_height, Latitude, Longitude, SITE_ID, Created, Edited, ID_on_Server  from "+OPTION_NAME, null);
+        return res;
+    }
+
+    public Cursor getOptionFromServer(String ServerId){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res=db.rawQuery("Select OPTION_ID, option_name, Town, County, Postcode, Antenna_height, Latitude, Longitude, ID_on_Server  from "+OPTION_NAME+" where ID_on_Server='"+ServerId+"'", null);
         return res;
     }
 

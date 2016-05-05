@@ -313,7 +313,8 @@ public class MySFR extends AppCompatActivity{
                             data.setNotCreatedSite(siteCursor.getString(0));
                             data.setNotEditedSite(siteCursor.getString(0));
                         } else if (siteCursor.getString(11).equals("1")) {
-                            new Server_Site(this, userName, "http://sfrapplication.comli.com/sfr03/updateSite.php", siteCursor.getString(12), siteCursor.getString(1), siteCursor.getString(2), siteCursor.getString(3), siteCursor.getString(4),
+                            Toast.makeText(this, "ChangedSite...", Toast.LENGTH_SHORT).show();
+                            new Server_Site(this, userName, "http://sfrapplication.comli.com/sfr03/updateSite.php", siteCursor.getString(0), siteCursor.getString(1), siteCursor.getString(2), siteCursor.getString(3), siteCursor.getString(4),
                                     siteCursor.getString(5), siteCursor.getString(6), siteCursor.getString(7), siteCursor.getString(8), siteCursor.getString(9)).execute();
                             data.setNotEditedSite(siteCursor.getString(0));
 
@@ -415,7 +416,7 @@ public class MySFR extends AppCompatActivity{
     }
 
 
-    private class UploadImage extends AsyncTask<Void, Void, Void>{
+    public class UploadImage extends AsyncTask<Void, Void, Void>{
         Bitmap image;
         String name;
 
