@@ -8,14 +8,14 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="mazebug.sfr03.Option"
     tools:showIn="@layout/activity_option"
-    android:background="#ffffff">
+    android:background="#e8e8e8">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/SVO1"
         android:layout_weight="3.42"
-        android:background="#1eeeeeee">
+        android:background="#e8e8e8">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -132,11 +132,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/RLO3"
-                android:visibility="visible">
+                android:visibility="visible"
+                android:layout_gravity="center_vertical">
 
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="250dp"
+                    android:layout_height="wrap_content"
                     android:id="@+id/ivo1"
                     android:layout_marginBottom="50dp" />
 
@@ -144,11 +145,11 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/LLO9"
-                    android:gravity="right"
                     android:layout_alignParentEnd="false"
                     android:layout_alignParentStart="false"
                     android:layout_alignParentBottom="true"
-                    android:paddingBottom="25dp">
+                    android:paddingBottom="25dp"
+                    android:gravity="right">
 
                     <android.support.design.widget.FloatingActionButton
                         android:layout_width="wrap_content"
