@@ -1,11 +1,13 @@
 package mazebug.sfr03;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.util.Base64;
 import android.widget.Toast;
 
+import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
@@ -16,13 +18,18 @@ import org.apache.http.params.BasicHttpParams;
 import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpParams;
 
+import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 /**
  * Created by Provorny on 4/22/2016.
  */
-public class Server_Site extends AsyncTask<Void, Void, Void> {
+public class Server_Site extends AsyncTask<String, Void, String> {
+
+
     Context context;
     String SERVER_ADDRESS;
     String userName;
@@ -36,6 +43,12 @@ public class Server_Site extends AsyncTask<Void, Void, Void> {
     String powvf;
     String powo2;
     String date;
+
+    DatabaseHelper data;
+
+    String siteID;
+
+    boolean inserted=false;
     final String Image_address = "http://sfrapplication.comli.com/sfr03/pictures/";
 
 
@@ -58,18 +71,67 @@ public class Server_Site extends AsyncTask<Void, Void, Void> {
     }
 
 
-    @Override
-    protected void onPostExecute(Void aVoid) {
-        super.onPostExecute(aVoid);
-        Toast.makeText(context, "Loading...", Toast.LENGTH_SHORT ).show();
-    }
+
+
+
+
 
     @Override
-    protected Void doInBackground(Void... params) {
+    protected void onPostExecute(String aVoid) {
+        super.onPostExecute(aVoid);
+
+        if(!aVoid.isEmpty()) {
+            char[] code = aVoid.toCharArray();
+            StringBuilder builder = new StringBuilder();
+            int i = 0;
+            while (true) {
+                if (Character.isDigit(code[i])) {
+                    builder.append(code[i]);
+                    i++;
+                } else break;
+            }
+
+            data = new DatabaseHelper(context);
+            if (!builder.toString().isEmpty())
+                data.updateSiteWithServer(idSite, builder.toString());  }
+
+
+            try {
+
+                Cursor optionCursor = data.getAllOptions(idSite);
+                while (optionCursor.moveToNext()) {
+                    if (optionCursor.getString(9).equals("1")) {
+                        Cursor siteOnServer = data.getIdData(optionCursor.getString(8));
+                        siteOnServer.moveToNext();
+                        siteID = siteOnServer.getString(9);
+                        new Server_Option(context, userName, "http://sfrapplication.comli.com/sfr03/insertOption.php", optionCursor.getString(0), siteID, optionCursor.getString(1), optionCursor.getString(2),
+                                optionCursor.getString(3), optionCursor.getString(4), optionCursor.getString(5), optionCursor.getString(6), optionCursor.getString(7)).execute();
+                        data.setNotCreatedOptions(optionCursor.getString(0));
+                        data.setNotEditedOptions(optionCursor.getString(0));
+                        Toast.makeText(context, "LOADING...", Toast.LENGTH_SHORT).show();
+                    } else if (optionCursor.getString(10).equals("1")) {
+                        new Server_Option(context, userName, "http://sfrapplication.comli.com/sfr03/updateOption.php", optionCursor.getString(11), siteID, optionCursor.getString(1), optionCursor.getString(2),
+                                optionCursor.getString(3), optionCursor.getString(4), optionCursor.getString(5), optionCursor.getString(6), optionCursor.getString(7)).execute();
+                        data.setNotEditedOptions(optionCursor.getString(0));
+                        Toast.makeText(context, "LOADING...", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+            } catch (Exception e) {
+            }
+
+
+
+
+        }
+
+
+    @Override
+    protected String doInBackground(String... params) {
 
 
         ArrayList<NameValuePair> dataToSend = new ArrayList<>();
-        dataToSend.add(new BasicNameValuePair("Site_ID", userName + "_site_" + idSite));
+        dataToSend.add(new BasicNameValuePair("Site_ID", idSite));
         dataToSend.add(new BasicNameValuePair("site_name", nameSite));
         dataToSend.add(new BasicNameValuePair("search_area", area));
         dataToSend.add(new BasicNameValuePair("owners", owners));
@@ -88,11 +150,29 @@ public class Server_Site extends AsyncTask<Void, Void, Void> {
 
         try {
             httpPost.setEntity(new UrlEncodedFormEntity(dataToSend));
-            client.execute(httpPost);
+            HttpResponse response = client.execute(httpPost);
+
+            InputStream ips  = response.getEntity().getContent();
+            BufferedReader buf = new BufferedReader(new InputStreamReader(ips,"UTF-8"));
+
+            StringBuilder sb = new StringBuilder();
+            String s;
+            while(true )
+            {
+                s = buf.readLine();
+                if(s==null || s.length()==0)
+                    break;
+                sb.append(s);
+
+            }
+            buf.close();
+            ips.close();
+
+            return sb.toString();
         } catch (Exception e) {
             e.printStackTrace();
+            return null;
         }
-        return null;
     }
 
     private HttpParams getHttpRequestParams() {

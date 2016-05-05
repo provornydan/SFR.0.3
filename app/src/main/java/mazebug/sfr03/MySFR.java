@@ -12,6 +12,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.app.AlertDialog;
@@ -51,9 +52,9 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.util.ArrayList;
 
-public class MySFR extends AppCompatActivity {
+public class MySFR extends AppCompatActivity{
     EditText mysearch; Menu menu; TextView title;
-    DatabaseHelper data = new DatabaseHelper(this);
+
     Cursor rs;
     public final String APP_TAG = "MyCustomApp";
     private static final String SERVER_ADDRESS="http://sfrapplication.comli.com/sfr03/SavePicture.php";
@@ -64,6 +65,8 @@ public class MySFR extends AppCompatActivity {
     ArrayList<String> ids = new ArrayList<>();
 
     String userName="danik1brat";
+    public String myid;
+    String siteID;
     public String imageName;
     final String Image_address="http://sfrapplication.comli.com/sfr03/pictures/";
     @Override
@@ -95,6 +98,7 @@ public class MySFR extends AppCompatActivity {
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
                 AbsListView.LayoutParams.WRAP_CONTENT, AbsListView.LayoutParams.WRAP_CONTENT);
 
+        DatabaseHelper data = new DatabaseHelper(this);
         rs = data.getAllData();
 
         /*Intent extras1 = getIntent();
@@ -297,75 +301,94 @@ public class MySFR extends AppCompatActivity {
 
 
                 try {
+                    DatabaseHelper data = new DatabaseHelper(this);
                     Cursor siteCursor = data.getData();
                     while (siteCursor.moveToNext()) {
                         if (siteCursor.getString(10).equals("1")) {
-                            new Server_Site(this, userName, "http://sfrapplication.comli.com/sfr03/insertSite.php", siteCursor.getString(0), siteCursor.getString(1), siteCursor.getString(2), siteCursor.getString(3), siteCursor.getString(4),
-                                    siteCursor.getString(5), siteCursor.getString(6), siteCursor.getString(7), siteCursor.getString(8), siteCursor.getString(9)).execute();
+                            Server_Site site  = new Server_Site(this, userName, "http://sfrapplication.comli.com/sfr03/insertSite.php", siteCursor.getString(0), siteCursor.getString(1), siteCursor.getString(2), siteCursor.getString(3), siteCursor.getString(4),
+                                    siteCursor.getString(5), siteCursor.getString(6), siteCursor.getString(7), siteCursor.getString(8), siteCursor.getString(9));
+
+                            site.execute();
+                            Toast.makeText(MySFR.this, "Loading...", Toast.LENGTH_SHORT ).show();
                             data.setNotCreatedSite(siteCursor.getString(0));
                             data.setNotEditedSite(siteCursor.getString(0));
                         } else if (siteCursor.getString(11).equals("1")) {
-                            new Server_Site(this, userName, "http://sfrapplication.comli.com/sfr03/updateSite.php", siteCursor.getString(0), siteCursor.getString(1), siteCursor.getString(2), siteCursor.getString(3), siteCursor.getString(4),
+                            new Server_Site(this, userName, "http://sfrapplication.comli.com/sfr03/updateSite.php", siteCursor.getString(12), siteCursor.getString(1), siteCursor.getString(2), siteCursor.getString(3), siteCursor.getString(4),
                                     siteCursor.getString(5), siteCursor.getString(6), siteCursor.getString(7), siteCursor.getString(8), siteCursor.getString(9)).execute();
                             data.setNotEditedSite(siteCursor.getString(0));
 
                         }
                     }
-                    Toast.makeText(MySFR.this, "LOADING...", Toast.LENGTH_SHORT ).show();
-                } catch (Exception e) {}
-                try{
-                    Cursor optionCursor = data.getOptions();
-                    while(optionCursor.moveToNext()){
-                        if(optionCursor.getString(9).equals("1")){
-                            new Server_Option(this, userName, "http://sfrapplication.comli.com/sfr03/insertOption.php", optionCursor.getString(0), optionCursor.getString(8), optionCursor.getString(1), optionCursor.getString(2),
-                                    optionCursor.getString(3), optionCursor.getString(4), optionCursor.getString(5), optionCursor.getString(6), optionCursor.getString(7)).execute();
-                            data.setNotCreatedOptions(optionCursor.getString(0));
-                            data.setNotEditedOptions(optionCursor.getString(0));
-                        }
-                        else if (optionCursor.getString(10).equals("1")){
-                            new Server_Option(this, userName, "http://sfrapplication.comli.com/sfr03/updateOption.php", optionCursor.getString(0), optionCursor.getString(8), optionCursor.getString(1), optionCursor.getString(2),
-                                    optionCursor.getString(3), optionCursor.getString(4), optionCursor.getString(5), optionCursor.getString(6), optionCursor.getString(7)).execute();
-                            data.setNotEditedOptions(optionCursor.getString(0));
-                        }
-                    } Toast.makeText(MySFR.this, "LOADING...", Toast.LENGTH_SHORT ).show();
-                }
-                catch (Exception e){}
 
-                try{
-                Cursor imageCursor = data.getAllImages();
-                while(imageCursor.moveToNext()) {
-                    if(imageCursor.getString(3).equals("1")){
-                        Uri takenPhotoUri = Uri.fromFile(new File(getPhotoFileUri(imageCursor.getString(0))));
-                        Bitmap takenImage = BitmapFactory.decodeFile(takenPhotoUri.getPath());
-                        new UploadImage(takenImage, imageCursor.getString(0)).execute();
-                        new Server_Image(this, userName, "http://sfrapplication.comli.com/sfr03/insertImage.php", imageCursor.getString(0), imageCursor.getString(2)).execute();
-                        data.setNotCreatedImages(imageCursor.getString(0));
+                } catch (Exception e) {}
+
+                int secondsDelayed = 10;
+                /*new Handler().postDelayed(new Runnable() {
+                    public void run() {
+                        try {
+                            DatabaseHelper data = new DatabaseHelper(getApplicationContext());
+                            Cursor optionCursor = data.getOptions();
+                            while (optionCursor.moveToNext()) {
+                                if (optionCursor.getString(9).equals("1")) {
+                                    Cursor siteOnServer = data.getIdData(optionCursor.getString(8));
+                                    siteOnServer.moveToNext();
+                                    siteID = siteOnServer.getString(9);
+                                    new Server_Option(getApplicationContext(), userName, "http://sfrapplication.comli.com/sfr03/insertOption.php", optionCursor.getString(0), siteID, optionCursor.getString(1), optionCursor.getString(2),
+                                            optionCursor.getString(3), optionCursor.getString(4), optionCursor.getString(5), optionCursor.getString(6), optionCursor.getString(7)).execute();
+                                    data.setNotCreatedOptions(optionCursor.getString(0));
+                                    data.setNotEditedOptions(optionCursor.getString(0));
+                                } else if (optionCursor.getString(10).equals("1")) {
+                                    new Server_Option(getApplicationContext(), userName, "http://sfrapplication.comli.com/sfr03/updateOption.php", optionCursor.getString(11), siteID, optionCursor.getString(1), optionCursor.getString(2),
+                                            optionCursor.getString(3), optionCursor.getString(4), optionCursor.getString(5), optionCursor.getString(6), optionCursor.getString(7)).execute();
+                                    data.setNotEditedOptions(optionCursor.getString(0));
+                                }
+                            }
+                            Toast.makeText(MySFR.this, "LOADING...", Toast.LENGTH_SHORT).show();
+                        } catch (Exception e) {
+                        }
+
+                        try {
+                            DatabaseHelper data = new DatabaseHelper(getApplicationContext());
+                            Cursor imageCursor = data.getAllImages();
+                            while (imageCursor.moveToNext()) {
+                                if (imageCursor.getString(3).equals("1")) {
+                                    Uri takenPhotoUri = Uri.fromFile(new File(getPhotoFileUri(imageCursor.getString(0))));
+                                    Bitmap takenImage = BitmapFactory.decodeFile(takenPhotoUri.getPath());
+                                    new UploadImage(takenImage, imageCursor.getString(0)).execute();
+                                    new Server_Image(getApplicationContext(), userName, "http://sfrapplication.comli.com/sfr03/insertImage.php", imageCursor.getString(0), imageCursor.getString(2)).execute();
+                                    data.setNotCreatedImages(imageCursor.getString(0));
+                                }
+
+                            }
+                            Toast.makeText(MySFR.this, "LOADING...", Toast.LENGTH_SHORT).show();
+                        } catch (Exception e) {
+                        }
+                        Toast.makeText(MySFR.this, "Success", Toast.LENGTH_LONG).show();
+                    }
+                }, secondsDelayed * 1000); */
                     }
 
+                    if(id==R.id.cancel)
+
+                    {
+                        title.setVisibility(View.VISIBLE);
+                        mysearch.setVisibility(View.GONE);
+
+                        menu.getItem(0).setVisible(true);
+                        menu.getItem(1).setVisible(true);
+                        menu.getItem(3).setVisible(true);
+                        menu.getItem(2).setVisible(false);
+
+                        mysearch.setText("");
+                    }
+
+                    return super.
+
+                    onOptionsItemSelected(item);
                 }
-                    Toast.makeText(MySFR.this, "LOADING...", Toast.LENGTH_SHORT ).show();
-            }
-                catch (Exception e){}
-                Toast.makeText(MySFR.this, "Success", Toast.LENGTH_LONG ).show();
-            }
-
-        if (id == R.id.cancel){
-            title.setVisibility(View.VISIBLE);
-            mysearch.setVisibility(View.GONE);
-
-            menu.getItem(0).setVisible(true);
-            menu.getItem(1).setVisible(true);
-            menu.getItem(3).setVisible(true);
-            menu.getItem(2).setVisible(false);
-
-            mysearch.setText("");
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 
 
-    public String getPhotoFileUri(String fileName) {
+        public String getPhotoFileUri(String fileName) {
         // Only continue if the SD Card is mounted
         if (isExternalStorageAvailable()) {
             // Get safe storage directory for photos
@@ -419,7 +442,7 @@ public class MySFR extends AppCompatActivity {
 
             ArrayList<NameValuePair> dataToSend = new ArrayList<>();
             dataToSend.add(new BasicNameValuePair("image", encodedImage));
-            dataToSend.add(new BasicNameValuePair("name", userName+"_image_"+name));
+            dataToSend.add(new BasicNameValuePair("name", name));
 
             HttpParams httpParams = getHttpRequestParams();
 

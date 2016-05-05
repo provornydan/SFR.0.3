@@ -828,7 +828,6 @@ public class SFR_Overview extends AppCompatActivity {
         ll =(LinearLayout)findViewById(R.id.LLOV1);
         view1 = inflater.inflate(R.layout.content_option, null,false);
         ImageView imageView = (ImageView)view1.findViewById(R.id.ivo1);
-        imageView.setBackgroundResource(R.drawable.bible);
         ll.addView(view1);
 
     }
@@ -900,7 +899,7 @@ public class SFR_Overview extends AppCompatActivity {
                 ImageView ivPreview = (ImageView) view1.findViewById(R.id.ivo1);
                 Drawable d = new BitmapDrawable(getResources(), takenImage);
                 //ivPreview.setBackground(d);
-                ivPreview.setBackground(d);
+                ivPreview.setImageDrawable(d);
             } else { // Result was a failure
                 Toast.makeText(this, "Picture wasn't taken!", Toast.LENGTH_SHORT).show();
             }
@@ -954,10 +953,10 @@ public class SFR_Overview extends AppCompatActivity {
             // Load the taken image into a preview
             Drawable d = new BitmapDrawable(getResources(), takenImage);
             //ivPreview.setBackground(d);
-            ivPreview.setBackground(d);}
+            ivPreview.setImageDrawable(d);}
 
             catch (Exception e){
-            ivPreview.setBackgroundResource(R.drawable.gyg);
+            ivPreview.setImageResource(R.drawable.gyg);
 
 
         }

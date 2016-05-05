@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.util.Base64;
 import android.widget.Toast;
 
+import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
@@ -16,13 +17,16 @@ import org.apache.http.params.BasicHttpParams;
 import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpParams;
 
+import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 /**
  * Created by Provorny on 4/22/2016.
  */
-public class Server_Image extends AsyncTask<Void, Void, Void> {
+public class Server_Image extends AsyncTask<String, Void, String> {
     Context context;
     String SERVER_ADDRESS;
     String image_code;
@@ -40,19 +44,18 @@ public class Server_Image extends AsyncTask<Void, Void, Void> {
 
 
     @Override
-    protected void onPostExecute(Void aVoid) {
+    protected void onPostExecute(String aVoid) {
         super.onPostExecute(aVoid);
-        Toast.makeText(context, "Loading...", Toast.LENGTH_SHORT ).show();
+        Toast.makeText(context, aVoid, Toast.LENGTH_SHORT ).show();
     }
 
     @Override
-    protected Void doInBackground(Void... params) {
+    protected String doInBackground(String... params) {
 
 
         ArrayList<NameValuePair> dataToSend = new ArrayList<>();
-        dataToSend.add(new BasicNameValuePair("image_code", userName+"_image_"+image_code));
-        dataToSend.add(new BasicNameValuePair("optionID", userName+"_option_"+option_id));
-        dataToSend.add(new BasicNameValuePair("Image_link", Image_address+userName+"_image_"+image_code+".JPG"));
+        dataToSend.add(new BasicNameValuePair("optionID", option_id));
+        dataToSend.add(new BasicNameValuePair("Image_link", image_code+".JPG"));
 
         HttpParams httpParams = getHttpRequestParams();
 
@@ -61,11 +64,28 @@ public class Server_Image extends AsyncTask<Void, Void, Void> {
 
         try {
             httpPost.setEntity(new UrlEncodedFormEntity(dataToSend));
-            client.execute(httpPost);
+            HttpResponse response = client.execute(httpPost);
+
+            InputStream ips  = response.getEntity().getContent();
+            BufferedReader buf = new BufferedReader(new InputStreamReader(ips,"UTF-8"));
+
+            StringBuilder sb = new StringBuilder();
+            String s;
+            while(true )
+            {
+                s = buf.readLine();
+                if(s==null || s.length()==0)
+                    break;
+                sb.append(s);
+
+            }
+            buf.close();
+            ips.close();
+            return sb.toString();
         } catch (Exception e) {
             e.printStackTrace();
+            return null;
         }
-        return null;
     }
 
     private HttpParams getHttpRequestParams() {
