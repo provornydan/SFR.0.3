@@ -138,29 +138,17 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/ivo1"
-                    android:layout_marginBottom="50dp" />
+                    android:id="@+id/ivo1" />
 
-                <LinearLayout
-                    android:layout_width="fill_parent"
+                <android.support.design.widget.FloatingActionButton
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/LLO9"
-                    android:layout_alignParentEnd="false"
-                    android:layout_alignParentStart="false"
-                    android:layout_alignParentBottom="true"
-                    android:paddingBottom="25dp"
-                    android:gravity="right">
-
-                    <android.support.design.widget.FloatingActionButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true"
-                        android:layout_alignParentRight="true"
-                        android:src="@drawable/ic_camera_alt"
-                        android:onClick="onLaunchCamera">
-                    </android.support.design.widget.FloatingActionButton>
-
-                </LinearLayout>
+                    android:src="@drawable/ic_camera_alt"
+                    android:onClick="onLaunchCamera"
+                    android:layout_alignBottom="@+id/ivo1"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true">
+                </android.support.design.widget.FloatingActionButton>
 
             </RelativeLayout>
 
