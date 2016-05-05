@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.util.Base64;
 import android.widget.Toast;
 
+import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
@@ -16,13 +17,16 @@ import org.apache.http.params.BasicHttpParams;
 import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpParams;
 
+import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 /**
  * Created by Provorny on 4/22/2016.
  */
-public class Server_Option extends AsyncTask<Void, Void, Void> {
+public class Server_Option extends AsyncTask<String, Void, String> {
     Context context;
     String SERVER_ADDRESS;
     String userName;
@@ -36,6 +40,8 @@ public class Server_Option extends AsyncTask<Void, Void, Void> {
         String latitude;
         String longitude;
         final String Image_address = "http://sfrapplication.comli.com/sfr03/pictures/";
+
+    DatabaseHelper data;
 
         public Server_Option(Context context, String userName, String SERVER_ADDRESS,  String idOption ,String siteId,String name,String town,String county,String postcode,
                 String height,String latitude,String longitude) {
@@ -56,18 +62,33 @@ public class Server_Option extends AsyncTask<Void, Void, Void> {
 
 
     @Override
-    protected void onPostExecute(Void aVoid) {
+    protected void onPostExecute(String aVoid) {
         super.onPostExecute(aVoid);
-        Toast.makeText(context, "Loading...", Toast.LENGTH_SHORT ).show();;
+
+        if(!aVoid.isEmpty()) {
+            char[] code = aVoid.toCharArray();
+            StringBuilder builder = new StringBuilder();
+            int i = 0;
+            while (true) {
+                if (Character.isDigit(code[i])) {
+                    builder.append(code[i]);
+                    i++;
+                } else break;
+            }
+
+            data = new DatabaseHelper(context);
+            if (!builder.toString().isEmpty())
+                data.updateOptionWithServer(idOption, builder.toString());
+        }
     }
 
     @Override
-    protected Void doInBackground(Void... params) {
+    protected String doInBackground(String... params) {
 
 
         ArrayList<NameValuePair> dataToSend = new ArrayList<>();
-        dataToSend.add(new BasicNameValuePair("optionID", userName + "_option_" + idOption));
-        dataToSend.add(new BasicNameValuePair("siteID", userName+"_site_"+ siteId));
+        dataToSend.add(new BasicNameValuePair("optionID", idOption));
+        dataToSend.add(new BasicNameValuePair("siteID", siteId));
         dataToSend.add(new BasicNameValuePair("name", name));
         dataToSend.add(new BasicNameValuePair("town", town));
         dataToSend.add(new BasicNameValuePair("county", county));
@@ -84,11 +105,28 @@ public class Server_Option extends AsyncTask<Void, Void, Void> {
 
         try {
             httpPost.setEntity(new UrlEncodedFormEntity(dataToSend));
-            client.execute(httpPost);
+            HttpResponse response = client.execute(httpPost);
+
+            InputStream ips  = response.getEntity().getContent();
+            BufferedReader buf = new BufferedReader(new InputStreamReader(ips,"UTF-8"));
+
+            StringBuilder sb = new StringBuilder();
+            String s;
+            while(true )
+            {
+                s = buf.readLine();
+                if(s==null || s.length()==0)
+                    break;
+                sb.append(s);
+
+            }
+            buf.close();
+            ips.close();
+            return sb.toString();
         } catch (Exception e) {
             e.printStackTrace();
+            return null;
         }
-        return null;
     }
 
     private HttpParams getHttpRequestParams() {
