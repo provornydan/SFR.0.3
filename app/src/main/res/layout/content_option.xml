@@ -151,7 +151,8 @@
                     android:layout_alignParentBottom="false"
                     android:layout_alignEnd="@id/ivo1"
                     android:layout_below="@+id/ivo1"
-                    android:layout_alignRight="@+id/ivo1">
+                    android:layout_alignRight="@+id/ivo1"
+                    android:layout_marginTop="-5dp">
                 </android.support.design.widget.FloatingActionButton>
 
             </RelativeLayout>
