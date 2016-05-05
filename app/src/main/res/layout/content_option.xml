@@ -133,7 +133,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/RLO3"
                 android:visibility="visible"
-                android:layout_gravity="center_vertical">
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -146,8 +147,9 @@
                     android:src="@drawable/ic_camera_alt"
                     android:onClick="onLaunchCamera"
                     android:layout_alignBottom="@+id/ivo1"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentBottom="true">
+                    android:layout_alignParentEnd="false"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toEndOf="@id/ivo1">
                 </android.support.design.widget.FloatingActionButton>
 
             </RelativeLayout>
