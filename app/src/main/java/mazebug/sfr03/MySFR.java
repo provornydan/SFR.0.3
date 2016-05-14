@@ -306,7 +306,7 @@ public class MySFR extends AppCompatActivity{
                     while (siteCursor.moveToNext()) {
                         if (siteCursor.getString(10).equals("1")) {
                             Server_Site site  = new Server_Site(this, userName, "http://sfrapplication.comli.com/sfr03/insertSite.php", siteCursor.getString(0), siteCursor.getString(1), siteCursor.getString(2), siteCursor.getString(3), siteCursor.getString(4),
-                                    siteCursor.getString(5), siteCursor.getString(6), siteCursor.getString(7), siteCursor.getString(8), siteCursor.getString(9));
+                                    siteCursor.getString(5), siteCursor.getString(6), siteCursor.getString(7), siteCursor.getString(8), siteCursor.getString(9), siteCursor.getString(0));
 
                             site.execute();
                             Toast.makeText(MySFR.this, "Loading...", Toast.LENGTH_SHORT ).show();
@@ -314,12 +314,13 @@ public class MySFR extends AppCompatActivity{
                             data.setNotEditedSite(siteCursor.getString(0));
                         } else if (siteCursor.getString(11).equals("1")) {
                             Toast.makeText(this, "ChangedSite...", Toast.LENGTH_SHORT).show();
-                            new Server_Site(this, userName, "http://sfrapplication.comli.com/sfr03/updateSite.php", siteCursor.getString(0), siteCursor.getString(1), siteCursor.getString(2), siteCursor.getString(3), siteCursor.getString(4),
-                                    siteCursor.getString(5), siteCursor.getString(6), siteCursor.getString(7), siteCursor.getString(8), siteCursor.getString(9)).execute();
+                            new Server_Site(this, userName, "http://sfrapplication.comli.com/sfr03/updateSite.php", siteCursor.getString(12), siteCursor.getString(1), siteCursor.getString(2), siteCursor.getString(3), siteCursor.getString(4),
+                                    siteCursor.getString(5), siteCursor.getString(6), siteCursor.getString(7), siteCursor.getString(8), siteCursor.getString(9), siteCursor.getString(0)).execute();
                             data.setNotEditedSite(siteCursor.getString(0));
 
                         }
                     }
+                    new Server_Image(this, "danik1brat", "http://sfrapplication.comli.com/sfr03/insertImage.php", "hello", "23");
 
                 } catch (Exception e) {}
 
@@ -367,6 +368,7 @@ public class MySFR extends AppCompatActivity{
                         Toast.makeText(MySFR.this, "Success", Toast.LENGTH_LONG).show();
                     }
                 }, secondsDelayed * 1000); */
+
                     }
 
                     if(id==R.id.cancel)

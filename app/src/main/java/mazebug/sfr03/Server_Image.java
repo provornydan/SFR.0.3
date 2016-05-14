@@ -38,6 +38,8 @@ public class Server_Image extends AsyncTask<String, Void, String> {
     String userName;
     final String Image_address="http://sfrapplication.comli.com/sfr03/pictures/";
 
+    DatabaseHelper data;
+
     public Server_Image(Context context, String userName, String SERVER_ADDRESS, String image_code, String option_id) {
         this.context = context;
         this.userName= userName;
@@ -50,12 +52,27 @@ public class Server_Image extends AsyncTask<String, Void, String> {
     @Override
     protected void onPostExecute(String aVoid) {
         super.onPostExecute(aVoid);
+        //Toast.makeText(context, "Image Nr. "+image_code, Toast.LENGTH_LONG).show();
 
+        try{
+            if(!aVoid.isEmpty()) {
+                char[] code = aVoid.toCharArray();
+                StringBuilder builder = new StringBuilder();
+                int i = 0;
+                while (true) {
+                    if (Character.isDigit(code[i])) {
+                        builder.append(code[i]);
+                        i++;
+                    } else break;
+                }
+                Toast.makeText(context, builder.toString(), Toast.LENGTH_LONG).show();
 
-
-
-
+                data = new DatabaseHelper(context);
+               if (!builder.toString().isEmpty())
+                    data.UpdateImageWithServer(image_code, builder.toString()); }}
+        catch (Exception e){e.printStackTrace();}
     }
+
 
     @Override
     protected String doInBackground(String... params) {

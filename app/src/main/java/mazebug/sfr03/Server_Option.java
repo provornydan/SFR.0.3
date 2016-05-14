@@ -44,11 +44,12 @@ public class Server_Option extends AsyncTask<String, Void, String> {
         String latitude;
         String longitude;
         final String Image_address = "http://sfrapplication.comli.com/sfr03/pictures/";
+    String localID;
 
     DatabaseHelper data;
 
         public Server_Option(Context context, String userName, String SERVER_ADDRESS,  String idOption ,String siteId,String name,String town,String county,String postcode,
-                String height,String latitude,String longitude) {
+                String height,String latitude,String longitude, String localID) {
             this.context = context;
             this.userName = userName;
             this.SERVER_ADDRESS = SERVER_ADDRESS;
@@ -61,14 +62,14 @@ public class Server_Option extends AsyncTask<String, Void, String> {
             this.height = height;
             this.latitude = latitude;
             this.longitude = longitude;
-
+            this.localID = localID;
     }
 
 
     @Override
     protected void onPostExecute(String aVoid) {
         super.onPostExecute(aVoid);
-
+        try{
         if(!aVoid.isEmpty()) {
             char[] code = aVoid.toCharArray();
             StringBuilder builder = new StringBuilder();
@@ -83,28 +84,31 @@ public class Server_Option extends AsyncTask<String, Void, String> {
             data = new DatabaseHelper(context);
             if (!builder.toString().isEmpty())
                 data.updateOptionWithServer(idOption, builder.toString());
-        }
+        } }
+        catch (Exception e){e.printStackTrace();}
 
-        //try {
-            Cursor imageCursor = data.getImageData(idOption);
+        try {
+
+            Cursor optionOnServer  = data.getOptionByName(localID);
+            optionOnServer.moveToNext();
+            String optionID = optionOnServer.getString(8);
+            Toast.makeText(context, optionID, Toast.LENGTH_LONG).show();
+            Cursor imageCursor = data.getImageData(localID);
             //if(imageCursor.getCount()==0)  imageCursor=data.getOptionFromServer(idOption);
             while (imageCursor.moveToNext()) {
                 if (imageCursor.getString(2).equals("1")) {
-                    Cursor optionOnServer  = data.getOptionByName(idOption);
-                    optionOnServer.moveToNext();
-                    String optionID = optionOnServer.getString(8);
 
-                    SERVER_ADDRESS = "http://sfrapplication.comli.com/sfr03/SavePicture.php";
+
+                    //SERVER_ADDRESS = "http://sfrapplication.comli.com/sfr03/SavePicture.php";
                     Uri takenPhotoUri = Uri.fromFile(new File((imageCursor.getString(1))));
                     Bitmap takenImage = BitmapFactory.decodeFile(takenPhotoUri.getPath());
-                    new UploadImage(takenImage, imageCursor.getString(0)).execute();
-                    new Server_Image(context, userName, "http://sfrapplication.comli.com/sfr03/insertImage.php", imageCursor.getString(0), optionID).execute();
-                    data.setNotCreatedImages(imageCursor.getString(0));
+                    new UploadImage(takenImage, imageCursor.getString(0), imageCursor.getString(0), optionID).execute();
+
                 }
                 Toast.makeText(context, "Image Inserted...", Toast.LENGTH_SHORT ).show();
             }
-       // } catch (Exception e) {
-       // }
+        } catch (Exception e) {
+        }
 
     }
 
@@ -166,10 +170,14 @@ public class Server_Option extends AsyncTask<String, Void, String> {
     public class UploadImage extends AsyncTask<Void, Void, Void>{
         Bitmap image;
         String name;
+        String imageCode2;
+        String optionId;
 
-        public UploadImage(Bitmap image, String name){
+        public UploadImage(Bitmap image, String name, String imageCode2, String optionId){
             this.image=image;
             this.name=name;
+            this.imageCode2=imageCode2;
+            this.optionId=optionId;
         }
 
 
@@ -177,6 +185,9 @@ public class Server_Option extends AsyncTask<String, Void, String> {
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
             Toast.makeText(context, "Loading...", Toast.LENGTH_SHORT ).show();
+
+            new Server_Image(context, userName, "http://sfrapplication.comli.com/sfr03/insertImage.php", imageCode2, optionId).execute();
+            data.setNotCreatedImages(imageCode2);
         }
 
         @Override

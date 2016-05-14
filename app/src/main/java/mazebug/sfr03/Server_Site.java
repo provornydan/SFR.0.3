@@ -43,6 +43,7 @@ public class Server_Site extends AsyncTask<String, Void, String> {
     String powvf;
     String powo2;
     String date;
+    String localID;
 
     DatabaseHelper data;
 
@@ -53,7 +54,7 @@ public class Server_Site extends AsyncTask<String, Void, String> {
 
 
     public Server_Site(Context context, String userName, String SERVER_ADDRESS, String idSite, String nameSite, String area,
-                       String owners, String cid, String csr, String site, String powvf, String powo2, String date) {
+                       String owners, String cid, String csr, String site, String powvf, String powo2, String date, String localID) {
         this.context = context;
         this.userName = userName;
         this.SERVER_ADDRESS = SERVER_ADDRESS;
@@ -67,7 +68,7 @@ public class Server_Site extends AsyncTask<String, Void, String> {
         this.powvf = powvf;
         this.powo2 = powo2;
         this.date = date;
-
+        this.localID=localID;
     }
 
 
@@ -80,6 +81,7 @@ public class Server_Site extends AsyncTask<String, Void, String> {
     protected void onPostExecute(String aVoid) {
         super.onPostExecute(aVoid);
 
+        try{
         if(!aVoid.isEmpty()) {
             char[] code = aVoid.toCharArray();
             StringBuilder builder = new StringBuilder();
@@ -93,21 +95,24 @@ public class Server_Site extends AsyncTask<String, Void, String> {
 
             data = new DatabaseHelper(context);
             if (!builder.toString().isEmpty())
-                data.updateSiteWithServer(idSite, builder.toString());  }
+                data.updateSiteWithServer(idSite, builder.toString());  }}
+        catch (Exception e){e.printStackTrace();}
 
 
             try {
 
-                Cursor optionCursor = data.getAllOptions(idSite);
+                Cursor optionCursor = data.getAllOptions(localID);
                 while (optionCursor.moveToNext()) {
 
                     Cursor siteOnServer = data.getIdData(optionCursor.getString(8));
                     siteOnServer.moveToNext();
                     siteID = siteOnServer.getString(9);
 
+
+
                     if (optionCursor.getString(9).equals("1")) {
                         new Server_Option(context, userName, "http://sfrapplication.comli.com/sfr03/insertOption.php", optionCursor.getString(0), siteID, optionCursor.getString(1), optionCursor.getString(2),
-                                optionCursor.getString(3), optionCursor.getString(4), optionCursor.getString(5), optionCursor.getString(6), optionCursor.getString(7)).execute();
+                                optionCursor.getString(3), optionCursor.getString(4), optionCursor.getString(5), optionCursor.getString(6), optionCursor.getString(7), optionCursor.getString(0)).execute();
                         data.setNotCreatedOptions(optionCursor.getString(0));
                         data.setNotEditedOptions(optionCursor.getString(0));
                         Toast.makeText(context, "LOADING...", Toast.LENGTH_SHORT).show();
@@ -120,7 +125,7 @@ public class Server_Site extends AsyncTask<String, Void, String> {
 
 
                         new Server_Option(context, userName, "http://sfrapplication.comli.com/sfr03/updateOption.php", optionID, siteID, optionCursor.getString(1), optionCursor.getString(2),
-                                optionCursor.getString(3), optionCursor.getString(4), optionCursor.getString(5), optionCursor.getString(6), optionCursor.getString(7)).execute();
+                                optionCursor.getString(3), optionCursor.getString(4), optionCursor.getString(5), optionCursor.getString(6), optionCursor.getString(7), optionCursor.getString(0)).execute();
                         data.setNotEditedOptions(optionCursor.getString(0));
 
                     }
