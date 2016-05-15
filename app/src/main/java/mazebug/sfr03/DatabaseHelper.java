@@ -14,7 +14,7 @@ import java.util.Date;
  * Created by Provorny on 2/13/2016.
  */
 public class DatabaseHelper extends SQLiteOpenHelper {
-    public static final String DATABASE_NAME="SFR03_12.db";
+    public static final String DATABASE_NAME="SFR03_13.db";
     public static final String TABLE_NAME="mysfrs";
     public static final String COL_1 ="ID";
     //public static final String COL_2="Latitude";
@@ -54,6 +54,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("create table if not exists " + IMAGE_NAME + " (IMAGE_CODE INTEGER PRIMARY KEY AUTOINCREMENT, OPTION_ID INTEGER, FILE_PATH varchar(255), Created INTEGER, ID_on_Server INTEGER)");
     }
 
+    @Override
+    protected void finalize() throws Throwable {
+        this.close();
+        super.finalize();
+    }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
@@ -61,7 +66,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS" + OPTION_NAME);
         onCreate(db);
     }
-    public boolean insertData(ArrayList<String> arr){
+    public boolean insertData(ArrayList<String> arr, String date, String Created, String Edited, String Id_on_Server){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_2, arr.get(0));
@@ -88,10 +93,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String strDate = sdf.format(new Date());
 
 
-        contentValues.put(COL_10, strDate);
-        contentValues.put("Created", "1");
-        contentValues.put("Edited", "0");
-        contentValues.put("ID_on_Server", "0");
+        contentValues.put(COL_10, date);
+        contentValues.put("Created", Created);
+        contentValues.put("Edited", Edited);
+        contentValues.put("ID_on_Server", Id_on_Server);
 
 
 
@@ -335,7 +340,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return res;
     }
 
-
+    public Cursor getSiteFromServer(String ServerSite){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res=db.rawQuery("Select ID, Site_name, search_area, Owners, CID, CSR, Site, pow_vf, pow_02, ID_on_Server from "+TABLE_NAME+" where ID_on_Server='"+ServerSite+"'", null);
+        return res;
+    }
 }
 
 

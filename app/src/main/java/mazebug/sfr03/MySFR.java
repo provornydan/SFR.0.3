@@ -52,6 +52,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.util.ArrayList;
 
+import mazebug.sfr03.GetFromServer.GetSite;
+
 public class MySFR extends AppCompatActivity{
     EditText mysearch; Menu menu; TextView title;
 
@@ -298,31 +300,14 @@ public class MySFR extends AppCompatActivity{
 
         }
             if(id == R.id.server){
+              AlertDialog alertDialog =  new AlertDialog.Builder(this)
+                        .setTitle("Connecting with Server")
+                        .setMessage("Updating...")
+                        .setCancelable(false)
+                        .create();
 
+                new GetSite(this, alertDialog).execute();
 
-                try {
-                    DatabaseHelper data = new DatabaseHelper(this);
-                    Cursor siteCursor = data.getData();
-                    while (siteCursor.moveToNext()) {
-                        if (siteCursor.getString(10).equals("1")) {
-                            Server_Site site  = new Server_Site(this, userName, "http://sfrapplication.comli.com/sfr03/insertSite.php", siteCursor.getString(0), siteCursor.getString(1), siteCursor.getString(2), siteCursor.getString(3), siteCursor.getString(4),
-                                    siteCursor.getString(5), siteCursor.getString(6), siteCursor.getString(7), siteCursor.getString(8), siteCursor.getString(9), siteCursor.getString(0));
-
-                            site.execute();
-                            Toast.makeText(MySFR.this, "Loading...", Toast.LENGTH_SHORT ).show();
-                            data.setNotCreatedSite(siteCursor.getString(0));
-                            data.setNotEditedSite(siteCursor.getString(0));
-                        } else if (siteCursor.getString(11).equals("1")) {
-                            Toast.makeText(this, "ChangedSite...", Toast.LENGTH_SHORT).show();
-                            new Server_Site(this, userName, "http://sfrapplication.comli.com/sfr03/updateSite.php", siteCursor.getString(12), siteCursor.getString(1), siteCursor.getString(2), siteCursor.getString(3), siteCursor.getString(4),
-                                    siteCursor.getString(5), siteCursor.getString(6), siteCursor.getString(7), siteCursor.getString(8), siteCursor.getString(9), siteCursor.getString(0)).execute();
-                            data.setNotEditedSite(siteCursor.getString(0));
-
-                        }
-                    }
-                    new Server_Image(this, "danik1brat", "http://sfrapplication.comli.com/sfr03/insertImage.php", "hello", "23");
-
-                } catch (Exception e) {}
 
                 int secondsDelayed = 10;
                 /*new Handler().postDelayed(new Runnable() {
@@ -418,7 +403,7 @@ public class MySFR extends AppCompatActivity{
     }
 
 
-    public class UploadImage extends AsyncTask<Void, Void, Void>{
+    private class UploadImage extends AsyncTask<Void, Void, Void>{
         Bitmap image;
         String name;
 

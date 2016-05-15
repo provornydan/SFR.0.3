@@ -1,5 +1,6 @@
 package mazebug.sfr03;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -44,12 +45,13 @@ public class Server_Option extends AsyncTask<String, Void, String> {
         String latitude;
         String longitude;
         final String Image_address = "http://sfrapplication.comli.com/sfr03/pictures/";
+        AlertDialog alertDialog;
     String localID;
 
     DatabaseHelper data;
 
         public Server_Option(Context context, String userName, String SERVER_ADDRESS,  String idOption ,String siteId,String name,String town,String county,String postcode,
-                String height,String latitude,String longitude, String localID) {
+                String height,String latitude,String longitude, String localID, AlertDialog alertDialog) {
             this.context = context;
             this.userName = userName;
             this.SERVER_ADDRESS = SERVER_ADDRESS;
@@ -84,7 +86,10 @@ public class Server_Option extends AsyncTask<String, Void, String> {
             data = new DatabaseHelper(context);
             if (!builder.toString().isEmpty())
                 data.updateOptionWithServer(idOption, builder.toString());
-        } }
+
+        }
+
+        }
         catch (Exception e){e.printStackTrace();}
 
         try {
@@ -92,6 +97,7 @@ public class Server_Option extends AsyncTask<String, Void, String> {
             Cursor optionOnServer  = data.getOptionByName(localID);
             optionOnServer.moveToNext();
             String optionID = optionOnServer.getString(8);
+            optionOnServer.close();
             Toast.makeText(context, optionID, Toast.LENGTH_LONG).show();
             Cursor imageCursor = data.getImageData(localID);
             //if(imageCursor.getCount()==0)  imageCursor=data.getOptionFromServer(idOption);
@@ -102,11 +108,15 @@ public class Server_Option extends AsyncTask<String, Void, String> {
                     //SERVER_ADDRESS = "http://sfrapplication.comli.com/sfr03/SavePicture.php";
                     Uri takenPhotoUri = Uri.fromFile(new File((imageCursor.getString(1))));
                     Bitmap takenImage = BitmapFactory.decodeFile(takenPhotoUri.getPath());
-                    new UploadImage(takenImage, imageCursor.getString(0), imageCursor.getString(0), optionID).execute();
+                    //new UploadImage(takenImage, imageCursor.getString(0), imageCursor.getString(0), optionID).execute();
 
+                    new Server_Image(context, userName, "http://sfrapplication.comli.com/sfr03/insertImage.php",  imageCursor.getString(0), optionID, takenImage, null).execute();
+                   // Toast.makeText(context, "L...", Toast.LENGTH_SHORT ).show();
                 }
-                Toast.makeText(context, "Image Inserted...", Toast.LENGTH_SHORT ).show();
+
             }
+            imageCursor.close();
+            data.close();
         } catch (Exception e) {
         }
 
@@ -186,8 +196,8 @@ public class Server_Option extends AsyncTask<String, Void, String> {
             super.onPostExecute(aVoid);
             Toast.makeText(context, "Loading...", Toast.LENGTH_SHORT ).show();
 
-            new Server_Image(context, userName, "http://sfrapplication.comli.com/sfr03/insertImage.php", imageCode2, optionId).execute();
-            data.setNotCreatedImages(imageCode2);
+            //new Server_Image(context, userName, "http://sfrapplication.comli.com/sfr03/insertImage.php", imageCode2, optionId).execute();
+            //data.setNotCreatedImages(imageCode2);
         }
 
         @Override

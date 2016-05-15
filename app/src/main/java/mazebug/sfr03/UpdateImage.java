@@ -90,6 +90,6 @@ public class UpdateImage extends AsyncTask<String, Void, String> {
     @Override
     protected void onPostExecute(String aVoid) {
         super.onPostExecute(aVoid);
-
+        Toast.makeText(context, "Image Updated", Toast.LENGTH_LONG);
     }
 }

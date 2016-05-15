@@ -36,16 +36,20 @@ public class Server_Image extends AsyncTask<String, Void, String> {
     String image_code;
     String option_id;
     String userName;
+    String SERVER_IMAGE_ID;
+    Bitmap bitmap;
     final String Image_address="http://sfrapplication.comli.com/sfr03/pictures/";
 
     DatabaseHelper data;
 
-    public Server_Image(Context context, String userName, String SERVER_ADDRESS, String image_code, String option_id) {
+    public Server_Image(Context context, String userName, String SERVER_ADDRESS, String image_code, String option_id, Bitmap bitmap, String SERVER_IMAGE_ID) {
         this.context = context;
         this.userName= userName;
         this.SERVER_ADDRESS = SERVER_ADDRESS;
         this.image_code = image_code;
         this.option_id = option_id;
+        this.bitmap=bitmap;
+        this.SERVER_IMAGE_ID = SERVER_IMAGE_ID;
     }
 
 
@@ -65,12 +69,18 @@ public class Server_Image extends AsyncTask<String, Void, String> {
                         i++;
                     } else break;
                 }
-                Toast.makeText(context, builder.toString(), Toast.LENGTH_LONG).show();
+                Toast.makeText(context, "Loading...", Toast.LENGTH_LONG).show();
 
                 data = new DatabaseHelper(context);
                if (!builder.toString().isEmpty())
-                    data.UpdateImageWithServer(image_code, builder.toString()); }}
+                    data.UpdateImageWithServer(image_code, builder.toString());
+                    data.setNotCreatedImages(image_code);
+                    new UploadImage(bitmap, builder.toString(), option_id).execute();
+
+            }
+        }
         catch (Exception e){e.printStackTrace();}
+
     }
 
 
@@ -123,10 +133,12 @@ public class Server_Image extends AsyncTask<String, Void, String> {
     public class UploadImage extends AsyncTask<Void, Void, Void>{
         Bitmap image;
         String name;
+        String OptionID;
 
-        public UploadImage(Bitmap image, String name){
+        public UploadImage(Bitmap image, String name, String OptionID){
             this.image=image;
             this.name=name;
+            this.OptionID=OptionID;
         }
 
 
@@ -134,6 +146,9 @@ public class Server_Image extends AsyncTask<String, Void, String> {
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
             Toast.makeText(context, "Loading...", Toast.LENGTH_SHORT ).show();
+            new UpdateImage(context, userName, null, name, OptionID).execute();
+            //new Server_Image(context, userName, "http://sfrapplication.comli.com/sfr03/insertImage.php", imageCode2, optionId).execute();
+            //data.setNotCreatedImages(imageCode2);
         }
 
         @Override
@@ -150,6 +165,7 @@ public class Server_Image extends AsyncTask<String, Void, String> {
 
             HttpParams httpParams = getHttpRequestParams();
 
+            SERVER_ADDRESS = "http://sfrapplication.comli.com/sfr03/SavePicture.php";
             HttpClient client = new DefaultHttpClient(httpParams);
             HttpPost httpPost = new HttpPost(SERVER_ADDRESS);
 

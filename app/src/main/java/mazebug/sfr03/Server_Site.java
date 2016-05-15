@@ -1,5 +1,6 @@
 package mazebug.sfr03;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -44,6 +45,7 @@ public class Server_Site extends AsyncTask<String, Void, String> {
     String powo2;
     String date;
     String localID;
+    AlertDialog alertDialog;
 
     DatabaseHelper data;
 
@@ -54,7 +56,7 @@ public class Server_Site extends AsyncTask<String, Void, String> {
 
 
     public Server_Site(Context context, String userName, String SERVER_ADDRESS, String idSite, String nameSite, String area,
-                       String owners, String cid, String csr, String site, String powvf, String powo2, String date, String localID) {
+                       String owners, String cid, String csr, String site, String powvf, String powo2, String date, String localID, AlertDialog alertDialog) {
         this.context = context;
         this.userName = userName;
         this.SERVER_ADDRESS = SERVER_ADDRESS;
@@ -69,6 +71,7 @@ public class Server_Site extends AsyncTask<String, Void, String> {
         this.powo2 = powo2;
         this.date = date;
         this.localID=localID;
+        this.alertDialog = alertDialog;
     }
 
 
@@ -99,46 +102,49 @@ public class Server_Site extends AsyncTask<String, Void, String> {
         catch (Exception e){e.printStackTrace();}
 
 
-            try {
+
 
                 Cursor optionCursor = data.getAllOptions(localID);
+                ArrayList<Integer> trial= new ArrayList<Integer>();
+                if(optionCursor.getCount()==0) alertDialog.dismiss();
                 while (optionCursor.moveToNext()) {
 
                     Cursor siteOnServer = data.getIdData(optionCursor.getString(8));
                     siteOnServer.moveToNext();
                     siteID = siteOnServer.getString(9);
-
+                    siteOnServer.close();
 
 
                     if (optionCursor.getString(9).equals("1")) {
+                        //alertDialog.show();
                         new Server_Option(context, userName, "http://sfrapplication.comli.com/sfr03/insertOption.php", optionCursor.getString(0), siteID, optionCursor.getString(1), optionCursor.getString(2),
-                                optionCursor.getString(3), optionCursor.getString(4), optionCursor.getString(5), optionCursor.getString(6), optionCursor.getString(7), optionCursor.getString(0)).execute();
+                                optionCursor.getString(3), optionCursor.getString(4), optionCursor.getString(5), optionCursor.getString(6), optionCursor.getString(7), optionCursor.getString(0), alertDialog).execute();
                         data.setNotCreatedOptions(optionCursor.getString(0));
                         data.setNotEditedOptions(optionCursor.getString(0));
-                        Toast.makeText(context, "LOADING...", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, "Loading...", Toast.LENGTH_SHORT).show();
+                        trial.add(1);
                     } else //if (optionCursor.getString(10).equals("1"))
                     {
-                        Toast.makeText(context, "UPDATING...", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, "Loading...", Toast.LENGTH_SHORT).show();
                         Cursor optionOnServer  = data.getOptionByName(optionCursor.getString(0));
                         optionOnServer.moveToNext();
                         String optionID = optionOnServer.getString(8);
-
-
+                        optionOnServer.close();
+                        //alertDialog.show();
                         new Server_Option(context, userName, "http://sfrapplication.comli.com/sfr03/updateOption.php", optionID, siteID, optionCursor.getString(1), optionCursor.getString(2),
-                                optionCursor.getString(3), optionCursor.getString(4), optionCursor.getString(5), optionCursor.getString(6), optionCursor.getString(7), optionCursor.getString(0)).execute();
+                                optionCursor.getString(3), optionCursor.getString(4), optionCursor.getString(5), optionCursor.getString(6), optionCursor.getString(7), optionCursor.getString(0), alertDialog).execute();
                         data.setNotEditedOptions(optionCursor.getString(0));
 
                     }
                 }
-
-            } catch (Exception e) {
-                Toast.makeText(context, e.toString(), Toast.LENGTH_SHORT).show();
+                    optionCursor.close();
+                    data.close();
             }
 
 
 
 
-        }
+
 
 
     @Override

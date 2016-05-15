@@ -41,7 +41,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class SFR_Overview extends AppCompatActivity {
     DatabaseHelper data;  Menu menu;
@@ -631,7 +633,9 @@ public class SFR_Overview extends AppCompatActivity {
             else{
             if(create){
                 String itsname2 =  arr.get(0);
-                boolean a = data.insertData(arr);
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                String strDate = sdf.format(new Date());
+                boolean a = data.insertData(arr,strDate, "1", "0", "0");
             if (a)
                 Toast.makeText(SFR_Overview.this, "Site added Successfully", Toast.LENGTH_LONG).show();
             else Toast.makeText(SFR_Overview.this, "Failed", Toast.LENGTH_LONG).show();
