@@ -14,7 +14,7 @@ import java.util.Date;
  * Created by Provorny on 2/13/2016.
  */
 public class DatabaseHelper extends SQLiteOpenHelper {
-    public static final String DATABASE_NAME="SFR03_13.db";
+    public static final String DATABASE_NAME="SFR03_16.db";
     public static final String TABLE_NAME="mysfrs";
     public static final String COL_1 ="ID";
     //public static final String COL_2="Latitude";
@@ -176,6 +176,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor res=db.rawQuery("Select ID from "+TABLE_NAME+" ORDER BY ID DESC LIMIT 1", null);
         return res;
 
+    }
+
+    public Cursor getThisOption(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res=db.rawQuery("Select OPTION_ID from "+OPTION_NAME+" ORDER BY OPTION_ID DESC LIMIT 1", null);
+        return res;
     }
 
 

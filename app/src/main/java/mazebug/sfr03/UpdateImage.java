@@ -1,6 +1,7 @@
 package mazebug.sfr03;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.widget.Toast;
 
@@ -91,5 +92,6 @@ public class UpdateImage extends AsyncTask<String, Void, String> {
     protected void onPostExecute(String aVoid) {
         super.onPostExecute(aVoid);
         Toast.makeText(context, "Image Updated", Toast.LENGTH_LONG);
+        context.startActivity(new Intent(context, MySFR.class));
     }
 }

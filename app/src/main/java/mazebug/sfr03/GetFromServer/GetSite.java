@@ -29,6 +29,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import mazebug.sfr03.DatabaseHelper;
+import mazebug.sfr03.MySFR;
 import mazebug.sfr03.Server_Site;
 
 /**
@@ -101,6 +102,7 @@ public class GetSite extends AsyncTask<String, Void, String>{
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
         String jsonStr = s;
+        data = new DatabaseHelper(context);
         if(jsonStr!=null){
             try{
                 JSONObject jsonObj = new JSONObject(jsonStr);
@@ -124,48 +126,18 @@ public class GetSite extends AsyncTask<String, Void, String>{
 
                         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                         String strDate = sdf.format(new Date());
-                    data = new DatabaseHelper(context);
+
 
                         Cursor checkSite = data.getSiteFromServer(id);
                         if(checkSite.getCount()==0) data.insertData(arr, strDate, "0", "0", id);
-
-
+                        checkSite.close();
                 }
 
             }
             catch (Exception e){Toast.makeText(context, e.toString(), Toast.LENGTH_LONG).show();}
             Toast.makeText(context, "Finish", Toast.LENGTH_SHORT).show();
 
-            Cursor siteCursor = data.getData();
-
-
-            ArrayList<Integer> trial= new ArrayList<Integer>();
-            while (siteCursor.moveToNext()) {
-                if (siteCursor.getString(10).equals("1")) {
-                    //alertDialog.show();
-                    Server_Site site  = new Server_Site(context, null, "http://sfrapplication.comli.com/sfr03/insertSite.php", siteCursor.getString(0), siteCursor.getString(1), siteCursor.getString(2), siteCursor.getString(3), siteCursor.getString(4),
-                            siteCursor.getString(5), siteCursor.getString(6), siteCursor.getString(7), siteCursor.getString(8), siteCursor.getString(9), siteCursor.getString(0), alertDialog);
-
-                    site.execute();
-                    Toast.makeText(context, "Loading...", Toast.LENGTH_SHORT ).show();
-                    data.setNotCreatedSite(siteCursor.getString(0));
-                    data.setNotEditedSite(siteCursor.getString(0));
-                    trial.add(1);
-                } else if (siteCursor.getString(11).equals("1")) {
-                    Toast.makeText(context, "ChangedSite...", Toast.LENGTH_SHORT).show();
-                    //alertDialog.show();
-                    new Server_Site(context, null, "http://sfrapplication.comli.com/sfr03/updateSite.php", siteCursor.getString(12), siteCursor.getString(1), siteCursor.getString(2), siteCursor.getString(3), siteCursor.getString(4),
-                            siteCursor.getString(5), siteCursor.getString(6), siteCursor.getString(7), siteCursor.getString(8), siteCursor.getString(9), siteCursor.getString(0), alertDialog).execute();
-                    data.setNotEditedSite(siteCursor.getString(0));
-                    trial.add(1);
-                }
-            }
-            if(trial.size()==0){
-                alertDialog.dismiss(); Toast.makeText(context, "Info is up to Date", Toast.LENGTH_LONG).show();}
-
-            siteCursor.close();
-            data.close();
-
+            new GetOption(context, alertDialog).execute();
         }
     }
 }
