@@ -144,11 +144,14 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/LLO9"
-                    android:gravity="right"
                     android:layout_alignParentEnd="false"
                     android:layout_alignParentStart="false"
                     android:layout_alignParentBottom="true"
-                    android:paddingBottom="25dp">
+                    android:paddingBottom="25dp"
+                    android:layout_alignParentRight="false"
+                    android:layout_alignParentLeft="false"
+                    android:gravity="right"
+                    android:paddingRight="35dp">
 
                     <android.support.design.widget.FloatingActionButton
                         android:layout_width="wrap_content"
