@@ -8,14 +8,14 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="mazebug.sfr03.Option"
     tools:showIn="@layout/activity_option"
-    android:background="#e8e8e8">
+    android:background="#ffffff">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/SVO1"
         android:layout_weight="3.42"
-        android:background="#e8e8e8">
+        android:background="#1eeeeeee">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -132,28 +132,34 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/RLO3"
-                android:visibility="visible"
-                android:layout_gravity="center_vertical"
-                android:gravity="center_vertical">
+                android:visibility="visible">
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
                     android:id="@+id/ivo1"
-                    android:src="@drawable/gyg" />
+                    android:layout_marginBottom="50dp" />
 
-                <android.support.design.widget.FloatingActionButton
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_camera_alt"
-                    android:onClick="onLaunchCamera"
+                    android:id="@+id/LLO9"
+                    android:gravity="right"
                     android:layout_alignParentEnd="false"
-                    android:layout_alignParentBottom="false"
-                    android:layout_alignEnd="@id/ivo1"
-                    android:layout_below="@+id/ivo1"
-                    android:layout_alignRight="@+id/ivo1"
-                    android:layout_marginTop="-5dp">
-                </android.support.design.widget.FloatingActionButton>
+                    android:layout_alignParentStart="false"
+                    android:layout_alignParentBottom="true"
+                    android:paddingBottom="25dp">
+
+                    <android.support.design.widget.FloatingActionButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:src="@drawable/ic_camera_alt"
+                        android:onClick="onLaunchCamera">
+                    </android.support.design.widget.FloatingActionButton>
+
+                </LinearLayout>
 
             </RelativeLayout>
 
@@ -496,8 +502,7 @@
                         android:textSize="18sp"
                         android:textColor="#000000"
                         android:gravity="left|center"
-                        android:paddingLeft="5dp"
-                        android:inputType="number" />
+                        android:paddingLeft="5dp" />
 
                 </LinearLayout>
 
@@ -517,8 +522,7 @@
                         android:textColor="#000000"
                         android:gravity="left|center_vertical"
                         android:visibility="visible"
-                        android:paddingLeft="6dp"
-                        android:inputType="number" />
+                        android:paddingLeft="6dp" />
 
                 </LinearLayout>
 

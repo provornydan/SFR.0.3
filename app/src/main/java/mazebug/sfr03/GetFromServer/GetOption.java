@@ -29,6 +29,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import mazebug.sfr03.DatabaseHelper;
+import mazebug.sfr03.MySFR;
 import mazebug.sfr03.Server_Site;
 
 /**
@@ -100,7 +101,6 @@ public class GetOption extends AsyncTask<String, Void, String>{
     @Override
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
-        Toast.makeText(context, s, Toast.LENGTH_SHORT).show();
         if(s.isEmpty()) Toast.makeText(context, "Null", Toast.LENGTH_SHORT).show();
 
 
@@ -130,7 +130,10 @@ public class GetOption extends AsyncTask<String, Void, String>{
                     String localId = checkSite.getString(0);
                     checkSite.close();
 
-                    data.insertAnOption(localId, null);
+                    Cursor OptionOnServer  = data.getOptionFromServer(option_id);
+                    if(OptionOnServer.getCount()==0) {
+
+                    data.insertAnOption(localId, null, "0");
 
                     Cursor checkOption = data.getThisOption();
                     checkOption.moveToNext();
@@ -139,7 +142,7 @@ public class GetOption extends AsyncTask<String, Void, String>{
 
                     data.updateOption(localOption, name, town, county, postcode, height);
                     data.updateCoord(localOption, latitude, longitude);
-                    data.updateOptionWithServer(localOption, option_id);
+                    data.updateOptionWithServer(localOption, option_id); }
 
                 }
 
@@ -149,7 +152,7 @@ public class GetOption extends AsyncTask<String, Void, String>{
 
 
             Cursor siteCursor = data.getData();
-
+            //context.startActivity(new Intent(context, MySFR.class));
 
             ArrayList<Integer> trial= new ArrayList<Integer>();
             while (siteCursor.moveToNext()) {
@@ -170,6 +173,9 @@ public class GetOption extends AsyncTask<String, Void, String>{
                             siteCursor.getString(5), siteCursor.getString(6), siteCursor.getString(7), siteCursor.getString(8), siteCursor.getString(9), siteCursor.getString(0), alertDialog).execute();
                     data.setNotEditedSite(siteCursor.getString(0));
                     trial.add(1);
+                }
+                else{
+                   // context.startActivity(new Intent(context, MySFR.class));
                 }
             }
                    /* if(trial.size()==0){

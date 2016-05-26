@@ -698,7 +698,7 @@ public class SFR_Overview extends AppCompatActivity {
                         cursor.moveToNext();}
                     idName=cursor.getString(0);
                 }
-                data.insertAnOption(idName, null);
+                data.insertAnOption(idName, null, "1");
                 intent.putExtra("The id", idName);
                 intent.putExtra("From Option", true);
                 intent.putExtra("User", userName);
@@ -928,7 +928,7 @@ public class SFR_Overview extends AppCompatActivity {
             }
 
             // Return the file target for the photo based on filename
-            return mediaStorageDir.getPath()+File.separator+fileName;
+            return mediaStorageDir.getPath()+File.separator+fileName+".JPG";
         }
         return null;
     }

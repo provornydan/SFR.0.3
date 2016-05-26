@@ -74,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
         }
         else {
             Intent intent = new Intent(MainActivity.this, MySFR.class);
+            //Intent intent = new Intent(MainActivity.this, Main2Activity.class);
             intent.putExtra("User", login.getText().toString());
             startActivity(intent);
 

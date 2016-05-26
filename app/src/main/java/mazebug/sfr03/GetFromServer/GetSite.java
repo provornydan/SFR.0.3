@@ -137,6 +137,7 @@ public class GetSite extends AsyncTask<String, Void, String>{
             catch (Exception e){Toast.makeText(context, e.toString(), Toast.LENGTH_LONG).show();}
             Toast.makeText(context, "Finish", Toast.LENGTH_SHORT).show();
 
+            context.startActivity(new Intent(context, MySFR.class));
             new GetOption(context, alertDialog).execute();
         }
     }

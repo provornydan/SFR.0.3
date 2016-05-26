@@ -95,7 +95,7 @@ public class testMap extends AppCompatActivity implements GoogleMap.OnMapLongCli
             optionCursor=data.getOptionByName(OptionID);
             optionCursor.moveToNext();
             idName = extrasBundle.getString("The id");
-            if(optionCursor.getString(6)!=null){
+            if(!isNull(optionCursor.getString(6))){
             Double lat = Double.parseDouble(optionCursor.getString(6));
             Double lon = Double.parseDouble(optionCursor.getString(7));
             first.setPosition(new LatLng(lat, lon));
@@ -205,6 +205,10 @@ public class testMap extends AppCompatActivity implements GoogleMap.OnMapLongCli
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private boolean isNull(Object obj) {
+        return obj == null;
     }
 }
 

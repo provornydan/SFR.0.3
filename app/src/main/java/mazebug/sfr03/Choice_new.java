@@ -46,7 +46,7 @@ public class Choice_new extends AppCompatActivity {
         saveIt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                data.insertAnOption(idName, "ByeBye");
+                data.insertAnOption(idName, "ByeBye", "1");
                 Intent intent = new Intent(Choice_new.this, SFR_Overview.class);
                 intent.putExtra("The id", idName);
                 intent.putExtra("From Option", true);
