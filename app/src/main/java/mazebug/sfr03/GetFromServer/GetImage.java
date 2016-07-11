@@ -1,6 +1,8 @@
 package mazebug.sfr03.GetFromServer;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
@@ -11,69 +13,87 @@ import android.util.TypedValue;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.ArrayList;
+
+import mazebug.sfr03.DatabaseHelper;
 
 /**
  * Created by Provorny on 5/26/2016.
  */
 public class GetImage extends AsyncTask<Void, Void, Bitmap> {
-    ImageView iv;
+    DatabaseHelper data;
     Context context;
     String APP_TAG = "MyCustomApp";
+    String serverImg;
+    AlertDialog alertDialog;
 
-    public GetImage(ImageView iv, Context context){
-        this.iv = iv;
+    public GetImage(Context context, String serverImg, AlertDialog alertDialog){
         this.context=context;
+        this.serverImg = serverImg;
+        this.alertDialog = alertDialog;
     }
     @Override
     protected Bitmap doInBackground(Void... params) {
-        String url = "http://sfrapplication.comli.com/sfr03/pictures/62.JPG";
 
-        try{
-            URLConnection connection= new URL(url).openConnection();
-            connection.setConnectTimeout(1000 * 30);
-            connection.setReadTimeout(1000* 30);
+                        String url = "http://sfrapplication.comli.com/sfr03/pictures/"+serverImg+".JPG";
 
-            return BitmapFactory.decodeStream((InputStream)connection.getContent());
+                        try{
+                            URLConnection connection= new URL(url).openConnection();
+                            connection.setConnectTimeout(1000 * 30);
+                            connection.setReadTimeout(1000* 30);
 
-        }
-        catch(Exception e){
-            e.printStackTrace();
-            return  null;
-        }
-    }
+                            return BitmapFactory.decodeStream((InputStream)connection.getContent());
+
+                        }
+                        catch(Exception e){
+                            e.printStackTrace();
+                            return  null;
+                        }
+                    }
 
     @Override
     protected void onPostExecute(Bitmap bitmap) {
         super.onPostExecute(bitmap);
 
-        if(bitmap !=null){
-            try {
-                bitmap = Bitmap.createScaledBitmap(bitmap, imageinDP(350), imageinDP(400), true);
-                iv.setImageBitmap(bitmap);
+            if (bitmap != null) {
+                try {
+                    data=  new DatabaseHelper(context);
 
-                File file = new File(getPhotoFileUri("67.JPG"));
-                FileOutputStream fOut = new FileOutputStream(file);
+                    Toast.makeText(context, "Getting Images", Toast.LENGTH_SHORT).show();
+                    Cursor getTheLocal = data.getImageFromServer(serverImg);
+                    getTheLocal.moveToNext();
+                    String localID = getTheLocal.getString(0);
 
-                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fOut);
-                fOut.flush();
-                fOut.close();
 
-                MediaStore.Images.Media.insertImage(context.getContentResolver()
-                        , file.getAbsolutePath(), file.getName(), file.getName());
+                    File file = new File(getPhotoFileUri(localID));
+                    FileOutputStream fOut = new FileOutputStream(file);
 
-                Toast.makeText(context, file.getAbsolutePath(), Toast.LENGTH_LONG).show();
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fOut);
+                    fOut.flush();
+                    fOut.close();
+
+                    MediaStore.Images.Media.insertImage(context.getContentResolver()
+                            , file.getAbsolutePath(), file.getName(), file.getName());
+
+
+
+                    data.updateImage(localID, file.getAbsolutePath());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    Toast.makeText(context, e.toString(), Toast.LENGTH_LONG).show();
+                }
             }
-            catch (Exception e){
-                e.printStackTrace();
-                Toast.makeText(context, e.toString(), Toast.LENGTH_LONG).show();
-            }
+
+            new ImageID(context, alertDialog).execute();
         }
-    }
 
     public int imageinDP(int size){
         return (int) TypedValue.applyDimension(

@@ -14,7 +14,7 @@ import java.util.Date;
  * Created by Provorny on 2/13/2016.
  */
 public class DatabaseHelper extends SQLiteOpenHelper {
-    public static final String DATABASE_NAME="SFR03_17.db";
+    public static final String DATABASE_NAME="SFR03_30.db";
     public static final String TABLE_NAME="mysfrs";
     public static final String COL_1 ="ID";
     //public static final String COL_2="Latitude";
@@ -181,6 +181,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public Cursor getThisOption(){
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor res=db.rawQuery("Select OPTION_ID from "+OPTION_NAME+" ORDER BY OPTION_ID DESC LIMIT 1", null);
+        return res;
+    }
+
+    public Cursor getThisImage(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res=db.rawQuery("Select IMAGE_CODE from "+IMAGE_NAME+" ORDER BY IMAGE_CODE DESC LIMIT 1", null);
         return res;
     }
 
@@ -351,6 +357,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor res=db.rawQuery("Select ID, Site_name, search_area, Owners, CID, CSR, Site, pow_vf, pow_02, ID_on_Server from "+TABLE_NAME+" where ID_on_Server='"+ServerSite+"'", null);
         return res;
     }
+
+    public Cursor getImageFromServer(String ServerImage){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res=db.rawQuery("Select IMAGE_CODE, OPTION_ID, FILE_PATH, Created from "+IMAGE_NAME+" where ID_on_Server='"+ServerImage+"'", null);
+        return res;
+    }
+
 }
 
 

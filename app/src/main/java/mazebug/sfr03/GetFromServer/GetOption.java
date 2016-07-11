@@ -40,19 +40,7 @@ public class GetOption extends AsyncTask<String, Void, String>{
     DatabaseHelper data;
     Cursor siteCursor;
     AlertDialog alertDialog;
-    String s0;
-    String s1;
-    String s2;
-    String s3;
-    String s4;
-    String s5;
-    String s6;
-    String s7;
-    String s8;
-    String s9;
-    String s10;
-    String s11;
-    String s12;
+
     private HttpParams getHttpRequestParams() {
         HttpParams httpRequestParams = new BasicHttpParams();
         HttpConnectionParams.setConnectionTimeout(httpRequestParams, 1000 * 30);
@@ -150,8 +138,10 @@ public class GetOption extends AsyncTask<String, Void, String>{
             catch (Exception e){Toast.makeText(context, e.toString(), Toast.LENGTH_LONG).show();}
             Toast.makeText(context, "Succes", Toast.LENGTH_SHORT).show();
 
+            new ImageID(context, alertDialog).execute();
 
             Cursor siteCursor = data.getData();
+
             //context.startActivity(new Intent(context, MySFR.class));
 
             ArrayList<Integer> trial= new ArrayList<Integer>();

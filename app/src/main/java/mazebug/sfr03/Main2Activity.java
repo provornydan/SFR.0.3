@@ -21,7 +21,7 @@ public class Main2Activity extends AppCompatActivity {
 
         ImageView iv = (ImageView)findViewById(R.id.trialID);
 
-        new GetImage(iv, this).execute();
+        //new GetImage(iv, this).execute();
 
     }
 

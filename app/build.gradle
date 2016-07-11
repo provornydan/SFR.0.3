@@ -2,10 +2,10 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 23
-    buildToolsVersion "23.0.2"
+    buildToolsVersion '23.0.2'
     defaultConfig {
         applicationId "mazebug.sfr03"
-        minSdkVersion 17
+        minSdkVersion 9
         targetSdkVersion 19
         versionCode 1
         versionName "1.0"
